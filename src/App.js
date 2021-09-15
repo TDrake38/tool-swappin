@@ -1,9 +1,17 @@
 import React from 'react';
-import Login from "./components/LoginForm"
+import Login from "./components/LoginForm";
+import Test from "./components/Test";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from "react-router-dom"
+
 
 function App() {
   return (
-    <Login />
+    <div>
+      <div>
+        <Login />
+      </div>
+    </div>
   )
 }
 
