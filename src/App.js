@@ -1,9 +1,8 @@
 import React from 'react';
 import Login from "./components/LoginForm";
-import Test from "./components/Test";
 import Nav from "./components/NavBar"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom"
 
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
       <div>
         <Login />
       </div>
-      
     </div>
   )
 }
