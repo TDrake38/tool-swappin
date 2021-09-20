@@ -7,14 +7,10 @@ import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "rea
 
 function App() {
   return (
-    <div>
-      <div>
+    <>
         <Nav />
-      </div>
-      <div>
         <Login />
-      </div>
-    </div>
+    </>
   )
 }
 
