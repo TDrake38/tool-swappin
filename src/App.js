@@ -1,6 +1,5 @@
 import React from 'react';
 import Login from "./components/LoginForm";
-import Nav from "./components/NavBar"
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Messages from './components/Messages';
@@ -12,16 +11,17 @@ import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, BrowserRou
 function App() {
   return (
     <>
-    <Nav />
       <BrowserRouter>
-          <Route path='/' exact component={Home}/>
-          <Route path='/login' exact component={Login}/>
-          <Route path='/profile' exact component={Profile}/>
-          <Route path='/messages' exact component={Messages}/>
-          <Route path='/Search' exact component={Search}/>
+          <Route path="/" exact component={Home}/>
+          <Route path="/login" exact component={Login}/>
+          <Route path="/profile" exact component={Profile}/>
+          <Route path="/messages" exact component={Messages}/>
+          <Route path="/search" exact component={Search}/>
       </BrowserRouter>
     </>
   )
 }
+
+//<Route path="/" render={() => <div> 404 </div>} />
 
 export default App;

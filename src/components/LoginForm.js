@@ -1,9 +1,15 @@
 import React, {Component} from "react";
 import {Form, Button, Container, Card, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <div>
+      <div><Link to='/'>Home</Link></div>
+      <div><Link to='/search'>Search</Link></div>
+      <div><Link to='/login'>Login</Link></div>
+      <div><Link to='/profile'>Profile</Link></div>
+      <div><Link to='/messages'>Messages</Link></div>
       <Container>
           <Card style={{ width: '18rem'}}>
             <Card.Body>
