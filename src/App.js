@@ -6,17 +6,19 @@ import Messages from './components/Messages';
 import Search from './components/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, BrowserRouter } from "react-router-dom"
+import NavBar from './components/NavBar';
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
-          <Route path="/" exact component={Home}/>
-          <Route path="/login" exact component={Login}/>
-          <Route path="/profile" exact component={Profile}/>
-          <Route path="/messages" exact component={Messages}/>
-          <Route path="/search" exact component={Search}/>
+        <NavBar />
+        <Route path="/" exact component={Home}/>
+        <Route path="/login" exact component={Login}/>
+        <Route path="/profile" exact component={Profile}/>
+        <Route path="/messages" exact component={Messages}/>
+        <Route path="/search" exact component={Search}/>
       </BrowserRouter>
     </>
   )
