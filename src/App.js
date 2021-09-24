@@ -5,7 +5,7 @@ import Profile from './components/Profile';
 import Messages from './components/Messages';
 import Search from './components/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, BrowserRouter } from "react-router-dom"
+import { BrowserRouter as Router, Route, BrowserRouter } from "react-router-dom"
 import NavBar from './components/NavBar';
 
 
