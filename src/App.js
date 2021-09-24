@@ -5,7 +5,7 @@ import Profile from './components/Profile';
 import Messages from './components/Messages';
 import Search from './components/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, BrowserRouter } from "react-router-dom"
+import { BrowserRouter as Router, Route, BrowserRouter, Switch } from "react-router-dom"
 import NavBar from './components/NavBar';
 
 
@@ -14,11 +14,14 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
-        <Route path="/" exact component={Home}/>
-        <Route path="/login" exact component={Login}/>
-        <Route path="/profile" exact component={Profile}/>
-        <Route path="/messages" exact component={Messages}/>
-        <Route path="/search" exact component={Search}/>
+        <Switch>
+          <Route path="/login" exact component={Login}/>
+          <Route path="/profile" exact component={Profile}/>
+          <Route path="/messages" exact component={Messages}/>
+          <Route path="/search" exact component={Search}/>
+          <Route path="/" exact component={Home}/>
+          <Route render={() => <div> 404 </div>} />
+        </Switch>
       </BrowserRouter>
     </>
   )
