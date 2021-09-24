@@ -8,8 +8,8 @@ function Login() {
       <Container>
           <Card style={{ width: '18rem'}}>
             <Card.Body>
-                <h1>
-                Login
+              <h1>
+              Login
               </h1>
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

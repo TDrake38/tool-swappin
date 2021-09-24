@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Messages () {
     return(
         <>
-            <div>Messages</div>
+        Messages
         </>
     )
 }
