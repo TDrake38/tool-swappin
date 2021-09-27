@@ -7,6 +7,7 @@ import Search from './components/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, BrowserRouter, Switch } from "react-router-dom"
 import NavBar from './components/NavBar';
+import './components/NavBar.css';
 
 
 function App() {
