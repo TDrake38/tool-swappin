@@ -5,9 +5,12 @@ import './NavBar.css';
 
 const NavBar = () => {
   return (
+    <>
     <Navbar bg="primary" variant="dark">
       <Container>
         <Navbar.Brand>Tool Swappin</Navbar.Brand>
+      </Container>
+    </Navbar>
         <Nav variant="tabs">
           <Nav.Item>
             <Nav.Link as={Link} to="/" id="home" eventKey="link-1">Home</Nav.Link>
@@ -25,8 +28,7 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/messages" id="messages" eventKey="link-5">Messages</Nav.Link>
           </Nav.Item>
         </Nav>
-      </Container>
-    </Navbar>
+    </>
   )
 }
 

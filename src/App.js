@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, BrowserRouter, Switch } from "react-router-dom"
 import NavBar from './components/NavBar';
 import './components/NavBar.css';
-import { Carousel } from 'react-bootstrap';
 
 
 function App() {

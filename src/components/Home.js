@@ -1,8 +1,9 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import photo1 from "../photos/photo1.jpg"
-import photo2 from "../photos/photo2.jpg"
+import photo5 from "../photos/photo5.jpg"
+import photo4 from "../photos/photo4.jpg"
 import photo3 from "../photos/photo3.jpg"
+import "./Carousel.css"
 
 function Home () {
     return(
@@ -10,36 +11,35 @@ function Home () {
         <Carousel>
             <Carousel.Item>
                 <img
-                className="d-block w-100"
-                img src={photo1}
+                class="slide"
+                img src={photo5}
                 alt="First slide"
                 />
-                <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p></p>
+                <Carousel.Caption class="caption">
+                <div class="caption-title"><p>Welcome</p></div>
+                <div class="caption-p"><p>This is a test</p></div>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                className="d-block w-100"
-                img src={photo2}
+                class="slide"
+                img src={photo4}
                 alt="Second slide"
                 />
-
-                <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p></p>
+                <Carousel.Caption class="caption">
+                <div class="caption-title">Info</div>
+                <div class="caption-p"><p>This is a test</p></div>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                className="d-block w-100"
+                class="slide"
                 img src={photo3}
                 alt="Third slide"
                 />
-                <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p></p>
+                <Carousel.Caption class="caption">
+                <div class="caption-title">What's Your Next Project</div>
+                <div class="caption-p"><p>This is a test</p></div>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
