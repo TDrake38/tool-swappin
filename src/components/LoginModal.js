@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import './NavBar.css'
+
 
 function MyVerticallyCenteredModal(props) {
     return (

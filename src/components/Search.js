@@ -1,9 +1,12 @@
 import React from "react";
+import Listing from "./Listing";
+import SearchBar from "./SearchBar";
 
 function Search () {
     return (
         <>
-        Search
+            <SearchBar />
+            <Listing />
         </>
     )
 }

@@ -6,7 +6,7 @@ import Search from './components/Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, BrowserRouter, Switch } from "react-router-dom"
 import NavBar from './components/NavBar';
-import './components/NavBar.css';
+
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <Route path="/messages" exact component={Messages}/>
           <Route path="/search" exact component={Search}/>
           <Route path="/" exact component={Home}/>
-          <Route render={() => <div> 404 </div>} />
+          <Route render={() => <div>404</div>} />
         </Switch>
       </BrowserRouter>
     </>
