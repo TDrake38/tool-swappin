@@ -1,25 +1,26 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container,} from 'react-bootstrap';
 import './NavBar.css';
+import LoginModal from './LoginModal';
 
 const NavBar = () => {
   return (
     <>
     <Navbar bg="primary" variant="dark">
       <Container>
-        <Navbar.Brand>Tool Swappin</Navbar.Brand>
+        <Navbar.Brand>
+          <div>Tool Swapping</div>
+        </Navbar.Brand>
+        <LoginModal />
       </Container>
     </Navbar>
-        <Nav variant="tabs">
+        <Nav variant="tabs" >
           <Nav.Item>
             <Nav.Link as={Link} to="/" id="home" eventKey="link-1">Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link as={Link} to="/search" id="search" eventKey="link-2">Search</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/login" id="login" eventKey="link-3">Login</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link as={Link} to="/profile" id="profile" eventKey="link-4">Profile</Nav.Link>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Login from "./components/LoginForm";
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Messages from './components/Messages';
@@ -16,7 +15,6 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route path="/login" exact component={Login}/>
           <Route path="/profile" exact component={Profile}/>
           <Route path="/messages" exact component={Messages}/>
           <Route path="/search" exact component={Search}/>
