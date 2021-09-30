@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 
 
-function MyVerticallyCenteredModal(props) {
+function MyModal(props) {
     return (
       <Modal
         {...props}
@@ -43,7 +43,7 @@ function MyVerticallyCenteredModal(props) {
           Login
         </Button>
   
-        <MyVerticallyCenteredModal
+        <MyModal
           show={modalShow}
           onHide={() => setModalShow(false)}
         />

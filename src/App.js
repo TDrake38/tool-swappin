@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from "react-bootstrap";
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Messages from './components/Messages';
@@ -14,6 +15,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
+        <Container>
         <Switch>
           <Route path="/profile" exact component={Profile}/>
           <Route path="/messages" exact component={Messages}/>
@@ -21,6 +23,7 @@ function App() {
           <Route path="/" exact component={Home}/>
           <Route render={() => <div>404</div>} />
         </Switch>
+        </Container>
       </BrowserRouter>
     </>
   )

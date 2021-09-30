@@ -14,6 +14,7 @@ const NavBar = () => {
         <LoginModal />
       </Container>
     </Navbar>
+      <Container>
         <Nav variant="tabs" >
           <Nav.Item>
             <Nav.Link as={Link} to="/" id="home" eventKey="link-1">Home</Nav.Link>
@@ -28,6 +29,7 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/messages" id="messages" eventKey="link-5">Messages</Nav.Link>
           </Nav.Item>
         </Nav>
+      </Container>
     </>
   )
 }
