@@ -1,11 +1,11 @@
 import React from "react";
 import { FormControl, InputGroup } from "react-bootstrap";
-import './Listing.css'
+import './SearchBar.css'
 
 function SearchBar () {
     return (
         <>
-            <InputGroup className="mb-3">
+            <InputGroup className="mb-3 s-bar">
                 <InputGroup.Text id="inputGroup-sizing-default">Search</InputGroup.Text>
                 <FormControl
                 aria-label="Default"

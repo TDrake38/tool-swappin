@@ -1,5 +1,5 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 import { Container } from "react-bootstrap";
 import Home from './components/Home';
 import Profile from './components/Profile';
