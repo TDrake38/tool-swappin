@@ -1,10 +1,33 @@
 import React from "react";
+import People from "./People";
+import Drake from '../photos/Drake.JPG'
+import { Form } from "react-bootstrap";
+import './Messages.css'
+
 
 
 function Messages () {
     return(
         <>
-        Messages
+            <div  className="messages">
+                <img src={Drake} alt="profile photo" className="dp pict"/>
+                <div className="chat">
+                    <div>
+
+                    </div>
+                    <div>
+                        <Form>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label>Message</Form.Label>
+                            <Form.Control as="textarea" rows={3} />
+                            </Form.Group>
+                        </Form>
+                    </div>
+                </div>
+                <div className="people">
+                    <People />
+                </div>
+            </div>
         </>
     )
 }
