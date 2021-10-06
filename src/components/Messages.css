@@ -36,3 +36,12 @@
     margin-top: 24px;
     object-fit: cover;
 }
+
+.mess-box {
+    height: 660px;
+    width: auto;
+    background-color: white;
+    margin: 6px 6px 0px 6px;
+    border-radius: 3px;
+
+}

@@ -12,10 +12,10 @@ function Messages () {
             <div  className="messages">
                 <img src={Drake} alt="profile photo" className="dp pict"/>
                 <div className="chat">
-                    <div>
+                    <div className="mess-box">
 
                     </div>
-                    <div>
+                    <div className="mess-text">
                         <Form>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                             <Form.Label>Message</Form.Label>
