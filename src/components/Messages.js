@@ -10,7 +10,7 @@ function Messages () {
     return(
         <>
             <div  className="messages">
-                <img src={Drake} alt="profile photo" className="dp pict"/>
+                <img src={Drake} alt="profile" className="dp pict"/>
                 <div className="chat">
                     <div className="mess-box">
 
