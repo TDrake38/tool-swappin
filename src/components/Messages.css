@@ -17,7 +17,8 @@
     font: bold;
     border: 1px solid lightgray;
     border-radius: 3px;
-    width: 800px;
+    width: 50rem;
+    height: 34rem;
     margin-right: 3px;
     background-color: var(--bs-primary);
 }
@@ -38,10 +39,16 @@
 }
 
 .mess-box {
-    height: 41.25rem;
+    height: 30rem;
     width: auto;
     background-color: white;
     margin: 6px 6px 0px 6px;
     border-radius: 3px;
 
+}
+
+.mess-text {
+    margin-top: .5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
 }
