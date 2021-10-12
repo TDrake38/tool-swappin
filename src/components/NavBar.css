@@ -1,0 +1,11 @@
+.title-link {
+    color: white;
+}
+
+.title-link:visited {
+    color: white;
+}
+
+.title-link:hover {
+    color: #333;
+}
