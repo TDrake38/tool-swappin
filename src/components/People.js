@@ -4,51 +4,32 @@ import { Card, ListGroup } from "react-bootstrap";
 import Drake from '../photos/Drake.JPG'
 import './People.css'
 
+const people = [
+    'Joe Smith',
+    'Sophie Mill',
+    'Iphigenia Arie',
+    'Melchiorre Hana',
+    'Avdotya Claudia',
+    'Walter Saldís',
+    'Sakari Narayanan',
+    'Doreen Lelisa',
+    'Tófa Slaven'
+];
+
 
 function People(){
-    return(
+    return(<>
+        <Card.Header className="title">Contacts</Card.Header>
+        {people.map((people) =>
         <Card className="card">
-            <Card.Header className="title">Contacts</Card.Header>
             <ListGroup variant="flush">
                 <ListGroup.Item>
                     <img src={Drake} alt="profile" className="picture"/>
-                    Joe Smith
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    Sophie Mill
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    Iphigenia Arie
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    Melchiorre Hana
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    Avdotya Claudia
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    Walter Saldís
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    Sakari Narayanan
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    Doreen Lelisa
-                </ListGroup.Item>
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    Tófa Slaven
+                    {people}
                 </ListGroup.Item>
             </ListGroup>
-        </Card>
-    )
+        </Card>)}
+    </>)
 }
 
 export default People;
