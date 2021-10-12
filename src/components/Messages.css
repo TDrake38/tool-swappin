@@ -24,21 +24,21 @@
 
 .messages .people {
     font: bold;
-    width: 290px;
-    height: 800px;
+    width: 18.125rem;
+    height: 50rem;
 }
 
 .pict {
-    width: 148px;
-    height: 148px;
+    width: 9.25rem;
+    height: 9.25rem;
     border: 1px solid lightgray;
     border-radius: 3px;
-    margin-top: 24px;
+    margin-top: 1.5rem;
     object-fit: cover;
 }
 
 .mess-box {
-    height: 660px;
+    height: 41.25rem;
     width: auto;
     background-color: white;
     margin: 6px 6px 0px 6px;
