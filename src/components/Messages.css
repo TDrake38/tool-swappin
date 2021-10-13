@@ -1,3 +1,4 @@
+
 .messages {
     display: flex;
     flex-wrap: wrap;
@@ -7,8 +8,8 @@
 .messages .dp {
     border: 1px solid lightgray;
     border-radius: 3px;
-    width: 200px;
-    height: 200px;
+    width: 12.5rem;
+    height: 12.5rem;
     margin-right: 3px;
 }
 
@@ -26,7 +27,7 @@
 .messages .people {
     font: bold;
     width: 18.125rem;
-    height: 50rem;
+    height: 34rem;
 }
 
 .pict {
@@ -44,7 +45,9 @@
     background-color: white;
     margin: 6px 6px 0px 6px;
     border-radius: 3px;
-
+    overflow: auto;
+    position: relative;
+    scroll-behavior: smooth;
 }
 
 .mess-text {

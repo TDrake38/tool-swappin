@@ -12,7 +12,9 @@ function Messages () {
             <div  className="messages">
                 <img src={Drake} alt="profile" className="dp pict"/>
                 <div className="chat">
-                    <div className="mess-box">
+                    <div className="mess-box" id="messBox">
+                        {/*This image is only to test the scroll*/}
+                        <img src={Drake} alt="profile" />
                     </div>
                     <div className="mess-text">
                         <InputGroup className="mb-3">
