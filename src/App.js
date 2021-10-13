@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Messages from './components/Messages';
 import Search from './components/Search';
-import { BrowserRouter as Router, Route, BrowserRouter, Switch } from "react-router-dom"
+import { Route, BrowserRouter, Switch } from "react-router-dom"
 import NavBar from './components/NavBar';
 
 
