@@ -7,6 +7,12 @@ import './Messages.css'
 
 
 function Messages () {
+
+    const send = (e) => {
+        e.preventDefault();
+        console.log("Message sent.");
+    }
+
     return(
         <>
             <div  className="messages">
@@ -23,7 +29,7 @@ function Messages () {
                             aria-label="Message"
                             aria-describedby="basic-addon2"
                             />
-                            <Button variant="secondary" id="messageSend">Send</Button>
+                            <Button variant="secondary" id="messageSend" onClick={send}>Send</Button>
                         </InputGroup>
                     </div>
                 </div>

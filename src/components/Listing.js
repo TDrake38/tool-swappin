@@ -4,6 +4,11 @@ import drill from '../photos/drill.jpg'
 import { Card, Button } from "react-bootstrap";
 
 function Listing () {
+
+    const check = (e) => {
+        console.log("Finding");
+    }
+
     return (
         <>
             <Card style={{ width: '18rem' }}>
@@ -13,7 +18,7 @@ function Listing () {
                     <Card.Text>
                     This is a 1/2" Dewalt Battery Impact.
                     </Card.Text>
-                    <Button variant="primary">Check On</Button>
+                    <Button variant="primary" onClick={check}>Check On</Button>
                 </Card.Body>
             </Card>
         </>
