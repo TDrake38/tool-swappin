@@ -18,13 +18,13 @@ const NavBar = () => {
       <Container>
         <Nav variant="tabs" >
           <Nav.Item>
-            <Nav.Link as={Link} to="/search" id="search" eventKey="link-2">Search</Nav.Link>
+            <Nav.Link as={Link} to="/search" id="search" eventKey="link-1">Search</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/profile" id="profile" eventKey="link-4">Profile</Nav.Link>
+            <Nav.Link as={Link} to="/profile" id="profile" eventKey="link-2">Profile</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/messages" id="messages" eventKey="link-5">Messages</Nav.Link>
+            <Nav.Link as={Link} to="/messages" id="messages" eventKey="link-3">Messages</Nav.Link>
           </Nav.Item>
         </Nav>
       </Container>
