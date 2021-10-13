@@ -20,7 +20,7 @@ function Messages () {
                 <div className="chat">
                     <div className="mess-box" id="messBox">
                         {/*This image is only to test the scroll*/}
-                        <img src={Drake} alt="profile" />
+                        <img src={Drake} alt="profile" className="test"/>
                     </div>
                     <div className="mess-text">
                         <InputGroup className="mb-3">
