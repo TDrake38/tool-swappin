@@ -4,9 +4,13 @@
     margin-top: 3px;
 }
 
-.tool {
+.profile .tool {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 3px;
     object-fit: cover;
+}
+
+.profile .card {
+    width: 18rem;
 }

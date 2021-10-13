@@ -9,7 +9,7 @@ function Profile () {
     return (
         <>
             <div className="profile">
-            <Card style={{ width: '18rem' }}>
+            <Card className="card">
                 <Card.Img variant="top" src={Drake} alt="profile" />
                 <Card.Body>
                     <Card.Title>T. Drake</Card.Title>
