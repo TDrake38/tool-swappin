@@ -14,7 +14,7 @@ function Profile () {
                 <Card.Body>
                     <Card.Title>T. Drake</Card.Title>
                     <Card.Text>
-                    St. John's and surrounding area.
+                    Canada, NL, St. John's and surrounding area.
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">

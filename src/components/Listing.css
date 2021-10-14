@@ -37,3 +37,7 @@
     text-decoration: underline;
     color: #eaebea;
 }
+
+.card {
+    width: 18rem;
+}

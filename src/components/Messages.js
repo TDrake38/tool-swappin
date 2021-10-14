@@ -18,7 +18,7 @@ function Messages () {
             <div  className="messages">
                 <img src={Drake} alt="profile" className="dp pict"/>
                 <div className="chat">
-                    <div className="mess-box" id="messBox">
+                    <div className="mess-box" >
                         {/*This image is only to test the scroll*/}
                         <img src={Drake} alt="profile" className="test"/>
                     </div>
@@ -29,7 +29,7 @@ function Messages () {
                             aria-label="Message"
                             aria-describedby="basic-addon2"
                             />
-                            <Button variant="secondary" id="messageSend" onClick={send}>Send</Button>
+                            <Button variant="secondary" onClick={send}>Send</Button>
                         </InputGroup>
                     </div>
                 </div>

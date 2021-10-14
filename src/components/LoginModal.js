@@ -17,7 +17,7 @@ function MyModal(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered>
         <Modal.Header>
-          <Modal.Title id="contained-modal-title-vcenter">
+          <Modal.Title >
             Login
           </Modal.Title>
         </Modal.Header>
@@ -31,7 +31,7 @@ function MyModal(props) {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
             </Form.Group>
-            <Button variant="primary" type="submit" size="" id="submit">
+            <Button variant="primary" type="submit" size="">
                 Submit
             </Button>  
             </Form>

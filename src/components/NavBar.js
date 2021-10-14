@@ -10,7 +10,7 @@ const NavBar = () => {
     <Navbar bg="primary" variant="dark">
       <Container>
         <Navbar.Brand>
-          <Nav.Link as={Link} to="/" id="home" className="title-link">Tool Swapping</Nav.Link>
+          <Nav.Link as={Link} to="/" className="title-link">Tool Swapping</Nav.Link>
         </Navbar.Brand>
         <LoginModal />
       </Container>
@@ -18,13 +18,13 @@ const NavBar = () => {
       <Container>
         <Nav variant="tabs" >
           <Nav.Item>
-            <Nav.Link as={Link} to="/search" id="search" eventKey="link-1">Search</Nav.Link>
+            <Nav.Link as={Link} to="/search" eventKey="link-1">Search</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/profile" id="profile" eventKey="link-2">Profile</Nav.Link>
+            <Nav.Link as={Link} to="/profile" eventKey="link-2">Profile</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/messages" id="messages" eventKey="link-3">Messages</Nav.Link>
+            <Nav.Link as={Link} to="/messages" eventKey="link-3">Messages</Nav.Link>
           </Nav.Item>
         </Nav>
       </Container>
