@@ -12,7 +12,7 @@ function Home () {
             <Carousel.Item>
                 <img
                 className="slide"
-                img src={photo5}
+                src={photo5}
                 alt="First slide"
                 />
                 <Carousel.Caption className="caption">
@@ -23,7 +23,7 @@ function Home () {
             <Carousel.Item>
                 <img
                 className="slide"
-                img src={photo4}
+                src={photo4}
                 alt="Second slide"
                 />
                 <Carousel.Caption className="caption">
@@ -34,7 +34,7 @@ function Home () {
             <Carousel.Item>
                 <img
                 className="slide"
-                img src={photo3}
+                src={photo3}
                 alt="Third slide"
                 />
                 <Carousel.Caption className="caption">
