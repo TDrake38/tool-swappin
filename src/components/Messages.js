@@ -1,5 +1,4 @@
 import React from "react";
-import People from "./People";
 import Drake from '../photos/Drake.JPG'
 import { InputGroup, FormControl, Button } from "react-bootstrap";
 import './Messages.css'
@@ -32,9 +31,6 @@ function Messages () {
                             <Button variant="secondary" onClick={send}>Send</Button>
                         </InputGroup>
                     </div>
-                </div>
-                <div className="people">
-                    <People />
                 </div>
             </div>
         </>

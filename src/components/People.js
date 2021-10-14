@@ -18,17 +18,25 @@ const people = [
 
 
 function People(){
-    return(<>
-        <Card.Header className="title">Contacts</Card.Header>
-        {people.map((people) =>
-        <Card className="card">
-            <ListGroup variant="flush">
-                <ListGroup.Item>
-                    <img src={Drake} alt="profile" className="picture"/>
-                    {people}
-                </ListGroup.Item>
-            </ListGroup>
-        </Card>)}
+    return(
+    <>
+        <div>
+            <div>
+                <Card.Header className="title">Contacts</Card.Header>
+                {people.map((people) =>
+                <Card className="card">
+                    <ListGroup variant="flush">
+                        <ListGroup.Item>
+                            <img src={Drake} alt="profile" className="picture"/>
+                            {people}
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Card>)}
+            </div>
+            <div>
+
+            </div>
+        </div>
     </>)
 }
 

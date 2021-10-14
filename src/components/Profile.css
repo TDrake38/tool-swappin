@@ -14,3 +14,19 @@
 .profile .card {
     width: 18rem;
 }
+
+.people {
+    font: bold;
+    width: 18.125rem;
+    height: auto;
+}
+
+.feed {
+    font: bold;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    width: 50rem;
+    height: 34rem;
+    margin-right: 3px;
+    background-color: var(--bs-primary);
+}
