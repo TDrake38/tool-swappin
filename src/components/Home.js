@@ -11,35 +11,35 @@ function Home () {
         <Carousel>
             <Carousel.Item>
                 <img
-                class="slide"
+                className="slide"
                 img src={photo5}
                 alt="First slide"
                 />
-                <Carousel.Caption class="caption">
-                <div class="caption-title"><p>Welcome</p></div>
-                <div class="caption-p"><p>This is a test</p></div>
+                <Carousel.Caption className="caption">
+                <div className="caption-title"><p>Welcome</p></div>
+                <div className="caption-p"><p>This is a test</p></div>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                class="slide"
+                className="slide"
                 img src={photo4}
                 alt="Second slide"
                 />
-                <Carousel.Caption class="caption">
-                <div class="caption-title">Info</div>
-                <div class="caption-p"><p>This is a test</p></div>
+                <Carousel.Caption className="caption">
+                <div className="caption-title">Info</div>
+                <div className="caption-p"><p>This is a test</p></div>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                class="slide"
+                className="slide"
                 img src={photo3}
                 alt="Third slide"
                 />
-                <Carousel.Caption class="caption">
-                <div class="caption-title">What's Your Next Project</div>
-                <div class="caption-p"><p>This is a test</p></div>
+                <Carousel.Caption className="caption">
+                <div className="caption-title">What's Your Next Project</div>
+                <div className="caption-p"><p>This is a test</p></div>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
