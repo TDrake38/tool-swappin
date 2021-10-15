@@ -1,6 +1,7 @@
 import React from "react";
 import Drake from '../photos/Drake.JPG'
-import { InputGroup, FormControl, Button } from "react-bootstrap";
+import drill from "../photos/drill.jpg"
+import { InputGroup, FormControl, Button, Card } from "react-bootstrap";
 import './Messages.css'
 
 
@@ -15,7 +16,7 @@ function Messages () {
     return(
         <>
             <div  className="messages">
-                <img src={Drake} alt="profile" className="dp pict"/>
+                <img src={drill} alt="tool" className="dp pict"/>
                 <div className="chat">
                     <div className="mess-box" >
                         {/*This image is only to test the scroll*/}
@@ -32,6 +33,15 @@ function Messages () {
                         </InputGroup>
                     </div>
                 </div>
+                <Card className="card borrower">
+                        <Card.Img variant="top" src={Drake} alt="profile" />
+                        <Card.Body>
+                            <Card.Title>T. Drake</Card.Title>
+                            <Card.Text>
+                            St. John's and surrounding area.
+                            </Card.Text>
+                        </Card.Body>
+                </Card>
             </div>
         </>
     )

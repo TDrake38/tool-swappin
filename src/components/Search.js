@@ -1,12 +1,17 @@
 import React from "react";
 import Listing from "./Listing";
 import SearchBar from "./SearchBar";
+import './Search.css'
 
 function Search () {
     return (
         <>
-            <SearchBar />
+        <div className="search">
+            <div className="bar">
+                <SearchBar />
+            </div>
             <Listing />
+        </div>
         </>
     )
 }

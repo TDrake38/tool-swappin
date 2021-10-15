@@ -1,0 +1,14 @@
+.search {
+    background-color: var(--bs-primary);
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    margin-top: 3px;
+    height: 53rem;
+    display: flex;
+    flex: wrap;
+}
+
+.search .bar {
+    margin-left: 35%;
+    margin-top: 3px;
+}

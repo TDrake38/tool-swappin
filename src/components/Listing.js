@@ -18,7 +18,7 @@ function Listing () {
                     <Card.Text>
                     This is a 1/2" Dewalt Battery Impact.
                     </Card.Text>
-                    <Button variant="primary" onClick={check}>Check On</Button>
+                    <Button variant="dark" onClick={check}>Check On</Button>
                 </Card.Body>
             </Card>
         </>

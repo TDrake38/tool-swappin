@@ -11,7 +11,7 @@ function SearchBar () {
     return (
         <>
             <InputGroup className="mb-3 s-bar">
-                <Button variant="primary" onClick={search}>Search</Button>
+                <Button variant="dark" onClick={search}>Search</Button>
                 <FormControl
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
