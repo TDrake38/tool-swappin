@@ -23,8 +23,8 @@ function People(){
         <div>
             <div>
                 <Card.Header className="title">Contacts</Card.Header>
-                {people.map((people) =>
-                <Card className="card">
+                {people.map((people, index) =>
+                <Card className="card" key={index}>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <img src={Drake} alt="profile" className="picture"/>
