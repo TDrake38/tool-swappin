@@ -17,7 +17,7 @@ function Home () {
                 />
                 <Carousel.Caption className="caption">
                 <div className="caption-title"><p>Welcome</p></div>
-                <div className="caption-p"><p>This is a test</p></div>
+                <div className="caption-p"><p>Start Swappin!</p></div>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -28,7 +28,7 @@ function Home () {
                 />
                 <Carousel.Caption className="caption">
                 <div className="caption-title">Info</div>
-                <div className="caption-p"><p>This is a test</p></div>
+                <div className="caption-p"><p>This site is to connect users with each other to create for swapping tools.</p></div>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -38,8 +38,7 @@ function Home () {
                 alt="Third slide"
                 />
                 <Carousel.Caption className="caption">
-                <div className="caption-title">What's Your Next Project</div>
-                <div className="caption-p"><p>This is a test</p></div>
+                <div className="caption-title">What's Your Next Project?</div>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

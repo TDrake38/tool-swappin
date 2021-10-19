@@ -10,6 +10,8 @@ function MyModal(props) {
     console.log("Logged in.")
   }
 
+
+
     return (
       <Modal
         {...props}
