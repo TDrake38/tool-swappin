@@ -1,5 +1,8 @@
 import React from "react";
 import './Profile.css'
+import NameInput from "./InputName";
+import AreaInput from "./InputArea";
+import SaveButton from "./SaveButton";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import Drake from "../photos/Drake.JPG"
 import drill from "../photos/drill.jpg"
@@ -11,13 +14,12 @@ function Profile () {
         <>
             <div className="profile">
                 <div>
-                    <Card className="card">
+                    <Card className="hard">
                         <Card.Img variant="top" src={Drake} alt="profile" />
                         <Card.Body>
-                            <Card.Title>T. Drake</Card.Title>
-                            <Card.Text>
-                            St. John's and surrounding area.
-                            </Card.Text>
+                            <NameInput />
+                            <AreaInput />
+                            <SaveButton />
                         </Card.Body>
                         <ListGroup className="list-group-flush">
                             <ListGroupItem><img src={drill} alt="drill" className="tool"/><Card.Link href="#">Tool 1</Card.Link></ListGroupItem>

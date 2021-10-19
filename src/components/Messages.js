@@ -33,7 +33,7 @@ function Messages () {
                         </InputGroup>
                     </div>
                 </div>
-                <Card className="card borrower">
+                <Card className="borrower">
                         <Card.Img variant="top" src={Drake} alt="profile" />
                         <Card.Body>
                             <Card.Title>T. Drake</Card.Title>

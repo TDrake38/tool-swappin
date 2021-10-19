@@ -12,9 +12,11 @@
     object-fit: cover;
 }
 
-.profile .card {
+.profile .hard {
     width: 18rem;
-    height: 3.5rem;
+    height: 30rem;
+    border: 2px solid lightgray;
+    border-radius: 3px;
 }
 
 .people {

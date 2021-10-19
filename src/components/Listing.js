@@ -11,7 +11,7 @@ function Listing () {
 
     return (
         <>
-            <Card className="card">
+            <Card className="fard">
                 <Card.Img variant="top" src={drill} alt="A drill" />
                 <Card.Body>
                     <Card.Title>Dewalt Impact</Card.Title>
