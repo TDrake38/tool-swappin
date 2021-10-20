@@ -1,6 +1,7 @@
 import React from "react";
 import Drake from '../photos/Drake.JPG'
 import drill from "../photos/drill.jpg"
+import Sammy from "../photos/Sammy.jpg"
 import { InputGroup, FormControl, Button, Card } from "react-bootstrap";
 import './Messages.css'
 
@@ -34,9 +35,9 @@ function Messages () {
                     </div>
                 </div>
                 <Card className="borrower">
-                        <Card.Img variant="top" src={Drake} alt="profile" />
+                        <Card.Img variant="top" src={Sammy} alt="profile" />
                         <Card.Body>
-                            <Card.Title>T. Drake</Card.Title>
+                            <Card.Title>S. Sammy</Card.Title>
                             <Card.Text>
                             St. John's and surrounding area.
                             </Card.Text>
