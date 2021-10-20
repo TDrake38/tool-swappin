@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { Container } from "react-bootstrap";
+import LoginContext from './LogInContext';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Messages from './components/Messages';
@@ -10,20 +11,27 @@ import NavBar from './components/NavBar';
 
 
 
+
 function App() {
+
+  const login = useState("notLogged");
+
+
   return (
     <>
       <BrowserRouter>
-        <NavBar />
-        <Container>
-        <Switch>
-          <Route path="/profile" exact component={Profile}/>
-          <Route path="/messages" exact component={Messages}/>
-          <Route path="/search" exact component={Search}/>
-          <Route path="/" exact component={Home}/>
-          <Route render={() => <div>404</div>} />
-        </Switch>
-        </Container>
+        <LoginContext.Provider value={login}>
+          <NavBar />
+          <Container>
+          <Switch>
+            <Route path="/profile" exact component={Profile}/>
+            <Route path="/messages" exact component={Messages}/>
+            <Route path="/search" exact component={Search}/>
+            <Route path="/" exact component={Home}/>
+            <Route render={() => <div>404</div>} />
+          </Switch>
+          </Container>
+        </LoginContext.Provider>
       </BrowserRouter>
     </>
   )

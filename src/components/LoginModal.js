@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useContext, UserContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+//import LoginContext from "../LogInContext";
+//import Logg from "../InOrOut"
 
 
 
 function MyModal(props) {
 
- const buttonSubmit = (e) => {
+ /*const buttonSubmit = (e) => {
     e.preventDefault();
     console.log("Logged in.")
-  }
+  }*/
 
+  //const logIn = useContext(LoginContext);
+  //const currently = InOrOut[notLogged]
 
+  //const [ isLoggedIn, setLoggedIn ] = useContext(UserContext);
 
+  
     return (
       <Modal
         {...props}
@@ -24,7 +30,7 @@ function MyModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Form onSubmit={buttonSubmit}>
+        <Form onSubmit={setLoggedIn}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control  type="email" placeholder="Enter email" />
