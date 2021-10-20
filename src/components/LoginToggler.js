@@ -7,7 +7,7 @@ const loginTogglerStyle = {
 
 const LoginToggler = () => {
 
-    const [ isLoggedIn, setLoggedIn ] = useContext(LoginContext);
+    //const [ isLoggedIn, setLoggedIn ] = useContext(LoginContext);
 
     return (
         <div style = {loginTogglerStyle} onClick = {() => {setLoggedIn(loginMode === "notLogged"? "logged": "notLogged")}}>
