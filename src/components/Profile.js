@@ -12,6 +12,7 @@ import LoginContext from "../LogInContext";
 
 function Profile() {
     const [isLoggedIn] = useContext(LoginContext);
+
     return (
         <>
             <div className="profile">
@@ -31,7 +32,7 @@ function Profile() {
                         </ListGroup>
                     </Card>
                 </div>
-                <div className="feed">
+                <div className="">
 
                 </div>
                 <div className="people">
