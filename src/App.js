@@ -9,13 +9,8 @@ import Search from './components/Search';
 import { Route, BrowserRouter, Switch } from "react-router-dom"
 import NavBar from './components/NavBar';
 
-
-
-
 function App() {
-
-  const login = useState("notLogged");
-
+  const login = useState(false);
 
   return (
     <>
@@ -23,13 +18,13 @@ function App() {
         <LoginContext.Provider value={login}>
           <NavBar />
           <Container>
-          <Switch>
-            <Route path="/profile" exact component={Profile}/>
-            <Route path="/messages" exact component={Messages}/>
-            <Route path="/search" exact component={Search}/>
-            <Route path="/" exact component={Home}/>
-            <Route render={() => <div>404</div>} />
-          </Switch>
+            <Switch>
+              <Route path="/profile" exact component={Profile} />
+              <Route path="/messages" exact component={Messages} />
+              <Route path="/search" exact component={Search} />
+              <Route path="/" exact component={Home} />
+              <Route render={() => <div>404</div>} />
+            </Switch>
           </Container>
         </LoginContext.Provider>
       </BrowserRouter>
