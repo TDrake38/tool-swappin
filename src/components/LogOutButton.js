@@ -10,6 +10,7 @@ function LogOutButton () {
     const logOut = (e) => {
         e.preventDefault();
         setLoggedIn(false)
+        alert('Logged out')
     }
 
     return (

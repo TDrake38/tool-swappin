@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container,} from 'react-bootstrap';
 import LoginModal from './LoginModal';
 import './NavBar.css'
 import LogOutButton from './LogOutButton';
+import LoginContext from '../LogInContext';
+
 
 const NavBar = () => {
+
+  const [isLoggedIn] = useContext(LoginContext)
+
   return (
     <>
     <Navbar bg="primary" variant="dark">
@@ -13,8 +18,7 @@ const NavBar = () => {
         <Navbar.Brand>
           <Nav.Link as={Link} to="/" className="title-link">Tool Swapping</Nav.Link>
         </Navbar.Brand>
-        <LogOutButton />
-        <LoginModal />
+        {isLoggedIn ? <LogOutButton /> : <LoginModal />}
       </Container>
     </Navbar>
       <Container>

@@ -16,7 +16,6 @@ function Profile() {
     return (
         <>
             <div className="profile">
-                {isLoggedIn ? 'Logged In' : 'Not Logged In'}
                 <div>
                     <Card className="hard">
                         <Card.Img variant="top" src={Drake} alt="profile" />
