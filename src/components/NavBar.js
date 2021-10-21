@@ -24,14 +24,14 @@ const NavBar = () => {
       <Container>
         <Nav variant="tabs" >
           <Nav.Item>
-            <Nav.Link as={Link} to="/profile" eventKey="link-1">Profile</Nav.Link>
+            <Nav.Link as={Link} to="/search" eventKey="link-1">Search</Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/search" eventKey="link-2">Search</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
+          {isLoggedIn ? <Nav.Item>
+            <Nav.Link as={Link} to="/profile" eventKey="link-2">Profile</Nav.Link>
+          </Nav.Item> : null}
+          {isLoggedIn ? <Nav.Item>
             <Nav.Link as={Link} to="/messages" eventKey="link-3">Messages</Nav.Link>
-          </Nav.Item>
+          </Nav.Item> : null}
         </Nav>
       </Container>
     </>
