@@ -43,6 +43,11 @@ function Messages () {
                             </Card.Text>
                         </Card.Body>
                 </Card>
+                <Card className="borrower-2">
+                        <Card.Body>
+                            <Card.Title>S. Sammy</Card.Title>
+                        </Card.Body>
+                </Card>
             </div>
         </>
     )
