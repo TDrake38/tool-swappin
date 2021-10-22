@@ -12,11 +12,11 @@ function Listing () {
     return (
         <>
             <Card className="fard">
-                <Card.Img variant="top" src={drill} alt="A drill" />
+                <Card.Img variant="top" src={drill} alt="A drill" className="piccy"/>
                 <Card.Body>
-                    <Card.Title>Dewalt Impact</Card.Title>
-                    <Card.Text>
-                    This is a 1/2" Dewalt Battery Impact.
+                    <Card.Title className="tool-name">Dewalt Impact</Card.Title>
+                    <Card.Text className="tool-area">
+                    St. John's.
                     </Card.Text>
                     <Button variant="dark" onClick={check}>Check On</Button>
                 </Card.Body>
