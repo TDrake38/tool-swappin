@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { /*useContext*/ } from "react";
 import './Profile.css'
 import NameInput from "./InputName";
 import AreaInput from "./InputArea";
@@ -7,11 +7,11 @@ import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import Drake from "../photos/Drake.JPG"
 import drill from "../photos/drill.jpg"
 import People from "./People";
-import LoginContext from "../LogInContext";
+//import LoginContext from "../LogInContext";
 
 
 function Profile() {
-    const [isLoggedIn] = useContext(LoginContext);
+    //const [isLoggedIn] = useContext(LoginContext);
 
     return (
         <>
@@ -30,9 +30,6 @@ function Profile() {
                             <ListGroupItem><img src={drill} alt="drill" className="tool" /><Card.Link href="#">Tool 3</Card.Link></ListGroupItem>
                         </ListGroup>
                     </Card>
-                </div>
-                <div className="">
-
                 </div>
                 <div className="people">
                     <People />

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container,} from 'react-bootstrap';
 import LoginModal from './LoginModal';
