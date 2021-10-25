@@ -17,7 +17,18 @@ function Messages () {
     return(
         <>
             <div  className="messages">
-                <img src={drill} alt="tool" className="dp pict"/>
+                <div>
+                    <img src={drill} alt="tool" className="dp pict"/>
+                    <Card className="borrower">
+                        <Card.Img variant="top" src={Sammy} alt="profile" />
+                        <Card.Body>
+                            <Card.Title>J. Smith</Card.Title>
+                            <Card.Text>
+                                St. John's and surrounding area.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </div>
                 <div className="chat">
                     <div className="mess-box" >
                         {/*This image is only to test the scroll*/}
@@ -34,18 +45,9 @@ function Messages () {
                         </InputGroup>
                     </div>
                 </div>
-                <Card className="borrower">
-                        <Card.Img variant="top" src={Sammy} alt="profile" />
-                        <Card.Body>
-                            <Card.Title>S. Sammy</Card.Title>
-                            <Card.Text>
-                            St. John's and surrounding area.
-                            </Card.Text>
-                        </Card.Body>
-                </Card>
                 <Card className="borrower-2">
                         <Card.Body>
-                            <Card.Title>S. Sammy</Card.Title>
+                            <Card.Title>J. Smith</Card.Title>
                         </Card.Body>
                 </Card>
             </div>

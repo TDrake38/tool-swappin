@@ -2,13 +2,14 @@
 .messages {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-top: 3px;
 }
 
 .messages .dp {
     border: 1px solid lightgray;
     border-radius: 3px;
-    width: 12.5rem;
+    width: 18.125rem;
     height: 12.5rem;
     margin-right: 3px;
 }
@@ -79,12 +80,28 @@
     display: none;
 }
 
-@media only screen and (max-width: 768px){
-
+@media only screen and (min-width: 991px) and (max-width: 1199px){
     .messages .dp {
-        width: 4.5rem;
-        height: 4.5rem;
-        margin-right: 0;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .messages .borrower {
+        width: 10rem;
+        height: 13rem;
+    }
+
+    .messages .chat {
+        width: 45rem;
+    }
+    .mess-box {
+        height: 30rem;
+    }
+}
+
+@media only screen and (max-width: 990px){
+    .messages .dp {
+        display: none;
     }
 
     .mess-box {
