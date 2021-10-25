@@ -16,21 +16,22 @@ function Profile() {
     return (
         <>
             <div className="profile">
-                <div>
-                    <Card className="hard">
-                        <Card.Img variant="top" src={Drake} alt="profile" />
-                        <Card.Body>
-                            <NameInput />
-                            <AreaInput />
-                            <SaveButton />
-                        </Card.Body>
-                        <ListGroup className="list-group-flush">
-                            <ListGroupItem><img src={drill} alt="drill" className="tool" /><Card.Link href="#">Tool 1</Card.Link></ListGroupItem>
-                            <ListGroupItem><img src={drill} alt="drill" className="tool" /><Card.Link href="#">Tool 2</Card.Link></ListGroupItem>
-                            <ListGroupItem><img src={drill} alt="drill" className="tool" /><Card.Link href="#">Tool 3</Card.Link></ListGroupItem>
-                        </ListGroup>
-                    </Card>
-                </div>
+                <Card className="hard">
+                    <Card.Img variant="top" src={Drake} alt="profile" />
+                    <Card.Body>
+                        <NameInput />
+                        <AreaInput />
+                        <SaveButton />
+                    </Card.Body>
+                </Card>
+                <ListGroup className="list-group-flush tool-list">
+                    <div className="tool-title">
+                        Tool List
+                    </div>
+                    <ListGroupItem className="list-item"><img src={drill} alt="drill" className="tool" /><Card.Link href="#">Tool 1</Card.Link></ListGroupItem>
+                    <ListGroupItem className="list-item"><img src={drill} alt="drill" className="tool" /><Card.Link href="#">Tool 2</Card.Link></ListGroupItem>
+                    <ListGroupItem className="list-item"><img src={drill} alt="drill" className="tool" /><Card.Link href="#">Tool 3</Card.Link></ListGroupItem>
+                </ListGroup>
                 <div className="people">
                     <People />
                 </div>
