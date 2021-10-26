@@ -10,6 +10,8 @@ function Search () {
             <div className="bar">
                 <SearchBar />
             </div>
+        </div>
+        <div className="listings">
             <Listing />
         </div>
         </>
