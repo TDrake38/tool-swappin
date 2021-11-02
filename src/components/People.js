@@ -10,10 +10,6 @@ const people = [
     'Iphigenia Arie',
     'Melchiorre Hana',
     'Avdotya Claudia',
-    'Walter Saldís',
-    'Sakari Narayanan',
-    'Doreen Lelisa',
-    'Tófa Slaven'
 ];
 
 

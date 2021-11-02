@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import AreaInput from "./InputArea";
 import MyUploader from "./PhotoDrop";
+import ToolInput from "./InputTool";
 
 function ToolModal(props) {
 
@@ -24,11 +25,9 @@ function ToolModal(props) {
       <Modal.Body>
         <MyUploader />
         <Form onSubmit={toolAdd}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
+          <ToolInput />
           <AreaInput />
+          <Form.Control type="text" placeholder="Discription" />
           <Button variant="primary" type="submit">
             Done
           </Button>
