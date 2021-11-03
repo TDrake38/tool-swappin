@@ -8,11 +8,12 @@ import Drake from "../photos/Drake.JPG";
 import drill from "../photos/drill.jpg";
 import People from "./People";
 import AddTool from "./AddTool";
-//import LoginContext from "../LogInContext";
+
+
 
 
 function Profile() {
-    //const [isLoggedIn] = useContext(LoginContext);
+    
 
     return (
         <>
