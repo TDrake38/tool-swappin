@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
 import drill from "../photos/drill.jpg"
 import Sammy from "../photos/Sammy.jpg"
-import { Button, Card, Form } from "react-bootstrap";
+import { Button, Card, Form, InputGroup } from "react-bootstrap";
 import './Messages.css'
 
 
@@ -46,11 +46,13 @@ function Messages () {
                     <div className="mess-text">
                         <Form onSubmit={send}>
                             <Form.Group className="mb-3">
-                                <Form.Control
-                                type="text"
-                                placeholder="Message"
-                                />
-                                <Button variant="secondary" type="submit">Send</Button>
+                                <InputGroup>
+                                    <Form.Control
+                                    type="text"
+                                    placeholder="Message"
+                                    />
+                                    <Button variant="secondary" type="submit">Send</Button>
+                                </InputGroup>
                             </Form.Group>
                         </Form>
                     </div>
