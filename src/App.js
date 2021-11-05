@@ -32,6 +32,4 @@ function App() {
   )
 }
 
-//<Route path="/" render={() => <div> 404 </div>} />
-
 export default App;

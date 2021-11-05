@@ -1,17 +1,21 @@
-import React from "react";
-import Drake from '../photos/Drake.JPG'
+import React, {useRef} from "react";
 import drill from "../photos/drill.jpg"
 import Sammy from "../photos/Sammy.jpg"
-import { InputGroup, FormControl, Button, Card } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
 import './Messages.css'
 
 
 
 function Messages () {
 
+    const ref = useRef()
+    const {messages, setMessages} = ([])
+
     const send = (e) => {
         e.preventDefault();
-        console.log("Message sent.");
+        const [input] = e.target.elements;
+        setMessages([...messages, input.value]);
+        ref.current.scrollTop = ref.current.scrollHeight;
     }
 
     return(
@@ -30,19 +34,25 @@ function Messages () {
                     </Card>
                 </div>
                 <div className="chat">
-                    <div className="mess-box" >
-                        {/*This image is only to test the scroll*/}
-                        <img src={Drake} alt="profile" className="test"/>
+                    <div ref={ref} className="mess-box" >
+                    {messages.map(
+                            (message, index) => (
+                                <div key={index}>
+                                    <p>{message}</p>
+                                </div>
+                            ))
+                        }
                     </div>
                     <div className="mess-text">
-                        <InputGroup className="mb-3">
-                            <FormControl
-                            placeholder="Message"
-                            aria-label="Message"
-                            aria-describedby="basic-addon2"
-                            />
-                            <Button variant="secondary" onClick={send}>Send</Button>
-                        </InputGroup>
+                        <Form onSubmit={send}>
+                            <Form.Group className="mb-3">
+                                <Form.Control
+                                type="text"
+                                placeholder="Message"
+                                />
+                                <Button variant="secondary" type="submit">Send</Button>
+                            </Form.Group>
+                        </Form>
                     </div>
                 </div>
                 <Card className="borrower-2">
