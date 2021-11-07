@@ -3,6 +3,7 @@ import drill from "../photos/drill.jpg"
 import Sammy from "../photos/Sammy.jpg"
 import { Button, Card, Form, InputGroup } from "react-bootstrap";
 import './Messages.css'
+import Rating from "./FakeRating";
 
 
 
@@ -26,10 +27,11 @@ function Messages () {
                     <Card className="borrower">
                         <Card.Img variant="top" src={Sammy} alt="profile" />
                         <Card.Body>
-                            <Card.Title>J. Smith</Card.Title>
+                            <Card.Title>J. Smith <Rating /></Card.Title>
                             <Card.Text>
                                 St. John's and surrounding area.
                             </Card.Text>
+                            
                         </Card.Body>
                     </Card>
                 </div>
