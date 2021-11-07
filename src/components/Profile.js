@@ -8,6 +8,7 @@ import Drake from "../photos/Drake.JPG";
 import drill from "../photos/drill.jpg";
 import People from "./People";
 import AddTool from "./AddTool";
+import Rating from "./FakeRating";
 
 
 
@@ -24,6 +25,7 @@ function Profile() {
                         <NameInput />
                         <AreaInput />
                         <SaveButton />
+                        <Rating />
                     </Card.Body>
                 </Card>
                 <ListGroup className="list-group-flush tool-list">
