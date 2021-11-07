@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import drill from "../photos/drill.jpg"
 import Sammy from "../photos/Sammy.jpg"
 import { Button, Card, Form, InputGroup } from "react-bootstrap";
@@ -9,7 +9,7 @@ import './Messages.css'
 function Messages () {
 
     const ref = useRef()
-    const {messages, setMessages} = ([])
+    const [messages, setMessages] = useState([])
 
     const send = (e) => {
         e.preventDefault();
