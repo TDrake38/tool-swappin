@@ -17,18 +17,13 @@ function ToolModal(props) {
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered>
-      <Modal.Header>
-        <Modal.Title >
-          Add Tool
-        </Modal.Title>
-      </Modal.Header>
       <Modal.Body>
         <MyUploader />
         <Form onSubmit={toolAdd}>
           <ToolInput />
           <AreaInput />
           <Form.Control type="text" placeholder="Discription" />
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" >
             Done
           </Button>
         </Form>
