@@ -1,8 +1,8 @@
 import React from "react";
-
-import { Card, ListGroup, Form } from "react-bootstrap";
+import { Card, ListGroup } from "react-bootstrap";
 import Drake from '../photos/Drake.JPG'
 import './People.css'
+import PeepModal from "./UserModal";
 
 const people = [
     'Joe Smith',
@@ -25,9 +25,7 @@ function People(){
                         <ListGroup.Item>
                             <img src={Drake} alt="profile" className="picture"/>
                             {people}
-                            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" />
-                            </Form.Group>
+                            <PeepModal />
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>)}

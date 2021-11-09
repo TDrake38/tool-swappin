@@ -9,8 +9,6 @@ import Rating from "./FakeRating";
 
 function Messages () {
 
-    
-
     const ref = useRef()
     const [messages, setMessages] = useState([])
 
@@ -33,7 +31,6 @@ function Messages () {
                             <Card.Text>
                                 St. John's and surrounding area.
                             </Card.Text>
-                            
                         </Card.Body>
                     </Card>
                 </div>
