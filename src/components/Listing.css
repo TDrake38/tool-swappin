@@ -45,10 +45,15 @@
 
 @media only screen and (max-width: 768px){
     .piccy {
-        display: none;
+        height: 8rem;
+        width: 8rem;
     }
 
     .fard {
         height: 9rem;
+    }
+
+    .button {
+        display: none;
     }
 }

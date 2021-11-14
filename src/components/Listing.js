@@ -18,7 +18,7 @@ function Listing () {
                     <Card.Text className="tool-area">
                     St. John's.
                     </Card.Text>
-                    <Button variant="dark" onClick={check}>Check On</Button>
+                    <Button variant="dark" onClick={check} className="button">Check On</Button>
                 </Card.Body>
             </Card>
         </>
