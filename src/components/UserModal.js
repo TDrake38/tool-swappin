@@ -6,6 +6,8 @@ import worker from "../photos/worker.png"
 
 
 function PeopleModal(props) {
+
+  
     return (
       <Modal
         {...props}
