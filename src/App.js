@@ -21,8 +21,9 @@ function App() {
             <Switch>
               <Route path="/profile" exact component={Profile} />
               <Route path="/messages" exact component={Messages} />
-              <Route path="/search" exact component={Search} />              
-              <Route path="/" exact component={Home}>
+              <Route path="/search" exact component={Search} />  
+              <Route path="/" exact component={Home}/>            
+              <Route exact path="/">
                 {loggedIn ? <Route path="/profile" exact component={Profile} /> : <Redirect to="/"/>}
               </Route>
               <Route render={() => <div>404</div>} />
