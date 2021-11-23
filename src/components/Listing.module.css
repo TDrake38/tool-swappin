@@ -1,0 +1,10 @@
+.fard {
+    width: 18rem;
+    height: 18.5rem;
+}
+
+@media only screen and (max-width: 768px){
+    .fard {
+        height: 9rem;
+    }
+}
