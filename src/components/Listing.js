@@ -1,6 +1,5 @@
 import React from "react";
 import styles from './Listing.module.css'
-import './Listing.css'
 import drill from '../photos/drill.jpg'
 import { Card, Button } from "react-bootstrap";
 
@@ -13,13 +12,13 @@ function Listing () {
     return (
         <>
             <Card className={styles.fard}>
-                <Card.Img variant="top" src={drill} alt="A drill" className="piccy"/>
+                <Card.Img variant="top" src={drill} alt="A drill" className={styles.piccy}/>
                 <Card.Body>
-                    <Card.Title className="tool-name">Dewalt Impact</Card.Title>
-                    <Card.Text className="tool-area">
+                    <Card.Title className={styles.titly}>Dewalt Impact</Card.Title>
+                    <Card.Text className={styles.texty}>
                     St. John's.
                     </Card.Text>
-                    <Button variant="dark" onClick={check} className="button">Check On</Button>
+                    <Button variant="dark" onClick={check} className={styles.button}>Check On</Button>
                 </Card.Body>
             </Card>
         </>
