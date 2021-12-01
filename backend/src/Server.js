@@ -3,10 +3,26 @@
 const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 app.use(express.json())
 
 const users = []
+
+const posts = [
+    {
+        "username": 'Jim',
+        "title": 'Post 1'
+    },
+    {
+        "username": 'Beem',
+        "title": 'Post 2'
+    }
+]
+
+app.get('/posts', (req, res) => {
+    res.json(posts)
+})
 
 app.get('/users', (req, res) => {
     res.json(users)
@@ -23,7 +39,7 @@ app.post('/users', async (req, res) => {
     }
 })
 
-app.post('/users/login', async (req, res) => {
+app.post('/login', async (req, res) => {
     const user = users.find(user => user.name = req.body.name)
     if (user == null) {
         return res.status(400).send('Cannot find user')
@@ -38,6 +54,8 @@ app.post('/users/login', async (req, res) => {
     catch {
         res.status(500).send()
     }
+
+    const username = req.body.username
 })
 
 app.listen(3000)
