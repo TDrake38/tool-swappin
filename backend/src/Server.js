@@ -1,4 +1,7 @@
 // Server stuff
+const { config } = require('dotenv');
+
+config();
 
 const express = require('express')
 const app = express()
@@ -20,8 +23,8 @@ const posts = [
     }
 ]
 
-app.get('/posts', (req, res) => {
-    res.json(posts)
+app.get('/posts', authenticateToken, (req, res) => {
+    res.json(posts.filter(post => post.username === req.use.name))
 })
 
 app.get('/users', (req, res) => {
@@ -39,7 +42,7 @@ app.post('/users', async (req, res) => {
     }
 })
 
-app.post('/login', async (req, res) => {
+app.post('/users/login', async (req, res) => {
     const user = users.find(user => user.name = req.body.name)
     if (user == null) {
         return res.status(400).send('Cannot find user')
@@ -54,8 +57,26 @@ app.post('/login', async (req, res) => {
     catch {
         res.status(500).send()
     }
-
-    const username = req.body.username
 })
+
+app.post('/log', (req, res) => {
+    const username = req.body.username
+    const use = { "name": username }
+
+    const accessToken = jwt.sign(use, process.env.ACCESS_TOKEN_SECRET)
+    res.json({ "accessToken": accessToken })
+})
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return res.sendStatus(401)
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, use) => {
+        if (err) return res.sendStatus(403)
+        req.use = use
+        next()
+    })
+}
 
 app.listen(3000)
