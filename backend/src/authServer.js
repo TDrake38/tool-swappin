@@ -1,10 +1,8 @@
 // Server stuff
 const { config } = require('dotenv');
 config();
-
 const express = require('express')
 const app = express()
-
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -18,7 +16,7 @@ app.get('/users', (req, res) => {
 
 app.post('/users', async (req, res) => {
     try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        const hashedPassword = await bcrypt.hash(req.body.password, process.env.TOOL_SWAPPIN_SALT)
         const user = { "name": req.body.name, "password": hashedPassword }
         users.push(user)
         res.status(201).send()
@@ -73,21 +71,8 @@ app.post('/log', (req, res) => {
 })
 
 function generateAccessToken(use) {
-    return jwt.sign(use, process.env.ACCESS_TOKEN_SECRET, {"expiresIn": '30s'})
+    return jwt.sign(use, process.env.ACCESS_TOKEN_SECRET, {"expiresIn": '10m'})
 }
 
-
-//OLD AUTHENTICATION FUNCTION
-/*function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
-    if (token == null) return res.sendStatus(401)
-
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, use) => {
-        if (err) return res.sendStatus(403)
-        req.use = use
-        next()
-    })
-}*/
 
 app.listen(4000)

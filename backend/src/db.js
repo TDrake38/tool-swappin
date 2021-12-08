@@ -1,5 +1,6 @@
 const { Pool } = require('pg');
 const { config } = require('dotenv');
+const { query } = require('express');
 
 config();
 
@@ -10,7 +11,18 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
 })
 
-pool.query('SELECT * FROM users', (err, res) => {
+const promiseQuery = (query) => {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * FROM users', (err, res) => {
+            if (err) {
+                reject(err);
+            }
+            resolve('success');
+        });
+    });
+};
+
+/*pool.query('SELECT * FROM users', (err, res) => {
     if(err) {
         throw err;
     }
@@ -18,4 +30,4 @@ pool.query('SELECT * FROM users', (err, res) => {
     console.log(rows[0]);
     console.log(rows[1]);
     pool.end();
-})
+})*/
