@@ -11,18 +11,20 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
 })
 
-const promiseQuery = (query) => {
+
+
+/*(const promiseQuery = () => {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM users', (err, res) => {
             if (err) {
-                reject(err);
+                return reject(err);
             }
-            resolve('success');
+            return resolve(res);
         });
     });
-};
+};*/
 
-/*pool.query('SELECT * FROM users', (err, res) => {
+pool.query('SELECT * FROM users', (err, res) => {
     if(err) {
         throw err;
     }
@@ -30,4 +32,4 @@ const promiseQuery = (query) => {
     console.log(rows[0]);
     console.log(rows[1]);
     pool.end();
-})*/
+})
