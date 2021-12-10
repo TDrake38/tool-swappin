@@ -1,3 +1,5 @@
+const userRoutes = require('./routes/user.routes');
+
 // Server stuff
 const { config } = require('dotenv');
 config();
@@ -12,23 +14,7 @@ app.use(express.json())
 
 const users = []
 
-const posts = [
-    {
-        "username": 'Jim',
-        "title": 'Post 1'
-    },
-    {
-        "username": 'Beem',
-        "title": 'Post 2'
-    }
-]
-
-app.get('/posts', authenticateToken, (req, res) => {
-    res.json(posts.filter(post => post.username === req.use.name))
-})
-
-
-function authenticateToken(req, res, next) {
+function checkIsAuthenticated(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
     if (token == null) return res.sendStatus(401)
@@ -40,4 +26,9 @@ function authenticateToken(req, res, next) {
     })
 }
 
+userRoutes(app, checkIsAuthenticated);
+// toolRoutes(app, checkIsAuthenticated);
+// messagesRoutes(app, checkIsAuthenticated);
+
+console.log("hello");
 app.listen(3000)

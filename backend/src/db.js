@@ -11,25 +11,23 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
 })
 
-
-
-/*(const promiseQuery = () => {
+module.exports.queryDB = (query) => {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM users', (err, res) => {
+        pool.query(query, (err, res) => {
             if (err) {
-                return reject(err);
+                reject(err);
             }
-            return resolve(res);
+            resolve(res);
         });
     });
-};*/
+};
 
-pool.query('SELECT * FROM users', (err, res) => {
-    if(err) {
-        throw err;
-    }
-    const { rows } = res;
-    console.log(rows[0]);
-    console.log(rows[1]);
-    pool.end();
-})
+// pool.query('SELECT * FROM users', (err, res) => {
+//     if(err) {
+//         throw err;
+//     }
+//     const { rows } = res;
+//     console.log(rows[0]);
+//     console.log(rows[1]);
+//     pool.end();
+// })
