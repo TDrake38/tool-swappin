@@ -25,8 +25,8 @@ function checkIsAuthenticated(req, res, next) {
 }
 
 userRoutes(app, checkIsAuthenticated);
-// toolRoutes(app, checkIsAuthenticated);
-// messagesRoutes(app, checkIsAuthenticated);
+toolRoutes(app, checkIsAuthenticated);
+messagesRoutes(app, checkIsAuthenticated);
 
 app.get('/users', (req, res) => {
     res.json(users)
