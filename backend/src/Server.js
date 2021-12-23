@@ -24,9 +24,9 @@ function checkIsAuthenticated(req, res, next) {
     })
 }
 
-userRoutes(app, checkIsAuthenticated);
-toolRoutes(app, checkIsAuthenticated);
-messagesRoutes(app, checkIsAuthenticated);
+//userRoutes(app, checkIsAuthenticated);
+//toolRoutes(app, checkIsAuthenticated);
+//messagesRoutes(app, checkIsAuthenticated);
 
 app.get('/users', (req, res) => {
     res.json(users)
@@ -50,7 +50,13 @@ app.post('/users/login', async (req, res) => {
     }
     try {
       if ( await bcrypt.compare(req.body.password, user.password)) {
-        res.send('Success')
+        const username = req.body.username
+        const use = { "name": username }
+
+        const accessToken = generateAccessToken(use)
+        const refreshToken = jwt.sign(use, process.env.REFRESH_TOKEN_SECRET)
+        refreshTokens.push(refreshToken)
+        res.json({ "accessToken": accessToken, "refreshToken": refreshToken })
       } else {
         res.send('Not Allowed')
       }
@@ -78,15 +84,15 @@ app.delete('/logout', (req, res) => {
     res.sendStatus(204)
 })
 
-app.post('/log', (req, res) => {
-    const username = req.body.username
-    const use = { "name": username }
+// app.post('/log', (req, res) => {
+//     const username = req.body.username
+//     const use = { "name": username }
 
-    const accessToken = generateAccessToken(use)
-    const refreshToken = jwt.sign(use, process.env.REFRESH_TOKEN_SECRET)
-    refreshTokens.push(refreshToken)
-    res.json({ "accessToken": accessToken, "refreshToken": refreshToken })
-})
+//     const accessToken = generateAccessToken(use)
+//     const refreshToken = jwt.sign(use, process.env.REFRESH_TOKEN_SECRET)
+//     refreshTokens.push(refreshToken)
+//     res.json({ "accessToken": accessToken, "refreshToken": refreshToken })
+// })
 
 function generateAccessToken(use) {
     return jwt.sign(use, process.env.ACCESS_TOKEN_SECRET, {"expiresIn": '10m'})
