@@ -1,7 +1,8 @@
+const { getAll } = require('../controllers/user.controller');
 
 const registerUsers = (app) => {
     app.get('/users', (req, res) => {
-        res.json(users)
+        res.json(getAll)
     });
     app.post('/users', async (req, res) => {
         try {
