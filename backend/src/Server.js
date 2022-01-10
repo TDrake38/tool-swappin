@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken')
 
 app.use(express.json())
 
-const users = []
+//const users = []
 
 function checkIsAuthenticated(req, res, next) {
     const authHeader = req.headers['authorization']
