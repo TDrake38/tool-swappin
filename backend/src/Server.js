@@ -1,4 +1,5 @@
-const userRoutes = require('./routes/user.routes');
+const registerUsers = require('./routes/user.routes');
+
 
 // Server stuff
 const { config } = require('dotenv');
@@ -9,8 +10,6 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 app.use(express.json())
-
-//const users = []
 
 function checkIsAuthenticated(req, res, next) {
     const authHeader = req.headers['authorization']
@@ -24,7 +23,7 @@ function checkIsAuthenticated(req, res, next) {
     })
 }
 
-let refreshTokens = []
+registerUsers(app);
 
 function generateAccessToken(use) {
     return jwt.sign(use, process.env.ACCESS_TOKEN_SECRET, {"expiresIn": '10m'})

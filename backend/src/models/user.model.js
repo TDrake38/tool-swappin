@@ -10,4 +10,8 @@ User.findAll = async () => {
     return response.rows;
 }
 
+//User.creUser = async ()..... INSERT instead of SELECT
+
+//delete user?
+
 module.exports = User;
