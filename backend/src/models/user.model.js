@@ -1,3 +1,4 @@
+//const { InputGroup } = require('react-bootstrap');
 const { queryDB } = require('../db');
 
 const User = function (user) {
@@ -11,7 +12,10 @@ User.findAll = async () => {
 }
 
 //User.creUser = async ()..... INSERT instead of SELECT
-
+User.creUser = async () => {
+    const creaUser =  queryDB('INSERT INTO users, VALUES (username, hashedPassword)');
+    return creaUser.rows;
+}
 //delete user?
 
 module.exports = User;

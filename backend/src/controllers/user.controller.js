@@ -53,3 +53,4 @@ module.exports.logout = async (req, res) => {
     refreshTokens = refreshTokens.filter(token => token !== req.body.token)
         res.sendStatus(204)
 }
+
