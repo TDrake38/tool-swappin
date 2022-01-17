@@ -11,11 +11,25 @@ User.findAll = async () => {
     return response.rows;
 }
 
-//User.creUser = async ()..... INSERT instead of SELECT
+//Not sure how to actually wirte this.
 User.creUser = async () => {
     const creaUser =  queryDB('INSERT INTO users, VALUES (username, hashedPassword)');
     return creaUser.rows;
 }
+
 //delete user?
+
+// const Schema = postgres.Schema;
+
+// const ModleShema = new Schema({
+//     "name": String,
+//     "area": String,
+//     "passwords": String,
+//     "user_name": String
+// });
+
+
+
+
 
 module.exports = User;
