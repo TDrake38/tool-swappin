@@ -13,8 +13,8 @@ User.findAll = async () => {
 
 //Not sure how to actually wirte this.
 User.creUser = async () => {
-    const creaUser =  queryDB('INSERT INTO users, VALUES (username, hashedPassword)');
-    return creaUser.rows;
+    const creaUser = await queryDB('INSERT INTO users (user_name, passwords) VALUES (username, hashedpassword)');
+    creaUser(app);
 }
 
 //delete user?
