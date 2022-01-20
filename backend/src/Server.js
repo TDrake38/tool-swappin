@@ -1,4 +1,5 @@
 const registerUsers = require('./routes/user.routes');
+const authUser = require('./routes/auth.routes')
 
 
 // Server stuff
@@ -11,6 +12,7 @@ const jwt = require('jsonwebtoken')
 
 app.use(express.json())
 
+authUser(app);
 registerUsers(app);
 
 console.log("hello");

@@ -1,4 +1,3 @@
-//const { InputGroup } = require('react-bootstrap');
 const { queryDB } = require('../db');
 
 const User = function (user) {
