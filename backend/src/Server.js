@@ -16,4 +16,4 @@ authUser(app);
 registerUsers(app);
 
 console.log("hello");
-app.listen(3000)
+app.listen(4000)
