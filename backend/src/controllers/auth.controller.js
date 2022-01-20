@@ -1,4 +1,11 @@
+const UserAuth = require('../models/auth.model');
 const bcrypt = require('bcrypt')
+
+// module.exports = (app, checkIsAuthenticated) => {
+//     app.get("/users", checkIsAuthenticated, getAll);
+//     // why do I have app.get/users with getAll twice?? 
+//     app.get("/users", getAll);
+// }
 
 module.exports.checkIsAuthenticated = (req, res, next) => {
     const authHeader = req.headers['authorization']

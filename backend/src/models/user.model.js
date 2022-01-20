@@ -16,19 +16,10 @@ User.createUser = async (username, password) => {
     return createUser.rows;
 }
 
-//delete user?
-
-// const Schema = postgres.Schema;
-
-// const ModleShema = new Schema({
-//     "name": String,
-//     "area": String,
-//     "passwords": String,
-//     "user_name": String
-// });
-
-
-
-
+//FIX BELOW to actually remove a user!!!
+User.deleteUser = async (username, password) => {
+    const deleteUser = await queryDB('DROP FROM users (user_name, passwords) VALUES ($1, $2) RETURNING *', [username, password]);
+    return deleteUser.rows;
+}
 
 module.exports = User;

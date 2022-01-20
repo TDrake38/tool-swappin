@@ -1,11 +1,9 @@
-const {generateAccessToken, checkIsAuthenticated, login, logout, token} = require('../controllers/auth.controller');
+const {login, logout, token} = require('../controllers/auth.controller');
 
 
 const userAuth = (app) => {
     console.log('auth works')
-    app.post('/sdff', generateAccessToken)
     app.post('/token', token);
-    app.get('/sdf', checkIsAuthenticated)
     app.post('/login', login);
     app.delete('/logout', logout);
 }
