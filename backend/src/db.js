@@ -11,9 +11,9 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
 })
 
-module.exports.queryDB = (query) => {
+module.exports.queryDB = (query, values) => {
     return new Promise((resolve, reject) => {
-        pool.query(query, (err, res) => {
+        pool.query(query, values, (err, res) => {
             if (err) {
                 reject(err);
             }

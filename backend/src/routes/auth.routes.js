@@ -1,4 +1,4 @@
-const {getAll} = require('../controllers/user.controller');
+const {getAll} = require('../controllers/auth.controller');
 
 // should this be in auth controller?
 module.exports = (app, checkIsAuthenticated) => {

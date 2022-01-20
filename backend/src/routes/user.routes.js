@@ -1,6 +1,6 @@
 const { getAll, createUser, token, login, logout } = require('../controllers/user.controller');
 
-const registerUsers = (app) => {
+const registerUsers = (app) => { console.log()
     app.get('/users', getAll);
     app.post('/users', createUser);
     app.post('/token', token);
