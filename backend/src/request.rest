@@ -2,6 +2,17 @@ GET http://localhost:3000/users
 
 ###
 
+//this is a test route for findind a specific user
+GET http://localhost:3000/findUser
+Content-Type: application/json
+
+{
+    "username": "Kyle"
+}
+
+
+###
+
 POST http://localhost:3000/users
 Content-Type: application/json
 

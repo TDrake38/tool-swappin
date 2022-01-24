@@ -1,5 +1,6 @@
 const UserAuth = require('../models/auth.model');
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 // module.exports = (app, checkIsAuthenticated) => {
 //     app.get("/users", checkIsAuthenticated, getAll);
@@ -24,19 +25,21 @@ module.exports.generateAccessToken = (use) => {
 }
 
 module.exports.login = async (req, res) => {
-    const user = users.find(user => user.name = req.body.name)
+    // this searches an array and I need to make it look in the database
+    const user = UserAuth.findUser()//(user => user.name = req.body.name)
         if (user == null) {
             return res.status(400).send('Cannot find user')
         }
         try {
           if ( await bcrypt.compare(req.body.password, user.password)) {
             const username = req.body.username
-            const use = { "name": username }
+            const use = { "user_name": username }
     
             const accessToken = generateAccessToken(use)
             const refreshToken = jwt.sign(use, process.env.REFRESH_TOKEN_SECRET)
             refreshTokens.push(refreshToken)
             res.json({ "accessToken": accessToken, "refreshToken": refreshToken })
+            res.json(use.rows)
           } else {
             res.send('Not Allowed')
           }
