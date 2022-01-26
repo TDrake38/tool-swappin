@@ -21,3 +21,6 @@ module.exports.createUser = async (req, res) => {
     }
 }
 
+module.exports.delete = async (req, res) => {
+    res.json(await User.deleteUser());
+}
