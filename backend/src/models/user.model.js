@@ -12,8 +12,8 @@ User.findAll = async () => {
 
 //This returns and empty array
 User.findUser = async (username) => {
-    const findUser = await queryDB('SELECT * FROM users WHERE user_name = $1', [username],);
-    return findUser.rows;
+    const findUser = await queryDB('SELECT * FROM users WHERE user_name = $1', [username]);
+    return findUser.rows[0];
 }
 
 User.createUser = async (username, password) => {
