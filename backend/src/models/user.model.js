@@ -22,9 +22,9 @@ User.createUser = async (username, password) => {
 }
 
 //FIX BELOW to actually remove a user (maybe close)
-// User.deleteUser = async (username, password) => {
-//     const deleteUser = await queryDB('DELETE FROM users (user_name, passwords) VALUES ($1, $2) RETURNING *', [username, password]);
-//     return deleteUser.rows;
-// };
+User.deleteUser = async (username, password) => {
+    const deleteUser = await queryDB('DELETE FROM users WHERE (user_name, passwords) = ($1, $2) RETURNING *', [username, password]);
+    return deleteUser.rows;
+};
 
 module.exports = User;
