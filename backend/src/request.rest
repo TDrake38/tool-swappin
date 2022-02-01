@@ -16,7 +16,7 @@ DELETE  http://localhost:3000/delete
 Content-Type: application/json
 
 {
-    "id": 6
+    "id": 1
 }
 
 ###
@@ -60,3 +60,13 @@ Content-Type: application/json
 {
     "username": "Beem"
 }
+
+###
+
+//This is for TOOLS
+
+###
+
+GET http://localhost:3000/findTool
+
+###

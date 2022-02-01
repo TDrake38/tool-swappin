@@ -1,4 +1,5 @@
 const registerUsers = require('./routes/user.routes');
+const reqisterTool = require('./routes/tools.routes')
 const userAuth = require('./routes/auth.routes')
 
 
@@ -14,6 +15,7 @@ app.use(express.json())
 
 userAuth(app);
 registerUsers(app);
+reqisterTool(app);
 
 console.log("hello");
 app.listen(3000)
