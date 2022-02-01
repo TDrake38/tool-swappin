@@ -16,8 +16,7 @@ DELETE  http://localhost:3000/delete
 Content-Type: application/json
 
 {
-    "username": "Tyler",
-    "password": "password"
+    "id": 6
 }
 
 ###
