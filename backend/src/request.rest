@@ -70,3 +70,19 @@ Content-Type: application/json
 GET http://localhost:3000/findTool
 
 ###
+
+POST http://localhost:3000/createTool
+Content-Type: application/json
+
+{
+    "toolName": "Hammer",
+    "available": "Yes"
+}
+
+###
+DELETE  http://localhost:3000/deleteTool
+Content-Type: application/json
+
+{
+    "id": 2
+}
