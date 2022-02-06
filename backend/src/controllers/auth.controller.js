@@ -32,13 +32,13 @@ module.exports.login = async (req, res) => {
         if (user == null) {
             return res.status(400).send('Cannot find user')
         }
-        try { console.log(req.body.password, user.passwords)
+        try { //console.log(req.body.password, user.passwords)
           if ( await bcrypt.compare(req.body.password, user.passwords)) {
             const username = req.body.username
             const use = { "user_name": username }
     
             const accessToken = generateAccessToken(use)
-            const refreshToken = jwt.sign(use, process.env.REFRESH_TOKEN_SECRET)
+            //const refreshToken = jwt.sign(use, process.env.REFRESH_TOKEN_SECRET)
             //refreshTokens.push(refreshToken)
             res.json({ "accessToken": accessToken/*, "refreshToken": refreshToken */})
             res.json(use.rows)

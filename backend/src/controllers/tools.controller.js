@@ -5,9 +5,10 @@ module.exports.findTools = async (req, res) => {
     res.json(await Tool.findAll());
 }
 
+//who made it
 module.exports.createTool = async (req, res) => {
     try {
-        res.json(await Tool.createTool(req.body.toolName, req.body.available)).send()
+        res.json(await Tool.createTool(req.body.toolName, req.body.available, req.body.ownerID)).send()
         console.log('tool created')
     } catch (e) { 
         console.error(e)
@@ -15,6 +16,7 @@ module.exports.createTool = async (req, res) => {
     }
 }
 
+//access control
 module.exports.deleteTool = async (req, res) => {
     try {
         res.json(await Tool.deleteTool(req.body.id))

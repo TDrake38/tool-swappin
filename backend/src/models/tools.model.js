@@ -1,20 +1,19 @@
 const { queryDB } = require('../db');
 
-const Tool = function (tool) {
-    this.id = tool.id;
-}
+const Tool = {}
 
 Tool.findAll = async () => {
     const response = await queryDB('SELECT * FROM tools');
     return response.rows;
 }
 
-Tool.createTool = async (toolName, available) => {
-    const createTool = await queryDB('INSERT INTO tools (name, availability) VALUES ($1, $2) RETURNING *', [toolName, available]);
+//TODO: Fill in owner_id as well 
+Tool.createTool = async (toolName, available, ownerID) => {
+    const createTool = await queryDB('INSERT INTO tools (name, availability, owner_id) VALUES ($1, $2, $3) RETURNING *', [toolName, available, ownerID]);
     return createTool.rows;
 }
 
-// This deletes a user with ID. 
+// This deletes a tool with ID. 
 Tool.deleteTool = async (id) => {
     const deleteTool = await queryDB('DELETE FROM tools WHERE id = $1 RETURNING *', [id]);
     return deleteTool.rows;

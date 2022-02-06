@@ -21,10 +21,10 @@ User.createUser = async (username, password) => {
     return createUser.rows;
 }
 
-//This deletes a user with ID. 
-User.deleteUser = async (id) => {
-    const deleteUser = await queryDB('DELETE FROM users WHERE id = $1 RETURNING *', [id]);
-    return deleteUser.rows;
-};
+// TODO: if you want
+// User.deleteUser = async (id) => {
+//     const deleteUser = await queryDB('DELETE FROM users WHERE id = $1 RETURNING *', [id]);
+//     return deleteUser.rows;
+// };
 
 module.exports = User;

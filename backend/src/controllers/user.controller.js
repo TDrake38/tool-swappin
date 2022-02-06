@@ -21,13 +21,13 @@ module.exports.createUser = async (req, res) => {
     }
 }
 
-module.exports.deleteUser = async (req, res) => {
-    try {
-        //const hashedPassword = await bcrypt.hash(req.body.password, parseInt (process.env.TOOL_SWAPPIN_SALT, 10))
-        res.json(await User.deleteUser(req.body.id)) //(req.body.username, hashedPassword)).send()
-        console.log('user deleted')
-    } catch (e) { 
-        console.error(e)
-        res.status(500).send()
-    }
-}
+// module.exports.deleteUser = async (req, res) => {
+//     try {
+//         //const hashedPassword = await bcrypt.hash(req.body.password, parseInt (process.env.TOOL_SWAPPIN_SALT, 10))
+//         res.json(await User.deleteUser(req.body.id)) //(req.body.username, hashedPassword)).send()
+//         console.log('user deleted')
+//     } catch (e) { 
+//         console.error(e)
+//         res.status(500).send()
+//     }
+// }
