@@ -6,7 +6,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "Tyler",
+    "username": "Kyle",
     "password": "password"
 }
 
@@ -16,7 +16,7 @@ DELETE  http://localhost:3000/delete
 Content-Type: application/json
 
 {
-    "id": 1
+    "id": 7
 }
 
 ###
@@ -32,7 +32,7 @@ Content-Type: application/json
 ###
 
 Get http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQmVlbSIsImlhdCI6MTYzODkzMTUzMCwiZXhwIjoxNjM4OTMyMTMwfQ.FscXN0bDdCjvmnTJj-7mJ348hAS9t4pySsMM2gBGocM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJKb2huIiwiaWF0IjoxNjQ0MTg0ODAwLCJleHAiOjE2NDQxODU0MDB9.cqiVhKQJwd2GVy58oFaKzhKjV9BpDprcb9CyKgM7ehw
 
 ###
 
@@ -58,7 +58,7 @@ POST http://localhost:3000/log
 Content-Type: application/json
 
 {
-    "username": "Beem"
+    "username": ""
 }
 
 ###
@@ -77,15 +77,22 @@ Content-Type: application/json
 {
     "toolName": "Hammer",
     "available": "Yes",
-    "ownerID": "4"
+    "ownerID": 4
 }
 
 ###
 DELETE  http://localhost:3000/deleteTool
-Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJLeWxlIiwiaWF0IjoxNjQ0MTg1MzYwLCJleHAiOjE2NDQxODU5NjB9.xlVvBnqCCbBK-meLhxwAhq5Q3SpOQEM2RCWIYAduOoo
 
 {
-    "id": 5
+    "id": 6
 }
 
 ###
+
+GET http://localhost:3000/getTools
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJLeWxlIiwiaWF0IjoxNjQ0MTkwNDQwfQ.ZUBGeuV46SqnniyEaTtc3BkFT_bUnLGPPp6yTUiG7eM
+
+{
+    "user_name": "Kyle"
+}

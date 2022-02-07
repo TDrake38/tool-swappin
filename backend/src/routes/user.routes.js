@@ -5,7 +5,7 @@ const registerUsers = (app) => {
     app.get('/users', getAll);
     app.post('/users', createUser);
     app.get('/findUser', find);
-    //app.delete('/delete', deleteUser)
+    app.delete('/delete', deleteUser)
 };
 
 module.exports = registerUsers;
