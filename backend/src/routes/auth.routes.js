@@ -1,6 +1,5 @@
 const {login, logout, token} = require('../controllers/auth.controller');
 
-
 const userAuth = (app) => {
     console.log('auth works')
     //app.post('/token', token);
@@ -9,7 +8,6 @@ const userAuth = (app) => {
 }
 
 module.exports = userAuth;
-
 
 // // should this be in auth controller?
 // module.exports = (app, checkIsAuthenticated) => {

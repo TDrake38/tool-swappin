@@ -14,5 +14,4 @@ function AreaInput() {
     )
 }
 
-
 export default AreaInput;

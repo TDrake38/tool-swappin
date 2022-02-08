@@ -2,7 +2,6 @@ const registerUsers = require('./routes/user.routes');
 const reqisterTool = require('./routes/tools.routes')
 const userAuth = require('./routes/auth.routes')
 
-
 // Server stuff
 const { config } = require('dotenv');
 config();
