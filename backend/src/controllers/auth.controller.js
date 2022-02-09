@@ -21,7 +21,7 @@ const jwt = require('jsonwebtoken')
 // }
 
 const generateAccessToken = (use) => {
-    return jwt.sign(use, process.env.ACCESS_TOKEN_SECRET, /*{"expiresIn": '10m'}*/)
+    return jwt.sign(use, process.env.ACCESS_TOKEN_SECRET /*{"expiresIn": '10m'}*/)
 }
 
 module.exports.login = async (req, res) => {

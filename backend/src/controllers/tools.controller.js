@@ -7,18 +7,19 @@ module.exports.findTools = async (req, res) => {
 }
 
 module.exports.getTools = async (req, res) => {
-    const tool = await Tool.findAll(req.body.username)
-    console.log(tool)
-    if (tool == null) {
-        return res.status(400).send('Cannot find tool')
-    }
-    try {
-        const authenticate = await checkIsAuthenticated();
-        res.json(await authenticate);
-    } catch (e) {
-        console.log(e)
-        res.status(500).send()
-    }
+    res.json(await Tool.findTool(req.body.ownerID));
+    //console.log(tool)
+
+    // if (tool == null) {
+    //     return res.status(400).send('Cannot find tool')
+    // }
+    // try {
+    //     const authenticate = await checkIsAuthenticated();
+    //     res.json(await authenticate);
+    // } catch (e) {
+    //     console.log(e)
+    //     res.status(500).send()
+    // }
 };
 
 //who made it
@@ -43,7 +44,7 @@ module.exports.deleteTool = async (req, res) => {
     }
 }
 
-function checkIsAuthenticated (req, res, next) {
+const checkIsAuthenticated = (req, res, next) => {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
     if (token == null) return res.sendStatus(401)

@@ -7,6 +7,11 @@ Tool.findAll = async () => {
     return response.rows;
 }
 
+Tool.findTool = async (ownerID) => {
+    const findTool = await queryDB('SELECT * FROM tools WHERE owner_id = $1', [ownerID]);
+    return findTool.rows[0];
+}
+
 //TODO: Fill in owner_id as well 
 Tool.createTool = async (toolName, available, ownerID) => {
     const createTool = await queryDB('INSERT INTO tools (name, availability, owner_id) VALUES ($1, $2, $3) RETURNING *', [toolName, available, ownerID]);
@@ -14,8 +19,8 @@ Tool.createTool = async (toolName, available, ownerID) => {
 }
 
 // This deletes a tool with ID. 
-Tool.deleteTool = async (id) => {
-    const deleteTool = await queryDB('DELETE FROM tools WHERE id = $1 RETURNING *', [id]);
+Tool.deleteTool = async (toolName) => {
+    const deleteTool = await queryDB('DELETE FROM tools WHERE name = $1 RETURNING *', [toolName]);
     return deleteTool.rows;
 };
 
