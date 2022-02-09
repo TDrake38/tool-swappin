@@ -7,6 +7,7 @@ module.exports.findTools = async (req, res) => {
 }
 
 module.exports.getTools = async (req, res) => {
+    //This alone will return all the tools with the same owner_id
     res.json(await Tool.findTool(req.body.ownerID));
     //console.log(tool)
 
@@ -20,6 +21,10 @@ module.exports.getTools = async (req, res) => {
     //     console.log(e)
     //     res.status(500).send()
     // }
+}
+
+module.exports.specificTool = async (req, res) => {
+    res.json(await Tool.oneTool(req.body.toolID))
 }
 
 //who made it

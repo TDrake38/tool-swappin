@@ -12,6 +12,11 @@ Tool.findTool = async (ownerID) => {
     return findTool.rows;
 }
 
+Tool.oneTool = async (toolID) => {
+    const oneTool = await queryDB('SELECT * FROM tools WHERE id = $1', [toolID]);
+    return oneTool.rows[0];
+}
+
 //TODO: Fill in owner_id as well 
 Tool.createTool = async (toolName, available, ownerID) => {
     const createTool = await queryDB('INSERT INTO tools (name, availability, owner_id) VALUES ($1, $2, $3) RETURNING *', [toolName, available, ownerID]);

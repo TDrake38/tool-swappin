@@ -105,3 +105,13 @@ Content-Type: application/json
 {
     "ownerID": 4
 }
+
+###
+
+GET http://localhost:3000/oneTool
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJLeWxlIiwiaWF0IjoxNjQ0MTkwNDQwfQ.ZUBGeuV46SqnniyEaTtc3BkFT_bUnLGPPp6yTUiG7eM
+
+{
+    "toolID": 8
+}
