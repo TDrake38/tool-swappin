@@ -9,7 +9,7 @@ Tool.findAll = async () => {
 
 Tool.findTool = async (ownerID) => {
     const findTool = await queryDB('SELECT * FROM tools WHERE owner_id = $1', [ownerID]);
-    return findTool.rows[0];
+    return findTool.rows;
 }
 
 //TODO: Fill in owner_id as well 

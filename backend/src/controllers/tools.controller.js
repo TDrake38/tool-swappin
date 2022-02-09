@@ -20,7 +20,7 @@ module.exports.getTools = async (req, res) => {
     //     console.log(e)
     //     res.status(500).send()
     // }
-};
+}
 
 //who made it
 module.exports.createTool = async (req, res) => {
@@ -36,7 +36,7 @@ module.exports.createTool = async (req, res) => {
 //access control
 module.exports.deleteTool = async (req, res) => {
     try {
-        res.json(await Tool.deleteTool(req.body.id))
+        res.json(await Tool.deleteTool(req.body.toolName))
         console.log('tool deleted')
     } catch (e) { 
         console.error(e)

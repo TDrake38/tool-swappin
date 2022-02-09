@@ -83,7 +83,7 @@ POST http://localhost:3000/createTool
 Content-Type: application/json
 
 {
-    "toolName": "Hammer",
+    "toolName": "Ladder",
     "available": "Yes",
     "ownerID": 4
 }
@@ -93,7 +93,7 @@ DELETE  http://localhost:3000/deleteTool
 Content-Type: application/json
 
 {
-    "toolName": "Hammer"
+    "toolName": "Ladder"
 }
 
 ###

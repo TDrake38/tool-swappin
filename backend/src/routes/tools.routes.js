@@ -5,7 +5,7 @@ const registerTool = (app) => {
     app.get('/findTool', findTools)
     app.post('/createTool', createTool)
     app.delete('/deleteTool', deleteTool)
-    app.get('getTools', getTools)
+    app.get('/getTools', getTools)
 };
 
 module.exports = registerTool;
