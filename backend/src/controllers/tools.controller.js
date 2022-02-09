@@ -23,6 +23,13 @@ module.exports.getTools = async (req, res) => {
     // }
 }
 
+//This finds a tool by ID
+// module.exports.specificTool = async (req, res) => {
+//     res.json(await Tool.oneTool(req.body.toolID))
+// }
+
+
+//This is where we are going to test if Kyle has this tool in his JWT??
 module.exports.specificTool = async (req, res) => {
     res.json(await Tool.oneTool(req.body.toolID))
 }

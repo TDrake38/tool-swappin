@@ -12,9 +12,15 @@ Tool.findTool = async (ownerID) => {
     return findTool.rows;
 }
 
-Tool.oneTool = async (toolID) => {
-    const oneTool = await queryDB('SELECT * FROM tools WHERE id = $1', [toolID]);
-    return oneTool.rows[0];
+//This is to query for a spesific tool
+// Tool.oneTool = async (toolID) => {
+//     const oneTool = await queryDB('SELECT * FROM tools WHERE id = $1', [toolID]);
+//     return oneTool.rows[0];
+// }
+
+//This is going to be for linking user_id from users to owner_id from tools
+Tool.oneTool = async (toolID, userID) => {
+    const oneTool = await queryDB('SELECT * FROM users WHERE user_id = $1 INNER JOIN tools')
 }
 
 //TODO: Fill in owner_id as well 
