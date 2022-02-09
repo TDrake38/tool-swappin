@@ -90,10 +90,10 @@ Content-Type: application/json
 
 ###
 DELETE  http://localhost:3000/deleteTool
-Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJLeWxlIiwiaWF0IjoxNjQ0NDMyODQ0fQ.AH_juRq76eQUgv1wbiA9KPXnvM75yxCQRaE2ue_1ATQ
 
 {
-    "toolName": "Ladder"
+    "toolID": 8
 }
 
 ###

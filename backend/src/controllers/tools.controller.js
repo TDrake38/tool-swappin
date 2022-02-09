@@ -46,9 +46,26 @@ module.exports.createTool = async (req, res) => {
 }
 
 //access control
+// module.exports.deleteTool = async (req, res) => {
+//     try {
+//         res.json(await Tool.deleteTool(req.body.toolName))
+//         console.log('tool deleted')
+//     } catch (e) { 
+//         console.error(e)
+//         res.status(500).send()
+//     }
+// }
+
 module.exports.deleteTool = async (req, res) => {
+    
     try {
-        res.json(await Tool.deleteTool(req.body.toolName))
+        
+        res.json(await Tool.oneTool(req.body.toolID))
+        
+        //This does not compare yet
+        res.json(await bcrypt.compare(rows[0].owner_id === req.users.id))
+
+        res.json(await Tool.deleteTool(req.body.toolID))
         console.log('tool deleted')
     } catch (e) { 
         console.error(e)
@@ -56,9 +73,9 @@ module.exports.deleteTool = async (req, res) => {
     }
 }
 
-const checkIsAuthenticated = (req, res, next) => {
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
+module.exports.checkIsAuthenticated = async (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
     if (token == null) return res.sendStatus(401)
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, use) => {

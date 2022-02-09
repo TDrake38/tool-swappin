@@ -13,15 +13,15 @@ Tool.findTool = async (ownerID) => {
 }
 
 //This is to query for a spesific tool
-// Tool.oneTool = async (toolID) => {
-//     const oneTool = await queryDB('SELECT * FROM tools WHERE id = $1', [toolID]);
-//     return oneTool.rows[0];
-// }
+Tool.oneTool = async (toolID) => {
+    const oneTool = await queryDB('SELECT * FROM tools WHERE id = $1', [toolID]);
+    return oneTool.rows[0];
+}
 
 //This is going to be for linking user_id from users to owner_id from tools
-Tool.oneTool = async (toolID, userID) => {
-    const oneTool = await queryDB('SELECT * FROM users WHERE user_id = $1 INNER JOIN tools')
-}
+// Tool.oneTool = async (toolID, userID) => {
+//     const oneTool = await queryDB('SELECT * FROM users WHERE user_id = $1 INNER JOIN tools')
+// }
 
 //TODO: Fill in owner_id as well 
 Tool.createTool = async (toolName, available, ownerID) => {
@@ -30,8 +30,8 @@ Tool.createTool = async (toolName, available, ownerID) => {
 }
 
 // This deletes a tool with ID. 
-Tool.deleteTool = async (toolName) => {
-    const deleteTool = await queryDB('DELETE FROM tools WHERE name = $1 RETURNING *', [toolName]);
+Tool.deleteTool = async (toolID) => {
+    const deleteTool = await queryDB('DELETE FROM tools WHERE id = $1 RETURNING *', [toolID]);
     return deleteTool.rows;
 };
 
