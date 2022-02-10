@@ -35,12 +35,12 @@ module.exports.login = async (req, res) => {
         try { //console.log(req.body.password, user.passwords)
           if ( await bcrypt.compare(req.body.password, user.passwords)) {
             const username = req.body.username
-            const use = { "user_name": username }
+            const use = { username: username, id: user.id }
     
             const accessToken = generateAccessToken(use)
             //const refreshToken = jwt.sign(use, process.env.REFRESH_TOKEN_SECRET)
             //refreshTokens.push(refreshToken)
-            res.json({ "accessToken": accessToken/*, "refreshToken": refreshToken */})
+            res.json({ accessToken: accessToken/*, "refreshToken": refreshToken */})
             res.json(use.rows)
           } else {
             res.send('Not Allowed')
@@ -68,3 +68,15 @@ module.exports.logout = async (req, res) => {
 //             res.json({ "accessToken": accessToken })
 //         })
 // }
+
+module.exports.checkIsAuthenticated = async (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (token == null) return res.sendStatus(401)
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      if (err) return res.sendStatus(403)
+      req.user = user
+      next()
+  })
+}

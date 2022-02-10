@@ -1,5 +1,6 @@
 const Tool = require('../models/tools.model');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { checkIsAuthenticated } = require('./auth.controller')
 
 // this is a test to see if I can find a user.
 module.exports.findTools = async (req, res) => {
@@ -59,28 +60,19 @@ module.exports.createTool = async (req, res) => {
 module.exports.deleteTool = async (req, res) => {
     
     try {
-        
-        res.json(await Tool.oneTool(req.body.toolID))
-        
-        //This does not compare yet
-        res.json(await bcrypt.compare(rows[0].owner_id === req.users.id))
-
-        res.json(await Tool.deleteTool(req.body.toolID))
-        console.log('tool deleted')
+        const tool = await Tool.oneTool(req.params.id)
+        if (tool === undefined) return res.sendStatus(404)
+        if (parseInt(req.user.id, 10) !== tool.owner_id){
+            res.status(401).send()
+            console.log('No match')
+        } else {
+            res.json(await Tool.deleteTool(req.params.id))
+            console.log("Match, tool deleted")
+        }
     } catch (e) { 
         console.error(e)
         res.status(500).send()
     }
 }
 
-module.exports.checkIsAuthenticated = async (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-    if (token == null) return res.sendStatus(401)
 
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, use) => {
-        if (err) return res.sendStatus(403)
-        req.use = use
-        next()
-    })
-}

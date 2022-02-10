@@ -14,7 +14,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "Kyle",
+    "username": "Tom",
     "password": "password"
 }
 
@@ -33,7 +33,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username": "Kyle",
+    "username": "Tom",
     "password": "password"
 }
 
@@ -85,16 +85,12 @@ Content-Type: application/json
 {
     "toolName": "Ladder",
     "available": "Yes",
-    "ownerID": 4
+    "ownerID": 8
 }
 
 ###
-DELETE  http://localhost:3000/deleteTool
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJLeWxlIiwiaWF0IjoxNjQ0NDMyODQ0fQ.AH_juRq76eQUgv1wbiA9KPXnvM75yxCQRaE2ue_1ATQ
-
-{
-    "toolID": 8
-}
+DELETE  http://localhost:3000/deleteTool/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRvbSIsImlkIjoiOCIsImlhdCI6MTY0NDQ1MTY4NH0.lLSFbLYsWMMjNJ-Yx8DhDu43U3N4StL8smnKss2l0Ls
 
 ###
 
