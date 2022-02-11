@@ -20,11 +20,6 @@ UserAuth.findSomeone = async (req, res) => {
     } catch (err) {
         console.error(err.message);
     }
-
-    // doesn't return anything now, but will console log lol
-    //const findUser = await queryDB('SELECT * FROM users WHERE user_name = $1', [username]);
-    //console.log('found user')
-    //return findUser.rows;
 }
 
 module.exports = UserAuth;

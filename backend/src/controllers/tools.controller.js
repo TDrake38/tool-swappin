@@ -1,6 +1,5 @@
 const Tool = require('../models/tools.model');
 const jwt = require('jsonwebtoken');
-const { checkIsAuthenticated } = require('./auth.controller')
 
 // this is a test to see if I can find a user.
 module.exports.findTools = async (req, res) => {
@@ -11,24 +10,12 @@ module.exports.getTools = async (req, res) => {
     //This alone will return all the tools with the same owner_id
     res.json(await Tool.findTool(req.body.ownerID));
     //console.log(tool)
-
-    // if (tool == null) {
-    //     return res.status(400).send('Cannot find tool')
-    // }
-    // try {
-    //     const authenticate = await checkIsAuthenticated();
-    //     res.json(await authenticate);
-    // } catch (e) {
-    //     console.log(e)
-    //     res.status(500).send()
-    // }
 }
 
 //This finds a tool by ID
 // module.exports.specificTool = async (req, res) => {
 //     res.json(await Tool.oneTool(req.body.toolID))
 // }
-
 
 //This is where we are going to test if Kyle has this tool in his JWT??
 module.exports.specificTool = async (req, res) => {
@@ -45,17 +32,6 @@ module.exports.createTool = async (req, res) => {
         res.status(500).send()
     }
 }
-
-//access control
-// module.exports.deleteTool = async (req, res) => {
-//     try {
-//         res.json(await Tool.deleteTool(req.body.toolName))
-//         console.log('tool deleted')
-//     } catch (e) { 
-//         console.error(e)
-//         res.status(500).send()
-//     }
-// }
 
 module.exports.deleteTool = async (req, res) => {
     
