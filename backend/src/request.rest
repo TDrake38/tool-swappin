@@ -111,3 +111,24 @@ Content-Type: application/json
 {
     "toolID": 8
 }
+
+###
+
+GET http://localhost:3000/findMessage
+
+###
+
+POST http://localhost:3000/createMessage
+Content-Type: application/json
+
+{
+    "message": "Hey this is a test message",
+    "senderID": 1,
+    "recipientID": 8
+}
+
+###
+DELETE  http://localhost:3000/deleteMessage/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRvbSIsImlkIjoiOCIsImlhdCI6MTY0NDQ1MTY4NH0.lLSFbLYsWMMjNJ-Yx8DhDu43U3N4StL8smnKss2l0Ls
+
+###
