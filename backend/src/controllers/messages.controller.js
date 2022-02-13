@@ -12,15 +12,15 @@ module.exports.getMessage = async (req, res) => {
 }
 
 //This is where we are going to test if Kyle has this tool in his JWT??
-module.exports.specificMessage = async (req, res) => {
-    res.json(await Messages.oneMessage(req.body.messageID))
-}
+// module.exports.specificMessage = async (req, res) => {
+//     res.json(await Messages.oneMessage(req.body.messageID))
+// }
 
 //who made it
-module.exports.createTool = async (req, res) => {
+module.exports.createMessage = async (req, res) => {
     try {
-        res.json(await Tool.createTool(req.body.message, req.body.senderID, req.body.recipientID)).send()
-        console.log('tool created')
+        res.json(await Messages.createMessage(req.body.message, req.body.senderID, req.body.recipientID)).send()
+        console.log('message sent')
     } catch (e) { 
         console.error(e)
         res.status(500).send()
@@ -32,7 +32,7 @@ module.exports.deleteMessage = async (req, res) => {
     try {
         const message = await Messages.oneMessage(req.params.id)
         if (message === undefined) return res.sendStatus(404)
-        if (parseInt(req.user.id, 10) !== message.owner_id){
+        if (parseInt(req.user.id, 10) !== message.id_sender){
             res.status(401).send()
             console.log('No match')
         } else {
