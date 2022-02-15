@@ -7,7 +7,6 @@ const registerTool = (app) => {
     app.post('/createTool', createTool)
     app.delete('/deleteTool/:id', checkIsAuthenticated, deleteTool)
     app.get('/getTools', getTools)
-    app.get('/oneTool', specificTool)
 };
 
 module.exports = registerTool;

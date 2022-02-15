@@ -1,5 +1,4 @@
 const Tool = require('../models/tools.model');
-const jwt = require('jsonwebtoken');
 
 // this is a test to see if I can find a user.
 module.exports.findTools = async (req, res) => {
@@ -10,16 +9,6 @@ module.exports.getTools = async (req, res) => {
     //This alone will return all the tools with the same owner_id
     res.json(await Tool.findTool(req.body.ownerID));
     //console.log(tool)
-}
-
-//This finds a tool by ID
-// module.exports.specificTool = async (req, res) => {
-//     res.json(await Tool.oneTool(req.body.toolID))
-// }
-
-//This is where we are going to test if Kyle has this tool in his JWT??
-module.exports.specificTool = async (req, res) => {
-    res.json(await Tool.oneTool(req.body.toolID))
 }
 
 //who made it
