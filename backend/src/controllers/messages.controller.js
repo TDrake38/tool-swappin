@@ -32,9 +32,10 @@ module.exports.deleteMessage = async (req, res) => {
     try {
         const message = await Messages.oneMessage(req.params.id)
         if (message === undefined) return res.sendStatus(404)
-        if (parseInt(req.user.id, 10) !== message.id_sender){
+        if (req.user.id !== message.id_sender){
+            console.log("userID;" + parseInt(req.user.id, 10), message)
             res.status(401).send()
-            console.log('No match')
+            //console.log('No match')
         } else {
             res.json(await Messages.deleteMessage(req.params.id))
             console.log("Match, messaged deleted")

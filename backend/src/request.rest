@@ -121,13 +121,13 @@ Content-Type: application/json
 
 {
     "message": "Is this available",
-    "senderID": 8,
-    "recipientID": 9
+    "senderID": 9,
+    "recipientID": 8
 }
 
 ###
 
-DELETE  http://localhost:3000/deleteMessage/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNoYW5ub24iLCJpZCI6IjkiLCJpYXQiOjE2NDQ4OTAyMzB9.cRzAQU_1EhBwm7_Y2mhMEz-a7yzxeiCKCkCPqq4im8U
+DELETE  http://localhost:3000/deleteMessage/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNoYW5ub24iLCJpZCI6IjkiLCJpYXQiOjE2NDUwNTU4MTN9.fuQXPwNo0QKAgxnoeO1HpEuefT89WQw6XnlpaM5_FBM
 
 ###
