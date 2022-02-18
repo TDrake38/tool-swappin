@@ -7,7 +7,7 @@ module.exports.findMessages = async (req, res) => {
 
 module.exports.getMessage = async (req, res) => {
     //This alone will return all the tools with the same owner_id
-    res.json(await Messages.findMessage(req.body.senderID));
+    res.json(await Messages.findMessage(req.user.id));
     //console.log(tool)
 }
 
@@ -19,7 +19,7 @@ module.exports.getMessage = async (req, res) => {
 //who made it
 module.exports.createMessage = async (req, res) => {
     try {
-        res.json(await Messages.createMessage(req.body.message, req.body.senderID, req.body.recipientID)).send()
+        res.json(await Messages.createMessage(req.body.message, req.user.id, req.body.recipientID)).send()
         console.log('message sent')
     } catch (e) { 
         console.error(e)

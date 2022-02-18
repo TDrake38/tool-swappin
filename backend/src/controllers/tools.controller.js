@@ -14,7 +14,7 @@ module.exports.getTools = async (req, res) => {
 //who made it
 module.exports.createTool = async (req, res) => {
     try {
-        res.json(await Tool.createTool(req.body.toolName, req.body.available, req.body.ownerID)).send()
+        res.json(await Tool.createTool(req.body.toolName, req.body.available, req.user.id)).send()
         console.log('tool created')
     } catch (e) { 
         console.error(e)
