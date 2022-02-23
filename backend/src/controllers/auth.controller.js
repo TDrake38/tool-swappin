@@ -15,7 +15,7 @@ module.exports.login = async (req, res) => {
             return res.status(400).send('Cannot find user')
         }
         try { 
-          if ( await bcrypt.compare(req.body.password, user.passwords)) {
+          if ( await bcrypt.compare(req.body.password, user.password)) {
             const username = req.body.username
             const jwtData = { username: username, id: user.id }
             const accessToken = generateAccessToken(jwtData)
