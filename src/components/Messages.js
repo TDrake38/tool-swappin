@@ -6,7 +6,6 @@ import './Messages.css'
 import Rating from "./FakeRating";
 
 
-
 function Messages () {
 
     const ref = useRef()

@@ -1,30 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import Drake from '../photos/Drake.JPG'
 import './People.css'
 import PeepModal from "./UserModal";
 
-const people = [
-    'Joe Smith',
-    'Sophie Mill',
-    'Iphigenia Arie',
-    'Melchiorre Hana',
-    'Avdotya Claudia',
-];
-
+const fetchData = async () => {
+    const response = await fetch("http://localhost:3001/users");
+    const json = await response.json();
+    return json;
+};
 
 function People(){
+
+    const [response, setResponse] = useState([]);
+
+    useEffect(() => {
+        let mounted = true;
+    
+        const fetchDataAsync = async () => {
+          const data = await fetchData();
+          if (mounted) {
+            setResponse(data);
+          }
+        };
+    
+        fetchDataAsync();
+    
+        return () => {
+          mounted = false;
+        };
+      }, []);
+    
+    console.log(response)
+
+
     return(
     <>
         <div>
             <div>
                 <Card.Header className="title">Contacts</Card.Header>
-                {people.map((people, index) =>
+                {response.map((person, index) =>
                 <Card className="tard" key={index}>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <img src={Drake} alt="profile" className="picture"/>
-                            {people}
+                            {person.user_name}
                             <PeepModal />
                         </ListGroup.Item>
                     </ListGroup>
