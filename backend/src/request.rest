@@ -33,7 +33,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username": "Shannon",
+    "username": "Tyler",
     "password": "password"
 }
 
@@ -83,9 +83,9 @@ POST http://localhost:3000/createTool
 Content-Type: application/json
 
 {
-    "toolName": "Ladder",
+    "toolName": "Pipe Wrench",
     "available": "Yes",
-    "ownerID": 8
+    "ownerID": 10
 }
 
 ###

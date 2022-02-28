@@ -2,7 +2,6 @@ const { findMessages, createMessage, deleteMessage} = require('../controllers/me
 const { checkIsAuthenticated } = require('../controllers/auth.controller')
 
 const messages = (app) => { 
-    console.log('messages work')
     app.get('/findMessage', findMessages)
     app.post('/createMessage', createMessage)
     app.delete('/deleteMessage/:id', checkIsAuthenticated, deleteMessage)
