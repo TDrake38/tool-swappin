@@ -11,7 +11,6 @@ module.exports.getTools = async (req, res) => {
     //console.log(tool)
 }
 
-//who made it
 //TODO: find out why req.user.id wouldnt work and i had to change it back to INSERT not UPSERT
 module.exports.createTool = async (req, res) => {
     try {

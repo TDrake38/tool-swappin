@@ -49,14 +49,3 @@ module.exports.checkIsAuthenticated = async (req, res, next) => {
       next()
   })
 }
-
-// module.exports.token = async (req, res) => {
-//     const refreshToken = req.body.token
-//         if (refreshToken == null) return res.sendStatus(401)
-//         if (!refreshTokens.includes(refreshToken)) return res.sendStatus(403)
-//         jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, use) => {
-//             if (err) return res.sendStatus(403)
-//             const accessToken = generateAccessToken({"name": use.name})
-//             res.json({ "accessToken": accessToken })
-//         })
-// }

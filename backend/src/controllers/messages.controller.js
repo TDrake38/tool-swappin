@@ -11,11 +11,6 @@ module.exports.getMessage = async (req, res) => {
     //console.log(tool)
 }
 
-//This is where we are going to test if Kyle has this tool in his JWT??
-// module.exports.specificMessage = async (req, res) => {
-//     res.json(await Messages.oneMessage(req.body.messageID))
-// }
-
 //who made it
 module.exports.createMessage = async (req, res) => {
     try {
