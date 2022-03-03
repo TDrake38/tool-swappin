@@ -39,8 +39,8 @@ function People(){
         <div>
             <div>
                 <Card.Header className="title">Contacts</Card.Header>
-                {response.map((person, index) =>
-                <Card className="tard" key={index}>
+                {response.map((person) =>
+                <Card className="tard" key={person.id}>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <img src={Drake} alt="profile" className="picture"/>
