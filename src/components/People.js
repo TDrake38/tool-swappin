@@ -31,7 +31,7 @@ function People(){
         };
       }, []);
     
-    console.log(response)
+    //console.log(response)
 
 
     return(

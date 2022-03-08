@@ -120,9 +120,9 @@ POST http://localhost:3000/createMessage
 Content-Type: application/json
 
 {
-    "message": "Is this available",
-    "senderID": 9,
-    "recipientID": 8
+    "message": "Available?",
+    "senderID": 4,
+    "recipientID": 10
 }
 
 ###
