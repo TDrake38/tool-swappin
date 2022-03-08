@@ -17,13 +17,13 @@ User.findUser = async (username) => {
 }
 
 User.createUser = async (username, password) => {
-    const createUser = await queryDB('UPSERT INTO users (user_name, password) VALUES ($1, $2) RETURNING *', [username, password]);
+    const createUser = await queryDB('INSERT INTO users (user_name, password) VALUES ($1, $2) RETURNING id, name, area, user_name', [username, password]);
     return createUser.rows;
 }
 
 // TODO: if you want
 User.deleteUser = async (id) => {
-    const deleteUser = await queryDB('DELETE FROM users WHERE id = $1 RETURNING *', [id]);
+    const deleteUser = await queryDB('DELETE FROM users WHERE id = $1 RETURNING id, name, area, user_name', [id]);
     return deleteUser.rows;
 };
 

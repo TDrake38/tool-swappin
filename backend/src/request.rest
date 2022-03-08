@@ -6,7 +6,7 @@ GET http://localhost:3000/findUser
 Content-Type: application/json
 
 {
-    "username": "Kyle"
+    "username": "Tom"
 }
 
 ###
@@ -14,7 +14,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "Tyler",
+    "username": "Tom",
     "password": "password"
 }
 
@@ -24,7 +24,7 @@ DELETE  http://localhost:3000/delete
 Content-Type: application/json
 
 {
-    "id": 7
+    "id": 8
 }
 
 ###
