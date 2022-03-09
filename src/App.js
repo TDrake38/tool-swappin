@@ -12,10 +12,6 @@ import NavBar from './components/NavBar';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  useEffect(() => {
-    console.log('logged in')
-  }, [loggedIn])
-
   return (
     <>
       <BrowserRouter>
