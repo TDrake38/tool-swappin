@@ -4,16 +4,16 @@ import LoginContext from "../LogInContext";
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
-  const [logIn, setLogIn] = useState();
+  // const [logIn, setLogIn] = useState();
 
   const buttonSubmit = (e) => {
     e.preventDefault();
     setLoggedIn(true)
   }
 
-  useEffect(() => {
-    console.log('logged in')
-  }, [logIn])
+  // useEffect(() => {
+  //   console.log('logged in')
+  // }, [logIn])
 
   return (
     <Modal

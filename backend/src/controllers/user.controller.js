@@ -2,7 +2,12 @@ const User = require('../models/user.model');
 const bcrypt = require('bcrypt')
 
 module.exports.getAll = async (req, res) => {
-    res.json(await User.findAll());
+    const allUsers = await User.findAll();
+    res.json(allUsers.map((original) => {
+        return {
+            user_name: original.user_name
+        }
+    }));
 }
 
 // this is a test to see if I can find a user.
