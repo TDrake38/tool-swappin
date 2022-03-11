@@ -3,13 +3,13 @@ import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
 
 function MyModal(props) {
-  const [, setLoggedIn] = useContext(LoginContext);
-  // const [logIn, setLogIn] = useState();
+  // const [, setLoggedIn] = useContext(LoginContext);
+  // // const [logIn, setLogIn] = useState();
 
-  const buttonSubmit = (e) => {
-    e.preventDefault();
-    setLoggedIn(true)
-  }
+  // const buttonSubmit = (e) => {
+  //   e.preventDefault();
+  //   setLoggedIn(true)
+  // }
 
   // useEffect(() => {
   //   console.log('logged in')
@@ -27,7 +27,7 @@ function MyModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={buttonSubmit}>
+        <Form /*onSubmit={/*buttonSubmit}*/>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />

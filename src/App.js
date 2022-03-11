@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import { Container } from "react-bootstrap";
-import LoginContext from './LogInContext';
+// import LoginContext from './LogInContext';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Messages from './components/Messages';
