@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import { Container } from "react-bootstrap";
-// import LoginContext from './LogInContext';
+import LoginContext from './LogInContext';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Messages from './components/Messages';
@@ -11,6 +11,15 @@ import NavBar from './components/NavBar';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [logIn, setLogIn] = useState('')
+
+  const fetchUser = async signal => {
+    const url = new URL('http://localhost:3001/users');
+    const response = await fetch(url, { signal });
+    const { value } = await response.json();
+  
+    setLogIn(decode(value.users));
+  };
 
   return (
     <>
