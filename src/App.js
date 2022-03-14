@@ -12,11 +12,11 @@ import NavBar from './components/NavBar';
 
 function App() {
   //const [loggedIn, setLoggedIn] = useState(false);
-  //const [authenticated, user] = useAuth(auth);
 
 //This is the site I am following to implement the user log in
   //https://morioh.com/p/27ce6491ad3c
 
+  //const [authenticated, user] = useAuth(auth);
   // const [logIn, setLogIn] = useState('');
 
   // const fetchUser = async signal => {
