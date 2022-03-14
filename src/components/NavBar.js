@@ -4,6 +4,7 @@ import { Navbar, Nav, Container,} from 'react-bootstrap';
 import LoginModal from './LoginModal';
 import './NavBar.css'
 import LogOutButton from './LogOutButton';
+import LoginButton from './Login';
 //import LoginContext from '../LogInContext';
 
 
@@ -18,7 +19,7 @@ const NavBar = () => {
         <Navbar.Brand>
           <Nav.Link as={Link} to="/" className="title-link">Tool Swapping</Nav.Link>
         </Navbar.Brand>
-        <LoginModal />
+        <LoginButton />
       </Container>
     </Navbar>
       <Container>
