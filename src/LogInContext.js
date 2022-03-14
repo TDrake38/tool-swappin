@@ -1,5 +1,5 @@
-// import React from "react";
+import React from "react";
 
-// const LoginContext = React.createContext()
+const LoginContext = React.createContext()
 
-// export default LoginContext;
+export default LoginContext;
