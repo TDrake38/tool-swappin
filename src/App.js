@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
+import { useAuth } from './components/Auth';
 import { Container } from "react-bootstrap";
 import LoginContext from './LogInContext';
 import Home from './components/Home';
@@ -11,6 +12,7 @@ import NavBar from './components/NavBar';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  //const [authenticated, user] = useAuth(auth);
 
 //This is the site I am following to implement the user log in
   //https://morioh.com/p/27ce6491ad3c

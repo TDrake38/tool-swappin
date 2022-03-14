@@ -1,13 +1,20 @@
 import React, { useContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
+//import { useAuth } from "./Auth";
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
+  //const [authenticated, user] = useAuth(/*something goes here*/);
 
   const buttonSubmit = (e) => {
     e.preventDefault();
     setLoggedIn(true)
+  }
+
+  const loginSubmit = (e) => {
+    e.preventDefault();
+
   }
 
   return (
