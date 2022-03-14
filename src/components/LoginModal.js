@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import LoginContext from "../LogInContext";
+//import LoginContext from "../LogInContext";
 //import { useAuth } from "./Auth";
 
 function MyModal(props) {
-  const [, setLoggedIn] = useContext(LoginContext);
+  //const [, setLoggedIn] = useContext(LoginContext);
   //const [authenticated, user] = useAuth(/*something goes here*/);
 
   const buttonSubmit = (e) => {
     e.preventDefault();
-    setLoggedIn(true)
+    //setLoggedIn(true)
   }
 
   const loginSubmit = (e) => {
@@ -29,7 +29,7 @@ function MyModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={buttonSubmit}>
+        <Form /*onSubmit={buttonSubmit}*/>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
