@@ -10,7 +10,7 @@ function Messages () {
 
     const ref = useRef()
     const [messages, setMessages] = useState([])
-    const [person, setPerson] = useState()
+    //const [person, setPerson] = useState()
     
     const send = (e) => {
         e.preventDefault();
