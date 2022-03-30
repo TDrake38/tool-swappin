@@ -4,7 +4,6 @@ import { Navbar, Nav, Container,} from 'react-bootstrap';
 import LoginModal from './LoginModal';
 import './NavBar.css'
 import LogOutButton from './LogOutButton';
-//import LoginButton from './Login';
 import LoginContext from '../LogInContext';
 
 

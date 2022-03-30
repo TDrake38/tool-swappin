@@ -19,8 +19,8 @@ Tool.oneTool = async (toolID) => {
 }
 
 //TODO: Fill in owner_id as well 
-Tool.createTool = async (toolName, available, ownerID) => {
-    const createTool = await queryDB('INSERT INTO tools (name, availability, owner_id) VALUES ($1, $2, $3) RETURNING *', [toolName, available, ownerID]);
+Tool.createTool = async (toolName, available) => {
+    const createTool = await queryDB('INSERT INTO tools (name, availability) VALUES ($1, $2) RETURNING *', [toolName, available]);
     return createTool.rows;
 }
 
