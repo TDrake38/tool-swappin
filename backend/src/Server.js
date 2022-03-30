@@ -2,6 +2,7 @@ const registerUsers = require('./routes/user.routes');
 const reqisterTool = require('./routes/tools.routes')
 const messages = require('./routes/messages.routes')
 const userAuth = require('./routes/auth.routes')
+const {checkIsAuthenticated} = require('./controllers/auth.controller')
 
 // Server stuff
 const { config } = require('dotenv');
@@ -12,6 +13,7 @@ const app = express()
 // const jwt = require('jsonwebtoken')
 
 app.use(express.json())
+app.use(checkIsAuthenticated)
 
 userAuth(app);
 registerUsers(app);

@@ -13,6 +13,7 @@ module.exports.getTools = async (req, res) => {
 
 //TODO: find out why req.user.id wouldnt work and i had to change it back to INSERT not UPSERT req.body.ownerID
 module.exports.createTool = async (req, res) => {
+    console.log(req.body)
     try {
         res.json(await Tool.createTool(req.body.toolName, req.body.available, req.user.id)).send()
         console.log('tool created')

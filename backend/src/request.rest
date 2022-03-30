@@ -33,7 +33,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "username": "Tom",
+    "username": "Betty",
     "password": "password"
 }
 
@@ -80,12 +80,12 @@ GET http://localhost:3000/findTool
 ###
 
 POST http://localhost:3000/createTool
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRvbSIsImlkIjoiOCIsImlhdCI6MTY0NDQ1MTY4NH0.lLSFbLYsWMMjNJ-Yx8DhDu43U3N4StL8smnKss2l0Ls
-
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjQ4NjgxODE3fQ.TLoJyUZ6wUoPTm5b_ZgMC4_DerDbg7vp18i9Ncus_Nk
 
 {
     "toolName": "Pipe Wrench",
-    "available": "Yes",
+    "available": "Yes"
 }
 
 ###

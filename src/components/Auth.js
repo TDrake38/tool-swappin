@@ -6,9 +6,7 @@ export const useAuth = auth => {
 
     useEffect(() => {
         auth.isAuthenticated().then(isAuthenticated => {
-            if (isAuthenticated !== authenticated) {
-                setAuthenticated(isAuthenticated);
-            }
+            setAuthenticated(isAuthenticated);
         });
     });
 
