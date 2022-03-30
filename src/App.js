@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
-//import { useAuth } from './components/Auth';
 import { Container } from "react-bootstrap";
 import LoginContext from './LogInContext';
 import Home from './components/Home';
