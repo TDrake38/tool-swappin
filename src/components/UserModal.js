@@ -4,11 +4,7 @@ import Rating from "./FakeRating";
 import Sammy from "../photos/Sammy.jpg"
 import worker from "../photos/worker.png"
 
-
-
 function PeopleModal(props) {
-
-  
     return (
       <Modal
         {...props}
