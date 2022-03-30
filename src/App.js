@@ -8,14 +8,16 @@ import Messages from './components/Messages';
 import Search from './components/Search';
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom"
 import NavBar from './components/NavBar';
+import { useAuth } from "./components/Auth"
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  // const [authenticated, setAuthenticated] = useState("");
 
   return (
     <>
       <BrowserRouter>
-        <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
+        <LoginContext.Provider value={[loggedIn, setLoggedIn /*authenticated, setAuthenticated*/]}>
           <NavBar />
           <Container>
             <Switch>
@@ -23,7 +25,7 @@ function App() {
               <Route path="/search" exact component={Search} />  
               <Route path="/" exact component={Home}/>
               <Route path="/profile">            
-                {loggedIn ? <Profile /> : <Redirect to="/"/>}
+                {/*authenticated*/loggedIn ? <Profile /> : <Redirect to="/"/>}
               </Route>
               <Route render={() => <div>404</div>} />
             </Switch>
@@ -32,23 +34,6 @@ function App() {
       </BrowserRouter>
     </>
   )
-  // return (
-  //   <>
-  //     <BrowserRouter>
-  //         <NavBar />
-  //         <Container>
-  //           <Switch>
-  //             <Route path="/messages" exact component={Messages} />
-  //             <Route path="/search" exact component={Search} />
-  //             <Route path="/profile" exact component={Profile}>            
-  //             </Route>  
-  //             <Route path="/" exact component={Home}/>
-  //             <Route render={() => <div>404</div>} />
-  //           </Switch>
-  //         </Container>
-  //     </BrowserRouter>
-  //   </>
-  // )
 }
 
 export default App;

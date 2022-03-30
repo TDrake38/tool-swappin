@@ -13,6 +13,8 @@ const fetchData = async () => {
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
+  // const [authenticated, setAuthenticated] = useState("");
+  // const [user, setUser] = useState("");
 
   const buttonSubmit = (e) => {
     e.preventDefault();
