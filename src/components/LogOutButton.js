@@ -13,7 +13,6 @@ function LogOutButton () {
         alert('Logged out!')
         history.push("/")
     }
-
     return (
         <Button variant="dark" onClick={logOut}>Log Out</Button>
     )

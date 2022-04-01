@@ -11,8 +11,6 @@ import Tool from "./ToolList";
 
 
 function Profile() {
-
-
     return (
         <>
             <div className="profile">

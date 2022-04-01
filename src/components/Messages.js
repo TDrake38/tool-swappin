@@ -7,18 +7,15 @@ import Rating from "./FakeRating";
 
 
 function Messages () {
-
     const ref = useRef()
     const [messages, setMessages] = useState([])
     //const [person, setPerson] = useState()
-    
     const send = (e) => {
         e.preventDefault();
         const [input] = e.target.elements;
         setMessages([...messages, input.value]);
         ref.current.scrollTop = ref.current.scrollHeight;
     }
-
     return(
         <>
             <div  className="messages">

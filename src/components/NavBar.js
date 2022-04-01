@@ -8,9 +8,8 @@ import LoginContext from '../LogInContext';
 
 
 const NavBar = () => {
-
   const [isLoggedIn] = useContext(LoginContext)
-
+  
   return (
     <>
     <Navbar bg="primary" variant="dark">

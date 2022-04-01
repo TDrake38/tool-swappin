@@ -3,11 +3,9 @@ import { FormControl, InputGroup, Button } from "react-bootstrap";
 import './SearchBar.css'
 
 function SearchBar () {
-
     const search = (e) => {
         console.log("Searching.....")
     }
-
     return (
         <>
             <InputGroup className="mb-3 s-bar">

@@ -10,14 +10,11 @@ const tools = [
     'Tool 3',
 ];
 
-
 function Tool(){
-
     const delet = (e) => {
         e.preventDefault();
         console.log("Tool Deleted")
     }
-
     return(
     <>
         <div>

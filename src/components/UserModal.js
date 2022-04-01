@@ -28,7 +28,6 @@ function PeopleModal(props) {
   
   function PeepModal() {
     const [modalShow, setModalShow] = React.useState(false);
-  
     return (
       <>
         <img src={worker} alt="person" onClick={() => setModalShow(true)}/>

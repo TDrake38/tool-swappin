@@ -10,7 +10,6 @@ const fetchData = async () => {
   return json;
 };
 
-
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
   // const [authenticated, setAuthenticated] = useState([]);

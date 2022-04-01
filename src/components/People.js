@@ -11,7 +11,6 @@ const fetchData = async () => {
 };
 
 function People(){
-
     const [response, setResponse] = useState([]);
 
     useEffect(() => {
@@ -32,7 +31,6 @@ function People(){
       }, []);
     
     console.log(response)
-
 
     return(
     <>
