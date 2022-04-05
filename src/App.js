@@ -8,7 +8,7 @@ import Messages from './components/Messages';
 import Search from './components/Search';
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom"
 import NavBar from './components/NavBar';
-import { useAuth } from "./components/Auth"
+import { UseAuth } from "./components/Login"
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);

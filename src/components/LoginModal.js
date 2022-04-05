@@ -1,42 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
-import { useAuth } from "./Auth"
 
-
-const fetchData = async () => {
-  const response = await fetch("http://localhost:3001/login");
-  const json = await response.json();
-  return json;
-};
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
-  // const [authenticated, setAuthenticated] = useState([]);
-
-//   useEffect(() => {
-//     let mounted = true;
-
-//     const fetchDataAsync = async () => {
-//       const data = await fetchData();
-//       if (mounted) {
-//         setAuthenticated(data);
-//       }
-//     };
-
-//     fetchDataAsync();
-
-//     return () => {
-//       mounted = false;
-//     };
-//   }, []);
-
-// console.log(response)
-
-// const loginSubmit = (e) => {
-  //   e.preventDefault();
-  //   setAuthenticated("")
-  // }
 
   const buttonSubmit = (e) => {
     e.preventDefault();
@@ -58,11 +26,11 @@ function MyModal(props) {
         <Form onSubmit={buttonSubmit/*loginSubmit*/}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
-            <Form.Control type="text" placeholder="Username" />
+            <Form.Control type="text" placeholder="Username" id="username" name="username"/>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Password" id="password" name="password"/>
           </Form.Group>
           <Button variant="primary" type="submit">
             Submit
