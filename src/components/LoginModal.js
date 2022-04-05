@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
 
-const login = async ({ username, password}) => {
-  const response = fetch("http://localhost:3001/login",{ username: username, password: password } );
-  const json = await response.json();
-  console.log(json);
-  return json;
+const handleSubmit = async ({ username, password}) => {
+  const response = await fetch("/login",{ username: username, password: password } );
+  const { jwt_token } = await response.json()
+  await login({ jwt_token })
+  console.log(login);
 }
 
 function MyModal(props) {
@@ -14,8 +14,8 @@ function MyModal(props) {
 
   const buttonSubmit = (e) => {
     e.preventDefault();
-    login();
-    setLoggedIn(true)
+    handleSubmit();
+    setLoggedIn(token)
   }
 
   return (
