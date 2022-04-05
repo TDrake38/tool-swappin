@@ -6,25 +6,26 @@ const fetchData = async () => {
     return json;
 };
 
-// const login = async (username, password) => {
-//     const response = await fetch("http://localhost:3001/login",{ username: req.body.username, password: req.body.password } );
-//     const json = await response.json();
-//     return json;
+const login = async (username, password) => {
+    const response = await fetch("http://localhost:3001/login",{ username: username, password: password } );
+    const json = await response.json();
+    console.log(response);
+    return json;
+}
 
-
-function UseLogin (){
+function useLogin (){
     const [authenticated, setAuthenticated] = useState(null);
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        fetchData.isAuthenticated().then(isAuthenticated => {
+        login.isAuthenticated().then(isAuthenticated => {
             setAuthenticated(isAuthenticated);
         });
     });
 
     useEffect(() => {
         if (authenticated) {
-            fetchData.getUser().then(setUser);
+            login.getUser().then(setUser);
         } else {
             setUser(null);
         }
@@ -35,4 +36,4 @@ function UseLogin (){
     
 };
 
-export default UseLogin;
+export default useLogin;
