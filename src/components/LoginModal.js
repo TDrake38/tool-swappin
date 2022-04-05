@@ -1,13 +1,20 @@
 import React, { useContext, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
-import useLogin from "./Login";
+
+const login = async ({ username, password}) => {
+  const response = fetch("http://localhost:3001/login",{ username: username, password: password } );
+  const json = await response.json();
+  console.log(json);
+  return json;
+}
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
 
   const buttonSubmit = (e) => {
     e.preventDefault();
+    login();
     setLoggedIn(true)
   }
 
@@ -23,7 +30,7 @@ function MyModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={useLogin/*buttonSubmit,loginSubmit*/}>
+        <Form onSubmit={buttonSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
             <Form.Control type="text" placeholder="Username" id="username" name="username"/>

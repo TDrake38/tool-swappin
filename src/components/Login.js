@@ -6,26 +6,19 @@ const fetchData = async () => {
     return json;
 };
 
-const login = async (username, password) => {
-    const response = await fetch("http://localhost:3001/login",{ username: username, password: password } );
-    const json = await response.json();
-    console.log(response);
-    return json;
-}
-
 function useLogin (){
     const [authenticated, setAuthenticated] = useState(null);
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        login.isAuthenticated().then(isAuthenticated => {
+        fetchData.isAuthenticated().then(isAuthenticated => {
             setAuthenticated(isAuthenticated);
         });
     });
 
     useEffect(() => {
         if (authenticated) {
-            login.getUser().then(setUser);
+            fetchData.getUser().then(setUser);
         } else {
             setUser(null);
         }
