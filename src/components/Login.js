@@ -1,4 +1,3 @@
-import req from "express/lib/request";
 import { useState, useEffect} from "react";
 
 const fetchData = async () => {
@@ -7,29 +6,33 @@ const fetchData = async () => {
     return json;
 };
 
-const login = ({ username, password }) => {
-    fetch("/login", { username: req.body.username, password: req.body.password })
-  }
+// const login = async (username, password) => {
+//     const response = await fetch("http://localhost:3001/login",{ username: req.body.username, password: req.body.password } );
+//     const json = await response.json();
+//     return json;
 
-function UseAuth (){
+
+function UseLogin (){
     const [authenticated, setAuthenticated] = useState(null);
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        login.isAuthenticated().then(isAuthenticated => {
+        fetchData.isAuthenticated().then(isAuthenticated => {
             setAuthenticated(isAuthenticated);
         });
     });
 
     useEffect(() => {
         if (authenticated) {
-            login.getUser().then(setUser);
+            fetchData.getUser().then(setUser);
         } else {
             setUser(null);
         }
     }, [authenticated]);
 
+    console.log(authenticated, user);
     return [authenticated, user];
+    
 };
 
-export default UseAuth;
+export default UseLogin;

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
-
+import UseLogin from "./Login";
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
@@ -23,7 +23,7 @@ function MyModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={buttonSubmit/*loginSubmit*/}>
+        <Form onSubmit={UseLogin/*buttonSubmit,loginSubmit*/}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
             <Form.Control type="text" placeholder="Username" id="username" name="username"/>
