@@ -1,4 +1,5 @@
 GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjQ5Mjg4NTAyfQ.WBBY1ujKJlvDjXRsp1kj6cs0lMp9dBsUPjVLXUTHinw
 
 ###
 
@@ -6,7 +7,7 @@ GET http://localhost:3000/findUser
 Content-Type: application/json
 
 {
-    "username": "Tom"
+    "username": "Betty"
 }
 
 ###
@@ -40,7 +41,7 @@ Content-Type: application/json
 ###
 
 Get http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRvbSIsImlkIjoiMSIsImlhdCI6MTY0ODY3MzMwM30.kMKjIuL34DvMhvubAh98MiHRjFGlGiKQJgfKqVenTwc
+Authorization: `Bearer ${token}`
 
 ###
 
@@ -76,7 +77,8 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/findTool
-
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjQ5Mjg5NjIzfQ.MIsdIlthstq_tcsk44ofoucTDxt-YWB3LdcXXoYJa8k
 ###
 
 POST http://localhost:3000/createTool

@@ -2,19 +2,21 @@ import React, { useContext, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
 
-const handleSubmit = async ({ username, password}) => {
-  const response = await fetch("/login",{ username: username, password: password } );
-  const { jwt_token } = await response.json()
-  await login({ jwt_token })
-  console.log(login);
+const login = async ({ username, password}) => {
+  const body = { username: username, password: password };
+  const response = await fetch("http://localhost:3001/login", { body: JSON.stringify(body), headers: {'Content-Type': 'application/json'}, method: "POST" } );
+  const { accessToken } = await response.json()
+  return accessToken;
 }
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
 
-  const buttonSubmit = (e) => {
+  const buttonSubmit = async (e) => {
     e.preventDefault();
-    handleSubmit();
+    console.log(e.target.elements.password.value)
+    const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
+    console.log(token)
     setLoggedIn(token)
   }
 

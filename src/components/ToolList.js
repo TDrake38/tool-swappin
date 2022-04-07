@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Card, CloseButton, ListGroup } from "react-bootstrap";
 import drill from '../photos/drill.jpg'
 import './Profile.css';
 import AddTool from "./AddTool";
+import LoginContext from "../LogInContext";
 
 const tools = [
     'Tool 1',
@@ -10,30 +11,42 @@ const tools = [
     'Tool 3',
 ];
 
-function Tool(){
+const getTools = async (token) => {
+    const response = await fetch("http://localhost:3001/findTool", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    return await response.json();
+}
+
+function Tool() {
+    const [token] = useContext(LoginContext);
+    useEffect(() => {
+        (async () => {
+            console.log(await getTools(token));
+        })()
+    }, [token])
+
     const delet = (e) => {
         e.preventDefault();
         console.log("Tool Deleted")
     }
-    return(
-    <>
-        <div>
+    return (
+        <>
             <div>
-                <Card.Header className="tool-title">Tool List</Card.Header>
-                {tools.map((tools, index) =>
-                <Card className="a" key={index}>
-                    <ListGroup variant="flush" className="list-group-flush tool-list">
-                        <ListGroup.Item>
-                            <img src={drill} alt="profile" className="picture"/>
-                            <Card.Link>{tools}</Card.Link>
-                            <CloseButton onClick={delet}/>
-                        </ListGroup.Item>
-                    </ListGroup>
-                </Card>)}
-                <AddTool />
+                <div>
+                    <Card.Header className="tool-title">Tool List</Card.Header>
+                    {tools.map((tools, index) =>
+                        <Card className="a" key={index}>
+                            <ListGroup variant="flush" className="list-group-flush tool-list">
+                                <ListGroup.Item>
+                                    <img src={drill} alt="profile" className="picture" />
+                                    <Card.Link>{tools}</Card.Link>
+                                    <CloseButton onClick={delet} />
+                                </ListGroup.Item>
+                            </ListGroup>
+                        </Card>)}
+                    <AddTool />
+                </div>
             </div>
-        </div>
-    </>)
+        </>)
 }
 
 export default Tool;

@@ -40,6 +40,7 @@ module.exports.logout = async (req, res) => {
 
 module.exports.checkIsAuthenticated = async (req, res, next) => {
   const nonSecurePaths = ["/login", "/search"];
+  console.log(req.path);
   if (nonSecurePaths.includes(req.path)) return next();
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
