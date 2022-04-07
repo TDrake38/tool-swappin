@@ -14,9 +14,7 @@ function MyModal(props) {
 
   const buttonSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target.elements.password.value)
     const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
-    console.log(token)
     setLoggedIn(token)
   }
 

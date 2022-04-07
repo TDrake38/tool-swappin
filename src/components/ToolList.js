@@ -1,15 +1,15 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Card, CloseButton, ListGroup } from "react-bootstrap";
 import drill from '../photos/drill.jpg'
 import './Profile.css';
 import AddTool from "./AddTool";
 import LoginContext from "../LogInContext";
 
-const tools = [
-    'Tool 1',
-    'Tool 2',
-    'Tool 3',
-];
+// const tools = [
+//     'Tool 1',
+//     'Tool 2',
+//     'Tool 3',
+// ];
 
 const getTools = async (token) => {
     const response = await fetch("http://localhost:3001/findTool", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
@@ -18,27 +18,49 @@ const getTools = async (token) => {
 
 function Tool() {
     const [token] = useContext(LoginContext);
-    useEffect(() => {
-        (async () => {
-            console.log(await getTools(token));
-        })()
-    }, [token])
+    const [response, setResponse] = useState([]);
 
+    useEffect(() => {
+        let mounted = true;
+    
+        const getToolsAsync = async () => {
+          const data = await getTools(token);
+          if (mounted) {
+            setResponse(data);
+          }
+        };
+
+        getToolsAsync();
+
+        return () => {
+          mounted = false;
+        };
+      }, [token]);
+    
+    console.log(response)
+
+    // useEffect(() => {
+    //     (async () => {
+    //         console.log(await getTools(token));
+    //     })()
+    // }, [token])
+    
     const delet = (e) => {
         e.preventDefault();
         console.log("Tool Deleted")
     }
+
     return (
         <>
             <div>
                 <div>
                     <Card.Header className="tool-title">Tool List</Card.Header>
-                    {tools.map((tools, index) =>
+                    {response.map((tool, index) =>
                         <Card className="a" key={index}>
                             <ListGroup variant="flush" className="list-group-flush tool-list">
                                 <ListGroup.Item>
                                     <img src={drill} alt="profile" className="picture" />
-                                    <Card.Link>{tools}</Card.Link>
+                                    <Card.Link>{tool.name}</Card.Link>
                                     <CloseButton onClick={delet} />
                                 </ListGroup.Item>
                             </ListGroup>

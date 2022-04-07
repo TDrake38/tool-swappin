@@ -11,12 +11,11 @@ import NavBar from './components/NavBar';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  // const [authenticated, setAuthenticated] = useState("");
 
   return (
     <>
       <BrowserRouter>
-        <LoginContext.Provider value={[loggedIn, setLoggedIn /*authenticated, setAuthenticated*/]}>
+        <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
           <NavBar />
           <Container>
             <Switch>
@@ -24,7 +23,7 @@ function App() {
               <Route path="/search" exact component={Search} />  
               <Route path="/" exact component={Home}/>
               <Route path="/profile">            
-                {/*authenticated*/loggedIn ? <Profile /> : <Redirect to="/"/>}
+                {loggedIn ? <Profile /> : <Redirect to="/"/>}
               </Route>
               <Route render={() => <div>404</div>} />
             </Switch>
