@@ -33,11 +33,9 @@ function Tool() {
     
     console.log(response)
 
-    // useEffect(() => {
-    //     (async () => {
-    //         console.log(await getTools(token));
-    //     })()
-    // }, [token])
+      // start of local storage?
+    window.localStorage.setItem("token", JSON.stringify(token));
+
     
     const delet = (e) => {
         e.preventDefault();
