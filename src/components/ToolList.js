@@ -5,12 +5,6 @@ import './Profile.css';
 import AddTool from "./AddTool";
 import LoginContext from "../LogInContext";
 
-// const tools = [
-//     'Tool 1',
-//     'Tool 2',
-//     'Tool 3',
-// ];
-
 const getTools = async (token) => {
     const response = await fetch("http://localhost:3001/findTool", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
     return await response.json();
