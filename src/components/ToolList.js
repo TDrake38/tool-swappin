@@ -32,8 +32,7 @@ function Tool() {
       }, [token]);
     
     console.log(response)
-
-      // start of local storage?
+    
     window.localStorage.setItem("token", JSON.stringify(token));
 
     
