@@ -1,14 +1,13 @@
 const Tool = require('../models/tools.model');
 
-// this is a test to see if I can find a user.
+// this is a test to see if I can find all tools
 module.exports.findTools = async (req, res) => {
-    res.json(await Tool.findAll(req.user.id));
-    console.log(req.user.id)
+    res.json(await Tool.findAll());
 }
 
 module.exports.getTools = async (req, res) => {
     //This alone will return all the tools with the same owner_id
-    res.json(await Tool.findTool(req.body.ownerID));
+    res.json(await Tool.findTool(req.user.id));
     //console.log(tool)
 }
 

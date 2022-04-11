@@ -6,7 +6,7 @@ import AddTool from "./AddTool";
 import LoginContext from "../LogInContext";
 
 const getTools = async (token) => {
-    const response = await fetch("http://localhost:3001/findTool", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    const response = await fetch("http://localhost:3001/getTools", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
     return await response.json();
 }
 

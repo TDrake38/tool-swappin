@@ -8,7 +8,7 @@ import LoginContext from '../LogInContext';
 
 
 const NavBar = () => {
-  const [isLoggedIn] = useContext(LoginContext)
+  const [token] = useContext(LoginContext)
   
   return (
     <>
@@ -17,7 +17,7 @@ const NavBar = () => {
         <Navbar.Brand>
           <Nav.Link as={Link} to="/" className="title-link">Tool Swapping</Nav.Link>
         </Navbar.Brand>
-        {isLoggedIn ? <LogOutButton /> : <LoginModal />}
+        {token ? <LogOutButton /> : <LoginModal />}
       </Container>
     </Navbar>
       <Container>
@@ -25,10 +25,10 @@ const NavBar = () => {
           <Nav.Item>
             <Nav.Link as={Link} to="/search" eventKey="link-1">Search</Nav.Link>
           </Nav.Item>
-          {isLoggedIn ? <Nav.Item>
+          {token ? <Nav.Item>
             <Nav.Link as={Link} to="/profile" eventKey="link-2">Profile</Nav.Link>
           </Nav.Item> : null}
-          {isLoggedIn ? <Nav.Item>
+          {token ? <Nav.Item>
             <Nav.Link as={Link} to="/messages" eventKey="link-3">Messages</Nav.Link>
           </Nav.Item> : null}
         </Nav>
