@@ -11,7 +11,6 @@ function LogOutButton () {
         e.preventDefault();
         localStorage.removeItem("token");
         setLoggedIn(false)
-        alert('Logged out!')
         history.push("/")
     }
     return (

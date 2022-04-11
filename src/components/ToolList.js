@@ -11,6 +11,8 @@ const getTools = async (token) => {
 }
 
 function Tool() {
+    //this returns the token as a string??
+        //let user = JSON.parse( localStorage.token );
     const [token] = useContext(LoginContext);
     const [response, setResponse] = useState([]);
 
