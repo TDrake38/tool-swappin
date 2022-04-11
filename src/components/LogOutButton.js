@@ -9,7 +9,7 @@ function LogOutButton () {
 
     const logOut = (e) => {
         e.preventDefault();
-        window.localStorage.removeItem("token");
+        localStorage.removeItem("token");
         setLoggedIn(false)
         alert('Logged out!')
         history.push("/")
