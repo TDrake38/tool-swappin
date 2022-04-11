@@ -32,8 +32,6 @@ function Tool() {
       }, [token]);
     
     console.log(response)
-    
-    window.localStorage.setItem("token", JSON.stringify(token));
 
     
     const delet = (e) => {
