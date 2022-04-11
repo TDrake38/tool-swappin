@@ -1,5 +1,5 @@
 GET http://localhost:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjQ5Mjg4NTAyfQ.WBBY1ujKJlvDjXRsp1kj6cs0lMp9dBsUPjVLXUTHinw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjQ5NjM4Nzk4fQ.8-Q8dbonX5SkMjpW-dSUSJk8KgGL2N5es0X7oYC-Ybg
 
 ###
 
@@ -15,7 +15,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "Betty",
+    "username": "Tom",
     "password": "password"
 }
 
@@ -78,7 +78,7 @@ Content-Type: application/json
 
 GET http://localhost:3000/findTool
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjQ5Mjg5NjIzfQ.MIsdIlthstq_tcsk44ofoucTDxt-YWB3LdcXXoYJa8k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjQ5NjM4Nzk4fQ.8-Q8dbonX5SkMjpW-dSUSJk8KgGL2N5es0X7oYC-Ybg
 ###
 
 POST http://localhost:3000/createTool

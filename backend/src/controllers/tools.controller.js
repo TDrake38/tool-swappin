@@ -2,7 +2,8 @@ const Tool = require('../models/tools.model');
 
 // this is a test to see if I can find a user.
 module.exports.findTools = async (req, res) => {
-    res.json(await Tool.findAll());
+    res.json(await Tool.findAll(req.user.id));
+    console.log(req.user.id)
 }
 
 module.exports.getTools = async (req, res) => {

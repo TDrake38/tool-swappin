@@ -7,8 +7,8 @@ Tool.findAll = async () => {
     return response.rows;
 }
 
-Tool.findTool = async (ownerID) => {
-    const findTool = await queryDB('SELECT * FROM tools WHERE owner_id = $1', [ownerID]);
+Tool.findTool = async (id) => {
+    const findTool = await queryDB('SELECT * FROM tools WHERE owner_id = $1', [id]);
     return findTool.rows;
 }
 

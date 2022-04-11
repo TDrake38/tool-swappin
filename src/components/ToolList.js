@@ -44,8 +44,8 @@ function Tool() {
             <div>
                 <div>
                     <Card.Header className="tool-title">Tool List</Card.Header>
-                    {response.map((tool, index) =>
-                        <Card className="a" key={index}>
+                    {response.map((tool) =>
+                        <Card className="a" key={tool.owner_id}>
                             <ListGroup variant="flush" className="list-group-flush tool-list">
                                 <ListGroup.Item>
                                     <img src={drill} alt="profile" className="picture" />

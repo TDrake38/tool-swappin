@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
 
-const login = async ({ username, password}) => {
+ const login = async ({ username, password}) => {
   const body = { username: username, password: password };
   const response = await fetch("http://localhost:3001/login", { body: JSON.stringify(body), headers: {'Content-Type': 'application/json'}, method: "POST" } );
   const { accessToken } = await response.json()
