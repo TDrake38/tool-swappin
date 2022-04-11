@@ -12,6 +12,13 @@ import NavBar from './components/NavBar';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
+  // const mount = componentWillMount = () => {
+  //   localStorage.getItem('token') && this.setState({
+  //     token: JSON.parse(localStorage.getItem('token')),
+
+  //   })
+  // }
+
   return (
     <>
       <BrowserRouter>
