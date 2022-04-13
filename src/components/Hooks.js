@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 
-export function useLocalState(localItem) {
-    const [loc, setState] = useState(localStorage.getItem(localItem));
+//probably don't need to import this here
+    //import LoginContext from "../LogInContext";
+
+export function useContextPersisted(context, localItem) {
+    const [loc, setState] = useContext(provider);
+
+    useEffect( () => setState(localItem.getItem(localItem, newItem), [] ))
 
     function setLoc(newItem) {
         localItem.setItem(localItem, newItem);

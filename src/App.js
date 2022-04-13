@@ -10,19 +10,18 @@ import Search from './components/Search';
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom"
 import NavBar from './components/NavBar';
 
-//this probably doesnt need to be here just following a tutorial.
-//export const LoginContext = React.createContext();
-
 function App() {
   //const [loggedIn, setLoggedIn] = useContext(LoginContext);
   //this was the original
-    const [loggedIn, setLoggedIn] = useState(false);
-  //const [loggedIn, setLoggedIn] = useLocalState('token');
+    //const [loggedIn, setLoggedIn] = useState(false);
+  //const [token, setToken] = useContextPersisted(LoginContext,"token");
+
+  const [token, setToken] = useContext(LoginContext)
 
   return (
     <>
       <BrowserRouter>
-        <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
+        <LoginContext.Provider value={[token, setToken/*loggedIn, setLoggedIn*/]}>
           <NavBar />
           <Container>
             <Switch>
@@ -30,7 +29,7 @@ function App() {
               <Route path="/search" exact component={Search} />  
               <Route path="/" exact component={Home}/>
               <Route path="/profile">            
-                {loggedIn ? <Profile /> : <Redirect to="/"/>}
+                {token /*loggedIn*/ ? <Profile /> : <Redirect to="/"/>}
               </Route>
               <Route render={() => <div>404</div>} />
             </Switch>

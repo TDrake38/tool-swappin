@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
-import { useLocalState } from "./Hooks";
+import { useContextPersisted } from "./Hooks";
 
  const login = async ({ username, password}) => {
   const body = { username: username, password: password };
@@ -12,13 +12,13 @@ import { useLocalState } from "./Hooks";
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
-  //const [loggedIn, setLoggedIn] = useLocalState()
+  //const [token, setToken] = useContextPersisted(LoginContext, "token")
 
   const buttonSubmit = async (e) => {
     e.preventDefault();
     const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
     localStorage.setItem("token", JSON.stringify(token));
-    setLoggedIn(token)
+    setLoggedIn(token) //not setToken(token)
   }
 
   return (
@@ -52,6 +52,7 @@ function MyModal(props) {
 }
 
 function LoginModal() {
+  //const [token, setToken] = useContectPersisted(LoginContext, "token")
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
