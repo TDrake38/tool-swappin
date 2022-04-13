@@ -16,8 +16,6 @@ function App() {
     const [loggedIn, setLoggedIn] = useState(false);
   //const [token, setToken] = useContextPersisted(LoginContext,"token");
 
-  //const [token, setToken] = useContextPersisted(LoginContext)
-
   return (
     <>
       <BrowserRouter>

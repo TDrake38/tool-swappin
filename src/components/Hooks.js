@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
 
 //probably don't need to import this here
-    //import LoginContext from "../LogInContext";
+    import LoginContext from "../LogInContext";
 
 export function useContextPersisted(context, localItem) {
-    const [loc, setState] = useContext(provider);
+    const [loc, setState] = useContext(LoginContext);
 
     useEffect( () => setState(localItem.getItem(localItem/*, newItem*/), [] ))
 
