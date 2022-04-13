@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
+import React, { useContext, useState} from 'react';
+import { useLocalState } from './components/Hooks';
 import { Container } from "react-bootstrap";
 import LoginContext from './LogInContext';
 import Home from './components/Home';
@@ -9,8 +10,14 @@ import Search from './components/Search';
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom"
 import NavBar from './components/NavBar';
 
+//this probably doesnt need to be here just following a tutorial.
+//export const LoginContext = React.createContext();
+
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  //const [loggedIn, setLoggedIn] = useContext(LoginContext);
+  //this was the original
+    const [loggedIn, setLoggedIn] = useState(false);
+  //const [loggedIn, setLoggedIn] = useLocalState('token');
 
   return (
     <>

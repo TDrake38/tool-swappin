@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import LoginContext from "../LogInContext";
+import { useLocalState } from "./Hooks";
 
  const login = async ({ username, password}) => {
   const body = { username: username, password: password };
@@ -11,6 +12,7 @@ import LoginContext from "../LogInContext";
 
 function MyModal(props) {
   const [, setLoggedIn] = useContext(LoginContext);
+  //const [loggedIn, setLoggedIn] = useLocalState()
 
   const buttonSubmit = async (e) => {
     e.preventDefault();

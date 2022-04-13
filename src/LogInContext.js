@@ -1,5 +1,5 @@
 import React from "react";
 
-const LoginContext = React.createContext(localStorage.getItem('token'))
+const LoginContext = React.createContext();
 
 export default LoginContext;
