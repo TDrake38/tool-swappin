@@ -6,7 +6,7 @@ import { useContext, useEffect } from "react";
 export function useContextPersisted(context, localItem) {
     const [loc, setState] = useContext(provider);
 
-    useEffect( () => setState(localItem.getItem(localItem, newItem), [] ))
+    useEffect( () => setState(localItem.getItem(localItem/*, newItem*/), [] ))
 
     function setLoc(newItem) {
         localItem.setItem(localItem, newItem);
