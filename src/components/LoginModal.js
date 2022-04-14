@@ -11,14 +11,14 @@ import { useContextPersisted } from "./Hooks";
 }
 
 function MyModal(props) {
-  const [, setLoggedIn] = useContext(LoginContext);
-  //const [token, setToken] = useContextPersisted(LoginContext, "token")
+  //const [, setLoggedIn] = useContext(LoginContext);
+  const [token, setToken] = useContextPersisted(LoginContext, "token")
 
   const buttonSubmit = async (e) => {
     e.preventDefault();
     const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
     localStorage.setItem("token", JSON.stringify(token));
-    setLoggedIn(token) //not setToken(token)
+    setToken(token) //not setToken(token)
   }
 
   return (

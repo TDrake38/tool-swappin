@@ -13,7 +13,7 @@ import NavBar from './components/NavBar';
 function App() {
   //const [loggedIn, setLoggedIn] = useContext(LoginContext);
   //this was the original
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(localStorage.getItem('token'));
   //const [token, setToken] = useContextPersisted(LoginContext,"token");
 
   return (
