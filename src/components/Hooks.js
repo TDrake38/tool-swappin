@@ -1,5 +1,4 @@
-import { useContext, useEffect } from "react";
-import LoginContext from "../LogInContext";
+import { useContext } from "react";
 
 
 export function useContextPersisted(context, localItem) {
