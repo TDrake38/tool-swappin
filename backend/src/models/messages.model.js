@@ -8,8 +8,8 @@ Messages.findMessages = async () => {
     return response.rows;
 } 
 
-Messages.findMessage = async (senderID) => {
-    const findMessage = await queryDB('SELECT * FROM user_messages WHERE id_sender = $1', [senderID]);
+Messages.findMessage = async (id) => {
+    const findMessage = await queryDB('SELECT * FROM user_messages WHERE id_sender = $1', [id]);
     return findMessage.rows;
 }
 
@@ -21,7 +21,7 @@ Messages.oneMessage = async (messageID) => {
 
  
 Messages.createMessage = async (message, senderID, recipientID) => {
-    const createMessage = await queryDB('UPSERT INTO user_messages (message, id_sender, id_recipient) VALUES ($1, $2, $3) RETURNING *', [message, senderID, recipientID]);
+    const createMessage = await queryDB('INSERT INTO user_messages (message, id_sender, id_recipient) VALUES ($1, $2, $3) RETURNING *', [message, senderID, recipientID]);
     return createMessage.rows;
 }
 
