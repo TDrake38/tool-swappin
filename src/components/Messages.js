@@ -5,6 +5,7 @@ import { Button, Card, Form, InputGroup } from "react-bootstrap";
 import './Messages.css'
 import Rating from "./FakeRating";
 import LoginContext from "../LogInContext";
+import { useContextPersisted } from "./Hooks";
 
 const getMessages = async (token) => {
     const response = await fetch("http://localhost:3001/getMessages", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
@@ -16,8 +17,20 @@ const getUser = async (token) => {
     return await response.json();
 }
 
+const sendMessage = async (token) => {
+    const response = await fetch("http://localhost:3001/createMessage", { headers: { Authorization: `Bearer ${token}` }, method: "POST" });
+    return await response.json();
+}
+
+//this will be for sending the message 
+const messageSubmit = async (e) => {
+    e.preventDefault();
+    const token = await ({ message: e.target.elements.message.value });
+    setToken(token)
+  }
+
 function Messages() {
-    const [token] = useContext(LoginContext);
+    const [token] = useContextPersisted(LoginContext, "token");
     const ref = useRef()
     const [messages, setMessages] = useState([])
     //const [person, setPerson] = useState()
