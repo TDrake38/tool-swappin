@@ -1,61 +1,58 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import drill from "../photos/drill.jpg"
 import Sammy from "../photos/Sammy.jpg"
 import { Button, Card, Form, InputGroup } from "react-bootstrap";
 import './Messages.css'
 import Rating from "./FakeRating";
-// import LoginContext from "../LogInContext";
-// import { useContextPersisted } from "./Hooks";
+import LoginContext from "../LogInContext";
+import { useContextPersisted } from "./Hooks";
 
 const getMessages = async (token) => {
-    const response = await fetch("http://localhost:3001/getMessages", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    const response = await fetch("http://localhost:3001/getMessage", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
     return await response.json();
 }
 
-const getUser = async (token) => {
-    const response = await fetch("http://localhost:3001/findUser", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
-    return await response.json();
-}
+// const getUser = async (token) => {
+//     const response = await fetch("http://localhost:3001/findUser", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+//     return await response.json();
+// }
 
-const sendMessage = async (token) => {
+const sendMessage = async (token, message) => {
     const response = await fetch("http://localhost:3001/createMessage", { headers: { Authorization: `Bearer ${token}` }, method: "POST" });
     return await response.json();
 }
 
 //this will be for sending the message 
-// const messageSubmit = async (e) => {
-//     e.preventDefault();
-//     const token = await sendMessage({ message: e.target.elements.message.value });
-//     const [input] = e.target.elements;
-//     //     setMessages([...messages, input.value]);
-//     //     ref.current.scrollTop = ref.current.scrollHeight;
-//     setToken(token)
-//   }
+const messageSubmit = async (token, e) => {
+    e.preventDefault();
+    const tokens = await sendMessage( token, e.target.elements.message.value );
+    return (tokens)
+  }
 
 function Messages() {
-    //const [token] = useContextPersisted(LoginContext, "token");
+    const [token] = useContextPersisted(LoginContext, "token");
     const ref = useRef()
     const [messages, setMessages] = useState([])
-    //const [person, setPerson] = useState()
+    const [response, setResponse] = useState()
 
-    // useEffect(() => {
-    //     let mounted = true;
+    useEffect(() => {
+        let mounted = true;
 
-    //     const getToolsAsync = async () => {
-    //         const data = await getMessages(token);
-    //         if (mounted) {
-    //             setResponse(data);
-    //         }
-    //     };
+        const getToolsAsync = async () => {
+            const data = await getMessages(token);
+            if (mounted) {
+                setResponse(data);
+            }
+        };
 
-    //     getToolsAsync();
+        getToolsAsync();
 
-    //     return () => {
-    //         mounted = false;
-    //     };
-    // }, [token]);
+        return () => {
+            mounted = false;
+        };
+    }, [token]);
 
-    // console.log(response)
+    console.log(response)
 
     const send = (e) => {
         e.preventDefault();
