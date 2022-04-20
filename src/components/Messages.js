@@ -4,8 +4,8 @@ import Sammy from "../photos/Sammy.jpg"
 import { Button, Card, Form, InputGroup } from "react-bootstrap";
 import './Messages.css'
 import Rating from "./FakeRating";
-import LoginContext from "../LogInContext";
-import { useContextPersisted } from "./Hooks";
+// import LoginContext from "../LogInContext";
+// import { useContextPersisted } from "./Hooks";
 
 const getMessages = async (token) => {
     const response = await fetch("http://localhost:3001/getMessages", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
@@ -23,36 +23,39 @@ const sendMessage = async (token) => {
 }
 
 //this will be for sending the message 
-const messageSubmit = async (e) => {
-    e.preventDefault();
-    const token = await ({ message: e.target.elements.message.value });
-    setToken(token)
-  }
+// const messageSubmit = async (e) => {
+//     e.preventDefault();
+//     const token = await sendMessage({ message: e.target.elements.message.value });
+//     const [input] = e.target.elements;
+//     //     setMessages([...messages, input.value]);
+//     //     ref.current.scrollTop = ref.current.scrollHeight;
+//     setToken(token)
+//   }
 
 function Messages() {
-    const [token] = useContextPersisted(LoginContext, "token");
+    //const [token] = useContextPersisted(LoginContext, "token");
     const ref = useRef()
     const [messages, setMessages] = useState([])
     //const [person, setPerson] = useState()
 
-    useEffect(() => {
-        let mounted = true;
+    // useEffect(() => {
+    //     let mounted = true;
 
-        const getToolsAsync = async () => {
-            const data = await getMessages(token);
-            if (mounted) {
-                setResponse(data);
-            }
-        };
+    //     const getToolsAsync = async () => {
+    //         const data = await getMessages(token);
+    //         if (mounted) {
+    //             setResponse(data);
+    //         }
+    //     };
 
-        getToolsAsync();
+    //     getToolsAsync();
 
-        return () => {
-            mounted = false;
-        };
-    }, [token]);
+    //     return () => {
+    //         mounted = false;
+    //     };
+    // }, [token]);
 
-    console.log(response)
+    // console.log(response)
 
     const send = (e) => {
         e.preventDefault();
@@ -60,6 +63,7 @@ function Messages() {
         setMessages([...messages, input.value]);
         ref.current.scrollTop = ref.current.scrollHeight;
     }
+    
     return (
         <>
             <div className="messages">
@@ -86,7 +90,7 @@ function Messages() {
                         }
                     </div>
                     <div className="mess-text">
-                        <Form onSubmit={send}>
+                        <Form onSubmit={sendMessage}>
                             <Form.Group className="mb-3">
                                 <InputGroup>
                                     <Form.Control

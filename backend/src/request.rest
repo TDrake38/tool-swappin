@@ -1,5 +1,5 @@
 GET http://localhost:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjQ5NjM4Nzk4fQ.8-Q8dbonX5SkMjpW-dSUSJk8KgGL2N5es0X7oYC-Ybg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjUwNDgyMzE1fQ.zg0ygXMbGC035bhi23tu7u2fxMX5eY0OHcFXr8FN7XE
 
 ###
 
@@ -115,16 +115,16 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/findMessage
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjUwNDgyMzE1fQ.zg0ygXMbGC035bhi23tu7u2fxMX5eY0OHcFXr8FN7XE
 ###
 
 POST http://localhost:3000/createMessage
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJldHR5IiwiaWQiOiI0IiwiaWF0IjoxNjUwNDgyMzE1fQ.zg0ygXMbGC035bhi23tu7u2fxMX5eY0OHcFXr8FN7XE
 
 {
     "message": "Available?",
-    "senderID": 4,
-    "recipientID": 10
+    "recipientID": 4,
 }
 
 ###
