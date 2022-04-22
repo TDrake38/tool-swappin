@@ -8,7 +8,7 @@ Messages.findMessages = async () => {
     return response.rows;
 } 
 
-Messages.findMessage = async (id) => {
+Messages.getMessagesByUserId = async (id) => {
     const findMessage = await queryDB('SELECT * FROM user_messages WHERE id_sender = $1', [id]);
     return findMessage.rows;
 }

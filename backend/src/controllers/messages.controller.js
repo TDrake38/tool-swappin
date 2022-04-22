@@ -1,13 +1,8 @@
 const Messages = require('../models/messages.model');
 
-// this is a test to see if I can find a user.
-module.exports.findMessages = async (req, res) => {
-    res.json(await Messages.findMessages());
-}
-
-module.exports.getMessage = async (req, res) => {
+module.exports.getMessages = async (req, res) => {
     //This alone will return all the tools with the same owner_id
-    res.json(await Messages.findMessage(req.user.id));
+    res.json(await Messages.getMessagesByUserId(req.user.id));
     //console.log(tool)
 }
 
