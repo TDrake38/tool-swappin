@@ -2,10 +2,10 @@ const { getMessages, createMessage, deleteMessage} = require('../controllers/mes
 
 
 const messages = (app) => { 
-    app.get('/getMessage', getMessages)
-    app.post('/createMessage', createMessage)
+    app.get('/message', getMessages)
+    app.post('/message', createMessage)
     //probably don't need this. It will probably be just delete all msgs/for a chat 
-    app.delete('/deleteMessage/:id', deleteMessage)
+    app.delete('/message/', deleteMessage)
 };
 
 module.exports = messages;
