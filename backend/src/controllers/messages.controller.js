@@ -20,7 +20,7 @@ module.exports.createMessage = async (req, res) => {
 module.exports.deleteMessage = async (req, res) => {
     
     try {
-        const message = await Messages.oneMessage(req.params.id)
+        const message = await Messages.getById(req.params.id)
         if (message === undefined) return res.sendStatus(404)
         if (req.user.id !== message.id_sender){
             console.log("userID;" + parseInt(req.user.id, 10), message)
