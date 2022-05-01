@@ -8,7 +8,7 @@ import LoginContext from "../LogInContext";
 import { useContextPersisted } from "./Hooks";
 
 const getMessages = async (token) => {
-    const response = await fetch("http://localhost:3001/Message", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    const response = await fetch("http://localhost:3001/message", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
     return await response.json();
 }
 
@@ -18,7 +18,7 @@ const getMessages = async (token) => {
 // }
 
 const sendMessage = async (token, message) => {
-    const response = await fetch("http://localhost:3001/Message", { headers: { Authorization: `Bearer ${token}` }, method: "POST" });
+    const response = await fetch("http://localhost:3001/message", { headers: { Authorization: `Bearer ${token}` }, method: "POST" });
     return await response.json();
 }
 
