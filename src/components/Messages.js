@@ -12,11 +12,6 @@ const getMessages = async (token) => {
     return await response.json();
 }
 
-// const getUser = async (token) => {
-//     const response = await fetch("http://localhost:3001/findUser", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
-//     return await response.json();
-// }
-
 const sendMessage = async (token, message) => {
     const response = await fetch("http://localhost:3001/message", { headers: { Authorization: `Bearer ${token}` }, method: "POST" });
     return await response.json();
