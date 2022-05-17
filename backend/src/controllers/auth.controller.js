@@ -32,7 +32,6 @@ module.exports.login = async (req, res) => {
         }
 }
 
-//make this a delete your token on your local browser
 module.exports.logout = async (req, res) => {
     refreshTokens = refreshTokens.filter(token => token !== req.body.token)
         res.sendStatus(204)
