@@ -13,16 +13,10 @@ const getMessages = async (token) => {
 }
 
 const sendMessage = async (token, message) => {
-    const response = await fetch("http://localhost:3001/message", { headers: { Authorization: `Bearer ${token}` }, method: "POST" });
+    const body = { message: message };
+    const response = await fetch("http://localhost:3001/message", {body: JSON.stringify(body), headers: { Authorization: `Bearer ${token}` }, method: "POST" });
     return await response.json();
 }
-
-//this will be for sending the message 
-const messageSubmit = async (token, e) => {
-    e.preventDefault();
-    const tokens = await sendMessage( token, e.target.elements.message.value );
-    return (tokens)
-  }
 
 function Messages() {
     const [token] = useContextPersisted(LoginContext, "token");
@@ -49,11 +43,27 @@ function Messages() {
 
     console.log(response)
 
-    const send = (e) => {
+    // const buttonSubmit = async (e) => {
+    //     e.preventDefault();
+    //     const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
+    //     localStorage.setItem("token", JSON.stringify(token));
+    //     setToken(token)
+    //   }
+
+    //this is the old code for just local stuff  
+    // const send = (e) => {
+    //     e.preventDefault();
+    //     const [input] = e.target.elements;
+    //     setMessages([...messages, input.value]);
+    //     ref.current.scrollTop = ref.current.scrollHeight;
+    // }
+
+    const send = async (e) => {
         e.preventDefault();
-        const [input] = e.target.elements;
-        setMessages([...messages, input.value]);
+        const text = await sendMessage ({ token, message: e.target.elements.message.value });
         ref.current.scrollTop = ref.current.scrollHeight;
+        const { message } = await response.json(text)
+        return message;
     }
     
     return (
@@ -82,12 +92,14 @@ function Messages() {
                         }
                     </div>
                     <div className="mess-text">
-                        <Form onSubmit={sendMessage}>
+                        <Form onSubmit={send}>
                             <Form.Group className="mb-3">
                                 <InputGroup>
                                     <Form.Control
                                         type="text"
                                         placeholder="Message"
+                                        name="message"
+                                        id="message"
                                     />
                                     <Button variant="secondary" type="submit">Send</Button>
                                 </InputGroup>
