@@ -43,13 +43,6 @@ function Messages() {
 
     console.log(response)
 
-    // const buttonSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
-    //     localStorage.setItem("token", JSON.stringify(token));
-    //     setToken(token)
-    //   }
-
     //this is the old code for just local stuff  
     // const send = (e) => {
     //     e.preventDefault();
@@ -85,7 +78,7 @@ function Messages() {
                     <div ref={ref} className="mess-box" >
                         {messages.map(
                             (message, index) => (
-                                <div key={index}>
+                                <div key={index /*need to make this map through the get/messages and show them in the chat*/}>
                                     <p>{message}</p>
                                 </div>
                             ))
