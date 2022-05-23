@@ -76,7 +76,7 @@ function Messages() {
                 </div>
                 <div className="chat">
                     <div ref={ref} className="mess-box" >
-                        {messages.map(
+                        {response.map(
                             (message, index) => (
                                 <div key={index /*need to make this map through the get/messages and show them in the chat*/}>
                                     <p>{message}</p>
