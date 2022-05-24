@@ -15,6 +15,12 @@ module.exports.find = async (req, res) => {
     res.json(await User.findUser(req.user.id));
 }
 
+module.exports.user = async (req, res) => {
+    //This alone will return all the tools with the same owner_id
+    res.json(await User.getUser(req.user.id));
+    //console.log(tool)
+}
+
 module.exports.createUser = async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, parseInt (process.env.TOOL_SWAPPIN_SALT, 10))

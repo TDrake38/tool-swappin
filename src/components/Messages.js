@@ -27,14 +27,14 @@ function Messages() {
     useEffect(() => {
         let mounted = true;
 
-        const getToolsAsync = async () => {
+        const getMessagesAsync = async () => {
             const data = await getMessages(token);
             if (mounted) {
                 setResponse(data);
             }
         };
 
-        getToolsAsync();
+        getMessagesAsync();
 
         return () => {
             mounted = false;
@@ -43,19 +43,11 @@ function Messages() {
 
     console.log(response)
 
-    //this is the old code for just local stuff  
-    // const send = (e) => {
-    //     e.preventDefault();
-    //     const [input] = e.target.elements;
-    //     setMessages([...messages, input.value]);
-    //     ref.current.scrollTop = ref.current.scrollHeight;
-    // }
-
     const send = async (e) => {
         e.preventDefault();
-        const text = await sendMessage ({ token, message: e.target.elements.message.value });
+        await sendMessage ({ token, message: e.target.elements.message.value });
         ref.current.scrollTop = ref.current.scrollHeight;
-        const { message } = await response.json(text)
+        const { message } = await response.json()
         return message;
     }
     
@@ -77,8 +69,8 @@ function Messages() {
                 <div className="chat">
                     <div ref={ref} className="mess-box" >
                         {response.map(
-                            (message, index) => (
-                                <div key={index /*need to make this map through the get/messages and show them in the chat*/}>
+                            (message) => (
+                                <div key={message.owner_id}>
                                     <p>{message}</p>
                                 </div>
                             ))
