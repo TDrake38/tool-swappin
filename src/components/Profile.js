@@ -11,7 +11,7 @@ import Tool from "./ToolList";
 import LoginContext from "../LogInContext";
 
 const getUser = async (token) => {
-    const response = await fetch("http://localhost:3001/user", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    const response = await fetch("http://localhost:3001/users", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
     return await response.json();
 }
 
@@ -41,23 +41,21 @@ function Profile() {
 
     return (
         <>
-            <div>
-                     
-                    <div className="profile">
-                        <Card className="hard" key={response.id}>
-                            <Card.Img variant="top" src={Drake} alt="profile" />
-                            <Card.Body>   
-                                <div>{response.user_name}</div>
-                                <div>{response.location}</div>
-                                <Rating />
-                            </Card.Body>
-                        </Card>
-                    <Tool />
-                    <div className="people">
-                        <People />
-                    </div>
+            {response.map((person/*this must be changed from map/key to something else. possible different fetch  */) => 
+            <div className="profile">
+                <Card className="hard" key={person.id}>
+                    <Card.Img variant="top" src={Drake} alt="profile" />
+                    <Card.Body>   
+                        <div>{person.user_name}</div>
+                        <div>{person.location}</div>
+                        <Rating />
+                    </Card.Body>
+                </Card>
+                <Tool />
+                <div className="people">
+                    <People />
                 </div>
-            </div>
+            </div>)}
         </>
     )
 }
