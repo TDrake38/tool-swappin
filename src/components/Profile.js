@@ -41,20 +41,22 @@ function Profile() {
 
     return (
         <>
-            <div className="profile">
-                {response.map((loggedUser) =>
-                    <Card className="hard" key={loggedUser.id}>
-                        <Card.Img variant="top" src={Drake} alt="profile" />
-                        <Card.Body>   
-                            <div>{loggedUser.name}</div>
-                            <div>{loggedUser.location}</div>
-                            <Rating />
-                        </Card.Body>
-                    </Card>)}
-                <Tool />
-                <div className="people">
-                    <People />
-                </div>
+            <div>
+                    {response.filter((loggedUser) /*I know its not map????. also it disappeared from the site.*/=> 
+                    <div className="profile">
+                        <Card className="hard" key={loggedUser.id}>
+                            <Card.Img variant="top" src={Drake} alt="profile" />
+                            <Card.Body>   
+                                <div>{loggedUser.name}</div>
+                                <div>{loggedUser.location}</div>
+                                <Rating />
+                            </Card.Body>
+                        </Card>
+                    <Tool />
+                    <div className="people">
+                        <People />
+                    </div>
+                </div>)}
             </div>
         </>
     )
