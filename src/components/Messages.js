@@ -6,9 +6,15 @@ import './Messages.css'
 import Rating from "./FakeRating";
 import LoginContext from "../LogInContext";
 import { useContextPersisted } from "./Hooks";
+import { useParams } from "react-router-dom";
+
+const getUser = async (token, id) => {
+    const response = await fetch(`http://localhost:3001/users/${id}`, { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    return await response.json();
+}
 
 const getMessages = async (token) => {
-    const response = await fetch("http://localhost:3001/message", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    const response = await fetch("http://localhost:3001/messages", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
     return await response.json();
 }
 
@@ -21,8 +27,9 @@ const sendMessage = async (token, message) => {
 function Messages() {
     const [token] = useContextPersisted(LoginContext, "token");
     const ref = useRef()
-    const [messages, setMessages] = useState([])
-    const [response, setResponse] = useState()
+    const {id} = useParams()
+    const [response, setResponse] = useState([])
+    const [trader, setTrader] = useState([])
 
     useEffect(() => {
         let mounted = true;
@@ -35,6 +42,15 @@ function Messages() {
         };
 
         getMessagesAsync();
+
+        const getUserAsync = async () => {
+            const data = await getUser(token, id);
+            if (mounted) {
+                setTrader(data);
+            }
+        };
+
+        getUserAsync();
 
         return () => {
             mounted = false;
@@ -59,7 +75,7 @@ function Messages() {
                     <Card className="borrower">
                         <Card.Img variant="top" src={Sammy} alt="profile" />
                         <Card.Body>
-                            <Card.Title>J. Smith <Rating /></Card.Title>
+                            <Card.Title>{trader.user_name}<Rating /></Card.Title>
                             <Card.Text>
                                 St. John's and surrounding area.
                             </Card.Text>
@@ -71,7 +87,7 @@ function Messages() {
                         {response.map(
                             (message) => (
                                 <div key={message.owner_id}>
-                                    <p>{message}</p>
+                                    <p>{message.message}</p>
                                 </div>
                             ))
                         }
@@ -94,7 +110,7 @@ function Messages() {
                 </div>
                 <Card className="borrower-2">
                     <Card.Body>
-                        <Card.Title>J. Smith</Card.Title>
+                        <Card.Title>{trader.user_name}</Card.Title>
                     </Card.Body>
                 </Card>
             </div>

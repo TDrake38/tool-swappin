@@ -12,7 +12,13 @@ module.exports.getAll = async (req, res) => {
 
 // this is a test to see if I can find a user.
 module.exports.find = async (req, res) => {
+    console.log(await User.findUser(req.user.id));
     res.json(await User.findUser(req.user.id));
+}
+
+module.exports.findUser = async (req, res) => {
+    console.log(await User.findUser(req.params.id));
+    res.json(await User.findUser(req.params.id));
 }
 
 module.exports.user = async (req, res) => {

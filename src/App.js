@@ -20,7 +20,7 @@ function App() {
           <NavBar />
           <Container>
             <Switch>
-              <Route path="/messages" exact component={Messages} />
+              <Route path="/messages/:id" exact component={Messages} />
               <Route path="/search" exact component={Search} />  
               <Route path="/" exact component={Home}/>
               <Route path="/profile">            
