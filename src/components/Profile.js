@@ -42,13 +42,13 @@ function Profile() {
     return (
         <>
             <div>
-                    {response.filter((loggedUser) /*I know its not map????. also it disappeared from the site.*/=> 
+                     
                     <div className="profile">
-                        <Card className="hard" key={loggedUser.id}>
+                        <Card className="hard" key={response.id}>
                             <Card.Img variant="top" src={Drake} alt="profile" />
                             <Card.Body>   
-                                <div>{loggedUser.name}</div>
-                                <div>{loggedUser.location}</div>
+                                <div>{response.user_name}</div>
+                                <div>{response.location}</div>
                                 <Rating />
                             </Card.Body>
                         </Card>
@@ -56,7 +56,7 @@ function Profile() {
                     <div className="people">
                         <People />
                     </div>
-                </div>)}
+                </div>
             </div>
         </>
     )
