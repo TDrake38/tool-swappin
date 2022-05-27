@@ -46,7 +46,7 @@ function Profile() {
                     <Card.Img variant="top" src={Drake} alt="profile" />
                     <Card.Body>   
                         <div>{response.user_name}</div>
-                        <div>{response.location ?? "No Location"}</div>
+                        <div>{response.area ?? "No Location"}</div>
                         <Rating />
                     </Card.Body>
                 </Card>

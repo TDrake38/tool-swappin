@@ -12,8 +12,8 @@ module.exports.getAll = async (req, res) => {
 
 // this is a test to see if I can find a user.
 module.exports.find = async (req, res) => {
-    console.log(await User.findUser(req.user.id));
-    res.json(await User.findUser(req.user.id));
+    console.log(await User.getUser(req.user.id));
+    res.json(await User.getUser(req.user.id));
 }
 
 module.exports.findUser = async (req, res) => {
