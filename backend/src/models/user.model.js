@@ -12,7 +12,7 @@ User.findAll = async () => {
 
 User.getUser = async (id) => {
     const getUser = await queryDB('SELECT * FROM users WHERE id = $1', [id]);
-    return getUser.rows;
+    return getUser.rows[0];
 }
 
 //This returns and empty array
