@@ -16,6 +16,11 @@ module.exports.find = async (req, res) => {
     res.json(await User.getUser(req.user.id));
 }
 
+module.exports.testFind = async (req, res) => {
+    console.log(await User.findUser(req.body.username));
+    res.json(await User.findUser(req.body.username));
+}
+
 module.exports.findUser = async (req, res) => {
     console.log(await User.findUser(req.params.id));
     res.json(await User.findUser(req.params.id));
