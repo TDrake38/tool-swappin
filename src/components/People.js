@@ -5,7 +5,7 @@ import './People.css'
 import PeepModal from "./UserModal";
 
 const fetchData = async () => {
-    const response = await fetch("http://localhost:3001/users");
+    const response = await fetch("http://localhost:3001/list");
     const json = await response.json();
     return json;
 };

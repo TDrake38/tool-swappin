@@ -1,7 +1,8 @@
-const { getAll, createUser, find, deleteUser, user, findUser} = require('../controllers/user.controller');
+const { getAll, createUser, find, deleteUser, user, findUser, getList} = require('../controllers/user.controller');
 
 const registerUsers = (app) => { 
     app.get('/users', getAll);
+    app.get('/list', getList);
     app.post('/users', createUser);
     app.get('/currentUser', find);
     app.get('/users/:id', findUser)

@@ -10,6 +10,15 @@ module.exports.getAll = async (req, res) => {
     }));
 }
 
+module.exports.getList = async (req, res) => {
+    try {
+        res.json(await User.findAll())
+    } catch (e) { 
+        console.error(e)
+        res.status(500).send()
+    }
+}
+
 // this is a test to see if I can find a user.
 module.exports.find = async (req, res) => {
     console.log(await User.getUser(req.user.id));
