@@ -9,7 +9,7 @@ import { useContextPersisted } from "./Hooks";
 import { useParams } from "react-router-dom";
 
 const getUser = async (token, id) => {
-    const response = await fetch(`http://localhost:3001/users/${id}`, { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    const response = await fetch(`http://localhost:3001/message/${id}`, { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
     return await response.json();
 }
 
