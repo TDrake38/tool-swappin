@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import Drake from '../photos/Drake.JPG'
 import './People.css'
-import PeepModal from "./UserModal";
+//import PeepModal from "./UserModal";
+import LoginContext from "../LogInContext";
 
-const fetchData = async () => {
-    const response = await fetch("http://localhost:3001/users");
-    const json = await response.json();
-    return json;
+const fetchData = async (token) => {
+    const response = await fetch("http://localhost:3001/users", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    return await response.json();
 };
 
 function People(){
+    const [token] = useContext(LoginContext);
     const [response, setResponse] = useState([]);
 
     useEffect(() => {
         let mounted = true;
     
         const fetchDataAsync = async () => {
-          const data = await fetchData();
+          const data = await fetchData(token);
           if (mounted) {
             setResponse(data);
           }
@@ -28,7 +29,7 @@ function People(){
         return () => {
           mounted = false;
         };
-      }, []);
+      }, [token]);
     
     console.log(response)
 
@@ -42,8 +43,7 @@ function People(){
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <img src={Drake} alt="profile" className="picture"/>
-                            {person.user_name}
-                            <PeepModal />
+                            <a href="/messages/$(id)">{person.user_name}</a>
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>)}
