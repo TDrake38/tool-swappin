@@ -2,7 +2,7 @@ const Messages = require('../models/messages.model');
 
 module.exports.getMessages = async (req, res) => {
     //This alone will return all the messages with the same owner_id
-    res.json(await Messages.getMessagesByUserId(req.user.id));
+    res.json(await Messages.getMessagesByUserIdTest(req.user.id));
     //console.log()
 }
 

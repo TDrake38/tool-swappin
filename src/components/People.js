@@ -43,7 +43,7 @@ function People(){
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <img src={Drake} alt="profile" className="picture"/>
-                            <a href="/messages/$(id)">{person.user_name}</a>
+                            <a href="/messages/">{person.user_name}</a>
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>)}

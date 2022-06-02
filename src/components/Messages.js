@@ -8,19 +8,19 @@ import LoginContext from "../LogInContext";
 import { useContextPersisted } from "./Hooks";
 import { useParams } from "react-router-dom";
 
-const getUser = async (token, id) => {
-    const response = await fetch(`http://localhost:3001/message/${id}`, { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
-    return await response.json();
-}
+// const getUser = async (token, id) => {
+//     const response = await fetch(`http://localhost:3001/users/${id}`, { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+//     return await response.json();
+// }
 
-const getMessages = async (token) => {
-    const response = await fetch("http://localhost:3001/messages", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+const getMessages = async (token, id) => {
+    const response = await fetch(`http://localhost:3001/messages/${id}`, { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
     return await response.json();
 }
 
 const sendMessage = async (token, message) => {
     const body = { message: message };
-    const response = await fetch("http://localhost:3001/message", {body: JSON.stringify(body), headers: { Authorization: `Bearer ${token}` }, method: "POST" });
+    const response = await fetch("http://localhost:3001/messages", {body: JSON.stringify(body), headers: { Authorization: `Bearer ${token}` }, method: "POST" });
     return await response.json();
 }
 
@@ -29,13 +29,13 @@ function Messages() {
     const ref = useRef()
     const {id} = useParams()
     const [response, setResponse] = useState([])
-    const [trader, setTrader] = useState([])
+    // const [trader, setTrader] = useState([])
 
     useEffect(() => {
         let mounted = true;
 
         const getMessagesAsync = async () => {
-            const data = await getMessages(token);
+            const data = await getMessages(token, id);
             if (mounted) {
                 setResponse(data);
             }
@@ -43,14 +43,14 @@ function Messages() {
 
         getMessagesAsync();
 
-        const getUserAsync = async () => {
-            const data = await getUser(token, id);
-            if (mounted) {
-                setTrader(data);
-            }
-        };
+        // const getUserAsync = async () => {
+        //     const data = await getUser(token, id);
+        //     if (mounted) {
+        //         setTrader(data);
+        //     }
+        // };
 
-        getUserAsync();
+        // getUserAsync();
 
         return () => {
             mounted = false;
@@ -75,7 +75,7 @@ function Messages() {
                     <Card className="borrower">
                         <Card.Img variant="top" src={Sammy} alt="profile" />
                         <Card.Body>
-                            <Card.Title>{trader.user_name}<Rating /></Card.Title>
+                            <Card.Title>{/*trader.user_name*/}<Rating /></Card.Title>
                             <Card.Text>
                                 St. John's and surrounding area.
                             </Card.Text>
@@ -86,7 +86,7 @@ function Messages() {
                     <div ref={ref} className="mess-box" >
                         {response.map(
                             (message) => (
-                                <div key={message.owner_id}>
+                                <div key={message.sent}>
                                     <p>{message.message}</p>
                                 </div>
                             ))
@@ -110,7 +110,7 @@ function Messages() {
                 </div>
                 <Card className="borrower-2">
                     <Card.Body>
-                        <Card.Title>{trader.user_name}</Card.Title>
+                        <Card.Title>{/*trader.user_name*/}</Card.Title>
                     </Card.Body>
                 </Card>
             </div>
