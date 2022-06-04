@@ -18,9 +18,9 @@ const getMessages = async (token, id) => {
     return await response.json();
 }
 
-const sendMessage = async (token, message) => {
+const sendMessage = async (token, id, message) => {
     const body = { message: message };
-    const response = await fetch("http://localhost:3001/messages", {body: JSON.stringify(body), headers: { Authorization: `Bearer ${token}` }, method: "POST" });
+    const response = await fetch(`http://localhost:3001/messages/${id}`, {body: JSON.stringify(body), headers: { Authorization: `Bearer ${token}` }, method: "POST" });
     return await response.json();
 }
 
@@ -61,7 +61,7 @@ function Messages() {
 
     const send = async (e) => {
         e.preventDefault();
-        await sendMessage ({ token, message: e.target.elements.message.value });
+        await sendMessage ({ token, message: e.target.elements.text.value });
         ref.current.scrollTop = ref.current.scrollHeight;
         const { message } = await response.json()
         return message;
@@ -99,8 +99,8 @@ function Messages() {
                                     <Form.Control
                                         type="text"
                                         placeholder="Message"
-                                        name="message"
-                                        id="message"
+                                        name="text"
+                                        id="text"
                                     />
                                     <Button variant="secondary" type="submit">Send</Button>
                                 </InputGroup>

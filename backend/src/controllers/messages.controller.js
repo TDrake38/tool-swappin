@@ -9,8 +9,8 @@ module.exports.getMessages = async (req, res) => {
 //who made it
 module.exports.createMessage = async (req, res) => {
     try {
-        res.json(await Messages.createMessage(req.body.message, req.user.id, req.body.recipientID)).send()
-        console.log('message sent')
+        res.json(await Messages.createMessage(req.body.text, req.user.id, req.params.id)).send()
+        console.log(await Messages.createMessage(req.body.text, req.user.id, req.params.id))
     } catch (e) { 
         console.error(e)
         res.status(500).send()
