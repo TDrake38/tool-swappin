@@ -21,8 +21,8 @@ Messages.getById = async (messageID) => {
 
  
 Messages.createMessage = async (message, id, params) => {
-    const createMessage = await queryDB('INSERT INTO user_messages (message = $1) AND (id_sender = $2) AND (id_recipient = $3) AND (sent = CURRENT_TIMESTAMP) RETURNING *', [message, id, params]);
-    return createMessage.rows;
+    const createMessage = await queryDB("INSERT INTO user_messages (message, id_sender, id_recipient, sent) VALUES ($1, $2, $3, CURRENT_TIMESTAMP) RETURNING * ",[message, id, params]);
+    return createMessage.rows[0];
 }
 
 // This deletes a message with ID. 

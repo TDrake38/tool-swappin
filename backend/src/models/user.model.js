@@ -16,8 +16,13 @@ User.getUser = async (id) => {
 }
 
 //This returns and empty array
-User.findUser = async (username) => {
+User.findUserByUsername = async (username) => {
     const findUser = await queryDB('SELECT * FROM users WHERE user_name = $1', [username]);
+    return findUser.rows[0];
+}
+
+User.findUserById = async (id) => {
+    const findUser = await queryDB('SELECT * FROM users WHERE id = $1', [id]);
     return findUser.rows[0];
 }
 

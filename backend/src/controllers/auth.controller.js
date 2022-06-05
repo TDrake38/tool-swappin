@@ -9,7 +9,7 @@ const generateAccessToken = (use) => {
 module.exports.login = async (req, res) => {
     console.log(req.body)
     // this searches an array and I need to make it look in the database
-    const user = await User.findUser(req.body.username)//(user => user.name = req.body.name)
+    const user = await User.findUserByUsername(req.body.username)//(user => user.name = req.body.name)
     console.log(user)
         if (user == null) {
             return res.status(400).send('Cannot find user')
@@ -39,7 +39,7 @@ module.exports.logout = async (req, res) => {
 
 module.exports.checkIsAuthenticated = async (req, res, next) => {
   const nonSecurePaths = ["/login", "/search"];
-  console.log(req.path);
+  console.log(req.body);
   if (nonSecurePaths.includes(req.path)) return next();
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];

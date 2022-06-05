@@ -30,8 +30,6 @@ function People(){
           mounted = false;
         };
       }, [token]);
-    
-    console.log(response)
 
     return(
     <>
@@ -39,12 +37,13 @@ function People(){
             <div>
                 <Card.Header className="title">Contacts</Card.Header>
                 {response.map((person) =>
-                <Card className="tard" key={person.id}>
+                <Card className="card" key={person.id}>
+                    {console.log(person)}
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <img src={Drake} alt="profile" className="picture"/>
                             {/*TODO: when the user is clicked make it bring you to messages that have that users id */}
-                            <a href="/messages">{person.user_name}</a>
+                            <a href={`/messages/${person.id}`}>{person.user_name}</a>
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>)}

@@ -5,7 +5,8 @@ module.exports.getAll = async (req, res) => {
     const allUsers = await User.findAll();
     res.json(allUsers.map((original) => {
         return {
-            user_name: original.user_name
+            user_name: original.user_name,
+            id: original.id
         }
     }));
 }
@@ -26,13 +27,13 @@ module.exports.find = async (req, res) => {
 }
 
 module.exports.testFind = async (req, res) => {
-    console.log(await User.findUser(req.body.username));
-    res.json(await User.findUser(req.body.username));
+    console.log(await User.findUserByUsername(req.body.username));
+    res.json(await User.findUserByUsername(req.body.username));
 }
 
 module.exports.findUser = async (req, res) => {
-    console.log(await User.findUser(req.params.id));
-    res.json(await User.findUser(req.params.id));
+    console.log(await User.findUserById(req.params.id));
+    res.json(await User.findUserById(req.params.id));
 }
 
 module.exports.user = async (req, res) => {
