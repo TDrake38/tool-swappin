@@ -86,7 +86,7 @@ function Messages() {
                 {trader.user_name}
                 <Rating />
               </Card.Title>
-              <Card.Text>St. John's and surrounding area.</Card.Text>
+              <Card.Text>{trader.area}</Card.Text>
             </Card.Body>
           </Card>
         </div>
