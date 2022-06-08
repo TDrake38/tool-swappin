@@ -4,6 +4,9 @@ import AreaInput from "./InputArea";
 import MyUploader from "./PhotoDrop";
 import ToolInput from "./InputTool";
 
+
+
+
 function ToolModal(props) {
 
   const toolAdd = (e) => {

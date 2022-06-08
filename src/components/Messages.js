@@ -3,7 +3,6 @@ import drill from "../photos/drill.jpg";
 import Sammy from "../photos/Sammy.jpg";
 import { Button, Card, Form, InputGroup } from "react-bootstrap";
 import "./Messages.css";
-import Rating from "./FakeRating";
 import LoginContext from "../LogInContext";
 import { useContextPersisted } from "./Hooks";
 import { useParams } from "react-router-dom";
@@ -84,7 +83,6 @@ function Messages() {
             <Card.Body>
               <Card.Title>
                 {trader.user_name}
-                <Rating />
               </Card.Title>
               <Card.Text>{trader.area}</Card.Text>
             </Card.Body>
