@@ -2,24 +2,21 @@ import React, {useEffect, useState} from "react";
 import styles from './Listing.module.css'
 import drill from '../photos/drill.jpg'
 import { Card, Button } from "react-bootstrap";
-import LoginContext from "../LogInContext";
-import { useContextPersisted } from "./Hooks";
 
 
-const fetchData = async (token) => {
-    const response = await fetch("http://localhost:3001/findTools", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+const fetchData = async () => {
+    const response = await fetch("http://localhost:3001/findTools", { headers: { "Content-Type": "application/json" }, method: "GET" });
     return await response.json();
 };
 
 function Listing () {
-        const [token] = useContextPersisted(LoginContext, "token");
         const [response, setResponse] = useState([]);
     
         useEffect(() => {
             let mounted = true;
         
             const fetchDataAsync = async () => {
-              const data = await fetchData(token);
+              const data = await fetchData();
               if (mounted) {
                 setResponse(data);
               }
@@ -29,7 +26,7 @@ function Listing () {
             return () => {
               mounted = false;
             };
-          }, [token]);
+          }, []);
         
         console.log(response)
 
