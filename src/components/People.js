@@ -2,11 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import Drake from '../photos/Drake.JPG'
 import './People.css'
-//import PeepModal from "./UserModal";
 import LoginContext from "../LogInContext";
 
 const fetchData = async (token) => {
-    const response = await fetch("http://localhost:3001/users", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
+    /* TODO: have this filter for everyone you have messages with only. */
+    const response = await fetch("http://localhost:3001/users", { headers: { Authorization: `Bearer ${token}` }, method: "GET" /* also GET is the default method and does not need to be here */ });
     return await response.json();
 };
 
@@ -42,7 +42,6 @@ function People(){
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <img src={Drake} alt="profile" className="picture"/>
-                            {/*TODO: when the user is clicked make it bring you to messages that have that users id */}
                             <a href={`/messages/${person.id}`}>{person.user_name}</a>
                         </ListGroup.Item>
                     </ListGroup>

@@ -6,6 +6,7 @@ const generateAccessToken = (use) => {
     return jwt.sign(use, process.env.ACCESS_TOKEN_SECRET /*{"expiresIn": '10m'}*/)
 }
 
+//TODO: make a create/register user. Currently only verifies if there is a user in the database then logs in.  
 module.exports.login = async (req, res) => {
     console.log(req.body)
     // this searches an array and I need to make it look in the database
