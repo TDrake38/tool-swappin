@@ -5,7 +5,7 @@ import { Card, Button } from "react-bootstrap";
 
 
 const fetchData = async () => {
-    const response = await fetch("http://localhost:3001/findTools", { headers: { "Content-Type": "application/json" }, method: "GET" });
+    const response = await fetch("http://localhost:3001/findTools", { headers: { "Content-Type": "application/json" }});
     return await response.json();
 };
 
