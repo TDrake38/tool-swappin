@@ -4,7 +4,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 const register = async ({ username, area, password}) => {
     const body = { username: username, area: area, password: password };
     const response = await fetch("http://localhost:3001/register", { body: JSON.stringify(body), headers: {'Content-Type': 'application/json'}, method: "POST" } );
-    const { accessToken } = await response.json()
+    const { accessToken } = await response.json();
     return accessToken;
   }
 
