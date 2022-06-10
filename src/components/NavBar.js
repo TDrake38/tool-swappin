@@ -19,7 +19,7 @@ const NavBar = () => {
         <Navbar.Brand>
           <Nav.Link as={Link} to="/" className="title-link">Tool Swapping</Nav.Link>
         </Navbar.Brand>
-        <RegisterModal />
+        {token ? null : <RegisterModal />}
         {token ? <LogOutButton /> : <LoginModal />}
       </Container>
     </Navbar>
