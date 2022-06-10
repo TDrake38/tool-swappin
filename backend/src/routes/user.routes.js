@@ -3,7 +3,7 @@ const { getAll, createUser, find, deleteUser, user, findUser, getList} = require
 const registerUsers = (app) => { 
     app.get('/users', getAll);
     app.get('/list', getList);
-    app.post('/users', createUser);
+    app.post('/register', createUser);
     app.get('/currentUser', find);
     app.get('/users/:id', findUser)
     app.get('user', user)

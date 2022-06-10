@@ -26,8 +26,8 @@ User.findUserById = async (id) => {
     return findUser.rows[0];
 }
 
-User.createUser = async (username, password) => {
-    const createUser = await queryDB('INSERT INTO users (user_name, password) VALUES ($1, $2) RETURNING id, name, area, user_name', [username, password]);
+User.createUser = async (username, area, password) => {
+    const createUser = await queryDB('INSERT INTO users (user_name, area, password) VALUES ($1, $2, $3) RETURNING id, name, area, user_name', [username, area, password]);
     return createUser.rows;
 }
 

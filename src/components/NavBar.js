@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { Navbar, Nav, Container,} from 'react-bootstrap';
 import LoginModal from './LoginModal';
+import RegisterModal from './RegisterModal';
 import './NavBar.css'
 import LogOutButton from './LogOutButton';
 import LoginContext from '../LogInContext';
@@ -18,6 +19,7 @@ const NavBar = () => {
         <Navbar.Brand>
           <Nav.Link as={Link} to="/" className="title-link">Tool Swapping</Nav.Link>
         </Navbar.Brand>
+        <RegisterModal />
         {token ? <LogOutButton /> : <LoginModal />}
       </Container>
     </Navbar>
