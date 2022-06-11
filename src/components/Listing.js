@@ -42,8 +42,7 @@ function Listing () {
                 <Card.Body>
                     <Card.Title className={styles.titly}>{tool.name}</Card.Title>
                     <Card.Text className={styles.texty}>
-                    {/*have to make a fetch for the owner area of the tool and display it here. */}
-                    St. John's.
+                    {tool.area}
                     </Card.Text>
                     <Button variant="dark" onClick={check} className={styles.button}>Check On</Button>
                 </Card.Body>
