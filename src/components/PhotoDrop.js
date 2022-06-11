@@ -21,6 +21,7 @@ function MyUploader (){
         onChangeStatus={handleChangeStatus}
         onSubmit={handleSubmit}
         accept="image/*"
+        name="photo"
       />
     )
   }

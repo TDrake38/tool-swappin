@@ -1,33 +1,32 @@
 import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import AreaInput from "./InputArea";
 import MyUploader from "./PhotoDrop";
-import ToolInput from "./InputTool";
-
-
-
 
 function ToolModal(props) {
 
   const toolAdd = (e) => {
     e.preventDefault();
-    console.log('Tool added')
-  }
+    console.log("Tool added");
+  };
 
   return (
     <Modal
       {...props}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
-      centered>
+      centered
+    >
       <Modal.Body>
         <MyUploader />
         <Form onSubmit={toolAdd}>
-          <ToolInput />
-          <AreaInput />
-          <Form.Control type="text" placeholder="Discription" />
-          <Button variant="primary" type="submit" >
-            Done
+          <Form.Control
+            placeholder="Tool Name"
+            aria-label="Tool Name"
+            aria-describedby="basic-addon1"
+            name="toolName"
+          />
+          <Button variant="primary" type="submit">
+            Add
           </Button>
         </Form>
       </Modal.Body>
@@ -44,10 +43,7 @@ function AddTool() {
         Add
       </Button>
 
-      <ToolModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+      <ToolModal show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 }

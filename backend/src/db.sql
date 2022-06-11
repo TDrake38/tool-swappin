@@ -24,6 +24,7 @@ CREATE TABLE tools (
 	name VARCHAR (50) NOT NULL,
 	deposit DOUBLE,
 	is_available BOOLEAN,
+	area VARCHAR (50),
 	borrower_id INT,
 	owner_id INT NOT NULL,
 	photo TEXT NOT NULL,
@@ -32,4 +33,5 @@ CREATE TABLE tools (
 	PRIMARY KEY(id),
 	FOREIGN KEY(owner_id) REFERENCES users(id),
 	FOREIGN KEY(borrower_id) REFERENCES users(id)
+	FOREIGN KEY(area) REFERENCES users(area)
 );
