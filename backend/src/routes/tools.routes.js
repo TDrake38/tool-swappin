@@ -2,7 +2,7 @@ const { findTools, createTool, deleteTool, getTools } = require('../controllers/
 
 const registerTool = (app) => { 
     app.get('/findTools', findTools)
-    app.post('/createTool', createTool)
+    app.post('/tool', createTool)
     app.delete('/deleteTool/:id', deleteTool)
     app.get('/getTools', getTools)
 };
