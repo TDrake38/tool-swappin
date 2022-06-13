@@ -33,6 +33,21 @@ function ToolModal(props) {
     allFiles.forEach(f => f.remove())
   }
 
+  const convertIMG = (e) => {
+    e.preventDefault();
+    let filesSelected = document.getElementById("inputFileToLoad").files;
+    if (filesSelected.length > 0) {
+      let fileToLoad = filesSelected[0];
+
+      let fileReader = new FileReader();
+
+      fileReader.onload = function(fileLoadedEvent) {
+        let srcData = fileLoadedEvent.target.result; // base64 result
+        console.log(srcData);
+      }
+      fileReader.readAsDataURL(fileToLoad);
+  }}
+
   const toolAdd = (e) => {
     e.preventDefault();
     const newTool = createTool(token, e.target.elements.toolName.value);
@@ -48,14 +63,15 @@ function ToolModal(props) {
       centered
     >
       <Modal.Body>
-          <Dropzone
+          {/* <Dropzone
           getUploadParams={getUploadParams}
           onChangeStatus={handleChangeStatus}
           onSubmit={handleSubmit}
           accept="image/*"
           name="photo"
-        />
-        <Form onSubmit={toolAdd}>
+        /> */}
+        <input id="inputFileToLoad" type="file" name="image" />
+        <Form onSubmit={convertIMG}>
           <Form.Control
             placeholder="Tool Name"
             aria-label="Tool Name"
