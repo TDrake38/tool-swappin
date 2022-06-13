@@ -19,20 +19,6 @@ const createTool = async (token, toolName) => {
 function ToolModal(props) {
   const [token] = useContextPersisted(LoginContext, "token");
 
-  
-  // specify upload params and url for your files
-  const getUploadParams = ({ meta }) => { return { url: 'https://httpbin.org/post' } }
-    
-  // called every time a file's `status` changes
-  const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
-  
-  //TODO: make this only take in one photo, turn it into base 64 and store console log it. THENNNN -> send the string to toolAdd function to send to the database. 
-  // receives array of files that are done uploading when submit button is clicked
-  const handleSubmit = (files, allFiles) => {
-    console.log(files.map(f => f.meta))
-    allFiles.forEach(f => f.remove())
-  }
-
   const convertIMG = (e) => {
     e.preventDefault();
     let filesSelected = document.getElementById("inputFileToLoad").files;
