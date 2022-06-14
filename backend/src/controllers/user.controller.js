@@ -11,6 +11,17 @@ module.exports.getAll = async (req, res) => {
     }));
 }
 
+module.exports.getContacts = async (req, res) => {
+    const allUsers = await User.findAll();
+    const loggedUser = await User.findUserById(req.user.id);
+    res.json(allUsers.map((original) => {
+        return {
+            user_name: original.user_name,
+            id: original.id
+        }
+    }));
+}
+
 module.exports.getList = async (req, res) => {
     try {
         res.json(await User.findAll())

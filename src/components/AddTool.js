@@ -1,12 +1,11 @@
 import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import 'react-dropzone-uploader/dist/styles.css'
-import Dropzone from 'react-dropzone-uploader'
 import LoginContext from "../LogInContext";
 import { useContextPersisted } from "./Hooks";
 
-const createTool = async (token, toolName) => {
-  const body = { toolName: toolName };
+const createTool = async (token, srcData, toolName) => {
+  const body = { photo: srcData, toolName: toolName };
   const response = await fetch(`http://localhost:3001/tool`, {
     body: JSON.stringify(body),
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
@@ -29,14 +28,17 @@ function ToolModal(props) {
 
       fileReader.onload = function(fileLoadedEvent) {
         let srcData = fileLoadedEvent.target.result; // base64 result
+        const newTool = createTool(token, srcData, e.target.elements.toolName.value);
         console.log(srcData);
+        console.log(newTool);
+        return newTool;
       }
       fileReader.readAsDataURL(fileToLoad);
   }}
 
   const toolAdd = (e) => {
     e.preventDefault();
-    const newTool = createTool(token, e.target.elements.toolName.value);
+    const newTool = createTool(token, convertIMG.srcData, e.target.elements.toolName.value);
     console.log(newTool);
     return newTool;
   };
