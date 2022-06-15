@@ -12,8 +12,8 @@ module.exports.getAll = async (req, res) => {
 }
 
 module.exports.getContacts = async (req, res) => {
-    const allUsers = await User.findAll();
-    const loggedUser = await User.findUserById(req.user.id);
+    const allUsers = await User.findOtherUsersByID(req.user.id);
+    //const loggedUser = await User.findUserById(req.user.id);
     res.json(allUsers.map((original) => {
         return {
             user_name: original.user_name,

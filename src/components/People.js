@@ -6,7 +6,7 @@ import LoginContext from "../LogInContext";
 
 const fetchData = async (token) => {
     /* TODO: have this filter for everyone you have messages with only. */
-    const response = await fetch("http://localhost:3001/users", { headers: { Authorization: `Bearer ${token}` }, method: "GET" /* also GET is the default method and does not need to be here */ });
+    const response = await fetch("http://localhost:3001/contacts", { headers: { Authorization: `Bearer ${token}` }, method: "GET" /* also GET is the default method and does not need to be here */ });
     return await response.json();
 };
 

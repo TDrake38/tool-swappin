@@ -10,6 +10,11 @@ User.findAll = async () => {
     return response.rows;
 }
 
+User.findOtherUsersByID = async (id) => {
+    const response = await queryDB('SELECT * FROM users WHERE id != $1', [id]);
+    return response.rows;
+}
+
 User.getUser = async (id) => {
     const getUser = await queryDB('SELECT * FROM users WHERE id = $1', [id]);
     return getUser.rows[0];
