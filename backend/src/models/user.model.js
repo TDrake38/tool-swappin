@@ -10,6 +10,7 @@ User.findAll = async () => {
     return response.rows;
 }
 
+//make this eventually to show only users that share messages/have sent a message to another user.
 User.findOtherUsersByID = async (id) => {
     const response = await queryDB('SELECT * FROM users WHERE id != $1', [id]);
     return response.rows;
