@@ -48,7 +48,7 @@ function Tool() {
                         <Card className="a" key={tool.owner_id}>
                             <ListGroup variant="flush" className="list-group-flush tool-list">
                                 <ListGroup.Item>
-                                    <img src={drill} alt="profile" className="picture" />
+                                    <img src={tool.photo} alt="profile" className="picture" />
                                     <Card.Link>{tool.name}</Card.Link>
                                     <CloseButton onClick={delet} />
                                 </ListGroup.Item>

@@ -36,13 +36,6 @@ function ToolModal(props) {
       fileReader.readAsDataURL(fileToLoad);
   }}
 
-  const toolAdd = (e) => {
-    e.preventDefault();
-    const newTool = createTool(token, convertIMG.srcData, e.target.elements.toolName.value);
-    console.log(newTool);
-    return newTool;
-  };
-
   return (
     <Modal
       {...props}
