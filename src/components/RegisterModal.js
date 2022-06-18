@@ -42,8 +42,9 @@ function RegModal(props) {
             <Form.Control type="password" placeholder="Password" id="password" name="password"/>
           </Form.Group>
           <Button variant="primary" type="submit">
-            Submit
+            Register
           </Button>
+          <h4>By registering for ToolSwappin you agree that ToolSwappin takes no responsability for stolen or lost tools. Use at your own risk.</h4>
         </Form>
       </Modal.Body>
     </Modal>
