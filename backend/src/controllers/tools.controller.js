@@ -12,7 +12,13 @@ module.exports.getTools = async (req, res) => {
     //console.log(tool)
 }
 
+module.exports.toolSearch = async (req, res) => {
+    console.log(await Tool.search());
+    res.json(await Tool.search());
+}
+
 //TODO: find out why req.user.id wouldnt work and i had to change it back to INSERT not UPSERT req.body.ownerID
+//TODO: area will not input using logged in user area
 module.exports.createTool = async (req, res) => {
     console.log(req.body)
     try {

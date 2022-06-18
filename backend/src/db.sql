@@ -32,6 +32,6 @@ CREATE TABLE tools (
 	returned DATE,
 	PRIMARY KEY(id),
 	FOREIGN KEY(owner_id) REFERENCES users(id),
-	FOREIGN KEY(borrower_id) REFERENCES users(id)
+	FOREIGN KEY(borrower_id) REFERENCES users(id),
 	FOREIGN KEY(area) REFERENCES users(area)
 );

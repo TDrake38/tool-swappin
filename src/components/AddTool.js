@@ -20,17 +20,15 @@ function ToolModal(props) {
 
   const convertIMG = (e) => {
     e.preventDefault();
-    let filesSelected = document.getElementById("inputFileToLoad").files;
+    const filesSelected = document.getElementById("inputFileToLoad").files;
     if (filesSelected.length > 0) {
-      let fileToLoad = filesSelected[0];
+      const fileToLoad = filesSelected[0];
 
-      let fileReader = new FileReader();
+      const fileReader = new FileReader();
 
       fileReader.onload = function(fileLoadedEvent) {
-        let srcData = fileLoadedEvent.target.result; // base64 result
+        const srcData = fileLoadedEvent.target.result; // base64 result
         const newTool = createTool(token, srcData, e.target.elements.toolName.value);
-        console.log(srcData);
-        console.log(newTool);
         return newTool;
       }
       fileReader.readAsDataURL(fileToLoad);

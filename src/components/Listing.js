@@ -38,7 +38,7 @@ function Listing () {
         <>
             {response.map((tool) =>
             <Card className={styles.fard} key={tool.id}>
-                <Card.Img variant="top" src={drill} alt="A drill" className={styles.piccy}/>
+                <Card.Img variant="top" src={tool.photo} alt="Tool Photo" className={styles.piccy}/>
                 <Card.Body>
                     <Card.Title className={styles.titly}>{tool.name}</Card.Title>
                     <Card.Text className={styles.texty}>
