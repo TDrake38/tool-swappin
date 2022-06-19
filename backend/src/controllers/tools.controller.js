@@ -13,8 +13,8 @@ module.exports.getTools = async (req, res) => {
 }
 
 module.exports.toolSearch = async (req, res) => {
-    console.log(await Tool.search());
-    res.json(await Tool.search());
+    console.log(await Tool.search(req.body.searchBar));
+    res.json(await Tool.search(req.body.searchBar));
 }
 
 //TODO: find out why req.user.id wouldnt work and i had to change it back to INSERT not UPSERT req.body.ownerID
@@ -22,7 +22,7 @@ module.exports.toolSearch = async (req, res) => {
 module.exports.createTool = async (req, res) => {
     console.log(req.body)
     try {
-        res.json(await Tool.createTool(req.body.photo, req.body.toolName, req.user.area, req.user.id)).send()
+        res.json(await Tool.createTool(req.body.photo, req.body.toolName, req.body.area, req.user.id)).send()
         console.log('tool created')
     } catch (e) { 
         console.error(e)

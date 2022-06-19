@@ -4,8 +4,8 @@ import 'react-dropzone-uploader/dist/styles.css'
 import LoginContext from "../LogInContext";
 import { useContextPersisted } from "./Hooks";
 
-const createTool = async (token, srcData, toolName) => {
-  const body = { photo: srcData, toolName: toolName };
+const createTool = async (token, srcData, toolName, area) => {
+  const body = { photo: srcData, toolName: toolName, area: area };
   const response = await fetch(`http://localhost:3001/tool`, {
     body: JSON.stringify(body),
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
@@ -28,7 +28,8 @@ function ToolModal(props) {
 
       fileReader.onload = function(fileLoadedEvent) {
         const srcData = fileLoadedEvent.target.result; // base64 result
-        const newTool = createTool(token, srcData, e.target.elements.toolName.value);
+        const newTool = createTool(token, srcData, e.target.elements.toolName.value, e.target.elements.area.value);
+        //TODO: make this update the list when submitted setResponse([...response, newTool]???)
         return newTool;
       }
       fileReader.readAsDataURL(fileToLoad);
@@ -42,13 +43,6 @@ function ToolModal(props) {
       centered
     >
       <Modal.Body>
-          {/* <Dropzone
-          getUploadParams={getUploadParams}
-          onChangeStatus={handleChangeStatus}
-          onSubmit={handleSubmit}
-          accept="image/*"
-          name="photo"
-        /> */}
         <input id="inputFileToLoad" type="file" name="image" />
         <Form onSubmit={convertIMG}>
           <Form.Control
@@ -56,6 +50,12 @@ function ToolModal(props) {
             aria-label="Tool Name"
             aria-describedby="basic-addon1"
             name="toolName"
+          />
+          <Form.Control
+            placeholder="Area"
+            aria-label="Area"
+            aria-describedby="basic-addon1"
+            name="area"
           />
           <Button variant="primary" type="submit">
             Add

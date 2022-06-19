@@ -3,7 +3,7 @@ const { findTools, createTool, deleteTool, getTools, toolSearch } = require('../
 const registerTool = (app) => { 
     app.get('/findTools', findTools)
     app.post('/tool', createTool)
-    app.get('/search', toolSearch)
+    app.post('/search', toolSearch)
     app.delete('/deleteTool/:id', deleteTool)
     app.get('/getTools', getTools)
 };

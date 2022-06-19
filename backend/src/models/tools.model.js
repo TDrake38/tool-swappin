@@ -8,8 +8,8 @@ Tool.findAll = async () => {
 }
 
 //TODO: make this so it filters for the word put into the search bar
-Tool.search = async () => {
-    const response = await queryDB('SELECT * FROM tools');
+Tool.search = async (searchBar) => {
+    const response = await queryDB('SELECT * FROM tools WHERE name = $1', [searchBar]);
     return response.rows;
 }
 
