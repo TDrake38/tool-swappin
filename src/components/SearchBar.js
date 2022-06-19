@@ -34,6 +34,7 @@ function SearchBar () {
 
       const search = (e) => {
         e.preventDefault();
+        // the await breaks the website so when removed it will render but with it there it doesnt. but without it when the fetch happens it errors..... 
         const searchTools = await searchForTools(e.target.elements.searchBar.value);
         setResponse([searchTools])
         console.log(searchTools)
