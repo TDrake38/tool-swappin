@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import styles from './Listing.module.css'
-import drill from '../photos/drill.jpg'
 import { Card, Button } from "react-bootstrap";
 
 
