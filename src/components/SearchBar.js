@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FormControl, InputGroup, Button, Form} from "react-bootstrap";
+import { InputGroup, Button, Form} from "react-bootstrap";
 import './SearchBar.css'
 
 const searchForTools = async (searchBar) => {
@@ -35,8 +35,8 @@ function SearchBar () {
       const search = async (e) => {
         e.preventDefault();
         const searchTools = await searchForTools(e.target.elements.searchBar.value);
-        setResponse([searchTools])
-        console.log(searchTools)
+        //setResponse([searchTools])
+        console.log(searchTools);
     }
 
     return (
@@ -45,6 +45,7 @@ function SearchBar () {
                 <Form>
                     <Button variant="dark" onClick={search}>Search</Button>
                     <Form.Control
+                    type="text"
                     aria-label="Default"
                     aria-describedby="inputGroup-sizing-default"
                     name="searchBar"

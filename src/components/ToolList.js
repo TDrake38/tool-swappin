@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Card, CloseButton, ListGroup } from "react-bootstrap";
-import drill from '../photos/drill.jpg'
 import './Profile.css';
 import AddTool from "./AddTool";
 import LoginContext from "../LogInContext";
