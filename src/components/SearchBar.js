@@ -34,6 +34,7 @@ function SearchBar () {
 
       const search = async (e) => {
         e.preventDefault();
+        //console.log(e);
         const searchTools = await searchForTools(e.target.elements.searchBar.value);
         //setResponse([searchTools])
         console.log(searchTools);
@@ -42,8 +43,8 @@ function SearchBar () {
     return (
         <>
             <InputGroup className="mb-3 s-bar">
-                <Form>
-                    <Button variant="dark" onClick={search}>Search</Button>
+                <Form onSubmit={search}>
+                    <Button variant="dark" type="submit">Search</Button>
                     <Form.Control
                     type="text"
                     aria-label="Default"

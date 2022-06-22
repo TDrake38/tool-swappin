@@ -1,53 +1,60 @@
-import React, {useEffect, useState} from "react";
-import styles from './Listing.module.css'
+import React, { useEffect, useState } from "react";
+import styles from "./Listing.module.css";
 import { Card, Button } from "react-bootstrap";
 
-
 const fetchData = async () => {
-    const response = await fetch("http://localhost:3001/findTools", { headers: { "Content-Type": "application/json" }});
-    return await response.json();
+  const response = await fetch("http://localhost:3001/findTools", {
+    headers: { "Content-Type": "application/json" },
+  });
+  return await response.json();
 };
 
-function Listing () {
-        const [response, setResponse] = useState([]);
-    
-        useEffect(() => {
-            let mounted = true;
-        
-            const fetchDataAsync = async () => {
-              const data = await fetchData();
-              if (mounted) {
-                setResponse(data);
-              }
-            };
-        
-            fetchDataAsync();
-            return () => {
-              mounted = false;
-            };
-          }, []);
-        
-        console.log(response)
+function Listing() {
+  const [response, setResponse] = useState([]);
 
-    const check = (e) => {
-        console.log("Finding");
-    }
+  useEffect(() => {
+    let mounted = true;
 
-    return (
-        <>
-            {response.map((tool) =>
-            <Card className={styles.fard} key={tool.id}>
-                <Card.Img variant="top" src={tool.photo} alt="Tool Photo" className={styles.piccy}/>
-                <Card.Body>
-                    <Card.Title className={styles.titly}>{tool.name}</Card.Title>
-                    <Card.Text className={styles.texty}>
-                    {tool.area}
-                    </Card.Text>
-                    <Button variant="dark" onClick={check} className={styles.button}>Check On</Button>
-                </Card.Body>
-            </Card>)}
-        </>
-    )
+    const fetchDataAsync = async () => {
+      const data = await fetchData();
+      if (mounted) {
+        setResponse(data);
+      }
+    };
+
+    fetchDataAsync();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  console.log(response);
+
+  const check = (e) => {
+    console.log("Finding");
+  };
+
+  return (
+    <>
+      {response.map((tool) => (
+        <Card className={styles.fard} key={tool.id}>
+          <Card.Img
+            variant="top"
+            src={tool.photo}
+            alt="Tool Photo"
+            className={styles.piccy}
+          />
+          <Card.Body>
+            <Card.Title className={styles.titly}>{tool.name}</Card.Title>
+            <Card.Text className={styles.texty}>{tool.area}</Card.Text>
+            <Button variant="dark" onClick={check} className={styles.button}>
+              Check On
+            </Button>
+          </Card.Body>
+        </Card>
+      ))}
+    </>
+  );
 }
 
 export default Listing;

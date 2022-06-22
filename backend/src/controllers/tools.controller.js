@@ -2,7 +2,7 @@ const Tool = require('../models/tools.model');
 
 // this is a test to see if I can find all tools
 module.exports.findTools = async (req, res) => {
-    console.log(await Tool.findAll());
+    //console.log(await Tool.findAll());
     res.json(await Tool.findAll());
 }
 
@@ -13,7 +13,7 @@ module.exports.getTools = async (req, res) => {
 }
 
 module.exports.toolSearch = async (req, res) => {
-    console.log(await Tool.search(req.body.searchBar));
+    //console.log(await Tool.search(req.body.searchBar));
     res.json(await Tool.search(req.body.searchBar));
 }
 

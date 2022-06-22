@@ -9,7 +9,7 @@ Tool.findAll = async () => {
 
 //TODO: make this so it filters for the word put into the search bar
 Tool.search = async (searchBar) => {
-    const response = await queryDB('SELECT * FROM tools WHERE name = $1', [searchBar]);
+    const response = await queryDB(`SELECT * FROM tools WHERE LOWER (name) LIKE '%' || LOWER ($1) || '%'`, [searchBar]);
     return response.rows;
 }
 
