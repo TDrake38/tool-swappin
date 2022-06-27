@@ -5,6 +5,7 @@ import Drake from "../photos/Drake.JPG";
 import People from "./People";
 import Tool from "./ToolList";
 import LoginContext from "../LogInContext";
+import AddPic from "./ProfilePicture";
 
 const getUser = async (token) => {
     const response = await fetch("http://localhost:3001/currentUser", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
@@ -39,11 +40,12 @@ function Profile() {
         <>
             <div className="profile">
                 <Card className="hard">
-                    <Card.Img variant="top" src={Drake} alt="profile" />
+                    <Card.Img variant="top" src={response.photo} alt="profile picture" />
                     <Card.Body>   
                         <div>{response.user_name}</div>
                         <div>{response.area ?? "No Location"}</div>
                     </Card.Body>
+                    <AddPic />
                 </Card>
                 <Tool />
                 <div className="people">

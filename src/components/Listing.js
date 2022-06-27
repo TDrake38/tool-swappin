@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./Listing.module.css";
 import { Card, Button } from "react-bootstrap";
 
@@ -10,7 +10,6 @@ const fetchData = async () => {
 };
 
 function Listing({response, setResponse}) {
-  //const [response, setResponse] = useState([]);
 
   useEffect(() => {
     let mounted = true;
@@ -28,10 +27,11 @@ function Listing({response, setResponse}) {
     };
   }, []);
 
-  console.log(response);
+  //console.log(response);
 
   const check = (e) => {
-    console.log("Finding");
+    e.preventDefault();
+    //console.log("Finding");
   };
 
   return (

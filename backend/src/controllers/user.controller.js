@@ -64,6 +64,16 @@ module.exports.createUser = async (req, res) => {
     }
 }
 
+module.exports.editPhoto = async (req, res) => {
+    try {
+        res.json(await User.editPhoto(req.body.photo))
+        console.log('Photo edited')
+    } catch (e) {
+        console.log(e)
+        res.status(500).send()
+    }
+}
+
 module.exports.deleteUser = async (req, res) => {
     try {
         //const hashedPassword = await bcrypt.hash(req.body.password, parseInt (process.env.TOOL_SWAPPIN_SALT, 10))

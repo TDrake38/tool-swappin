@@ -5,6 +5,7 @@ CREATE TABLE users (
 	email VARCHAR (100),
 	area VARCHAR (50),
 	name VARCHAR (50),
+	photo TEXT,
 	user_name VARCHAR (50) NOT NULL,
 	PRIMARY KEY(id)
 );

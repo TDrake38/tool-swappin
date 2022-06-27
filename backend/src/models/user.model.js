@@ -37,6 +37,12 @@ User.createUser = async (username, area, password) => {
     return createUser.rows;
 }
 
+//need to change to UPDATE/instead of add because now it adds a user with no credentials just a photo.
+User.editPhoto = async (photo) => {
+    const editPhoto = await queryDB ('INSERT INTO users (photo) VALUES ($1) RETURNING *', [photo]);
+    return editPhoto.rows;
+}
+
 // TODO: if you want
 User.deleteUser = async (id) => {
     const deleteUser = await queryDB('DELETE FROM users WHERE id = $1 RETURNING id, name, area, user_name', [id]);

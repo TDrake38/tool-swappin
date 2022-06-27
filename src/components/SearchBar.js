@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { InputGroup, Button, Form} from "react-bootstrap";
 import './SearchBar.css'
-import setResponse from './Search.js'
+
 
 const searchForTools = async (searchBar) => {
     const body = { searchBar: searchBar };
@@ -14,7 +14,6 @@ const searchForTools = async (searchBar) => {
 };
 
 function SearchBar ({ setResponse }) {
-    //const [response, setResponse] = useState([]);
 
     useEffect(() => {
         let mounted = true;
@@ -35,10 +34,9 @@ function SearchBar ({ setResponse }) {
 
       const search = async (e) => {
         e.preventDefault();
-        //console.log(e);
         const searchTools = await searchForTools(e.target.elements.searchBar.value);
         setResponse(searchTools)
-        console.log(searchTools);
+        //console.log(searchTools);
     }
 
     return (
