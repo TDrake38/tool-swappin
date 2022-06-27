@@ -12,8 +12,8 @@ const searchForTools = async (searchBar) => {
     return await response.json();
 };
 
-function SearchBar () {
-    const [response, setResponse] = useState([]);
+function SearchBar ({response}) {
+    //const [response, setResponse] = useState([]);
 
     useEffect(() => {
         let mounted = true;
@@ -36,7 +36,7 @@ function SearchBar () {
         e.preventDefault();
         //console.log(e);
         const searchTools = await searchForTools(e.target.elements.searchBar.value);
-        //setResponse([searchTools])
+        setResponse([searchTools])
         console.log(searchTools);
     }
 

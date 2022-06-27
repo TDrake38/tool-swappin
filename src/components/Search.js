@@ -4,6 +4,8 @@ import SearchBar from "./SearchBar";
 import './Search.css'
 
 function Search () {
+    const [response, setResponse] = useState(0);
+
     return (
         <>
         <div className="search">

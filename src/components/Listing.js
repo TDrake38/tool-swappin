@@ -9,8 +9,8 @@ const fetchData = async () => {
   return await response.json();
 };
 
-function Listing() {
-  const [response, setResponse] = useState([]);
+function Listing({response}) {
+  //const [response, setResponse] = useState([]);
 
   useEffect(() => {
     let mounted = true;
