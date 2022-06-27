@@ -9,7 +9,7 @@ const fetchData = async () => {
   return await response.json();
 };
 
-function Listing({response}) {
+function Listing({response, setResponse}) {
   //const [response, setResponse] = useState([]);
 
   useEffect(() => {
