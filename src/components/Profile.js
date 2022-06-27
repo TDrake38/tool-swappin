@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import './Profile.css';
 import { Card } from "react-bootstrap";
-import Drake from "../photos/Drake.JPG";
 import People from "./People";
 import Tool from "./ToolList";
 import LoginContext from "../LogInContext";

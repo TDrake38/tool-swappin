@@ -9,8 +9,7 @@ const fetchData = async () => {
   return await response.json();
 };
 
-function Listing({response, setResponse}) {
-
+function Listing({ response, setResponse }) {
   useEffect(() => {
     let mounted = true;
 
@@ -36,23 +35,31 @@ function Listing({response, setResponse}) {
 
   return (
     <>
-      {response.map((tool) => (
-        <Card className={styles.fard} key={tool.id}>
-          <Card.Img
-            variant="top"
-            src={tool.photo}
-            alt="Tool Photo"
-            className={styles.piccy}
-          />
-          <Card.Body>
-            <Card.Title className={styles.titly}>{tool.name}</Card.Title>
-            <Card.Text className={styles.texty}>{tool.area}</Card.Text>
-            <Button variant="dark" onClick={check} className={styles.button}>
-              Check On
-            </Button>
-          </Card.Body>
-        </Card>
-      ))}
+      <div className={styles.container}>
+        <div className={styles.listing}>
+          {response.map((tool) => (
+            <Card className={styles.fard} key={tool.id}>
+              <Card.Img
+                variant="top"
+                src={tool.photo}
+                alt="Tool Photo"
+                className={styles.photo}
+              />
+              <Card.Body>
+                <Card.Title className={styles.titly}>{tool.name}</Card.Title>
+                <Card.Text className={styles.texty}>{tool.area}</Card.Text>
+                <Button
+                  variant="dark"
+                  onClick={check}
+                  className={styles.button}
+                >
+                  Check On
+                </Button>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      </div>
     </>
   );
 }

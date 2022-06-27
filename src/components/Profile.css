@@ -5,48 +5,20 @@
   justify-content: space-evenly;
 }
 .profile .tool {
-  width: 2.5rem;
-  height: 2.5rem;
   border-radius: 3px;
   object-fit: cover;
 }
 .profile .hard {
-  width: 18rem;
-  height: 23rem;
   border: 2px solid lightgray;
   border-radius: 3px;
 }
 .people {
   font: bold;
-  width: 18.125rem;
 }
 
 .tool-title {
   color: oldlace;
   text-align: center;
   background-color: var(--bs-primary);
-}
-
-@media only screen and (min-width: 769px) and (max-width: 990px) {
-  .profile .hard {
-    width: 12rem;
-    height: 20rem;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .people {
-    margin-top: 1rem;
-  }
-  .profile {
-    justify-content: center;
-  }
-  .profile .hard{
-    width: 9rem;
-    height: 17.2rem;
-  }
-  .tool-list {
-    border: 2px solid lightgray;
-  }
 }
 
