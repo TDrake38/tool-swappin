@@ -46,8 +46,8 @@ function Listing({ response, setResponse }) {
                 className={styles.photo}
               />
               <Card.Body>
-                <Card.Title className={styles.titly}>{tool.name}</Card.Title>
-                <Card.Text className={styles.texty}>{tool.area}</Card.Text>
+                <Card.Title>{tool.name}</Card.Title>
+                <Card.Text>{tool.area}</Card.Text>
                 <Button
                   variant="dark"
                   onClick={check}

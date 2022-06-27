@@ -11,28 +11,20 @@
 .fard {
     width: 18rem;
     height: 18.5rem;
+    margin-top: 3px;
     display: flex;
     flex: wrap;
     justify-content: center;
+    border: 1px solid black;
 }
 
 .photo {
     width: 9.375rem;
     height: 9.375rem;
-    border: 1px solid lightgray;
+    border: 1px solid black;
     border-radius: 3px;
     margin-top: 1.5rem;
     margin-left: 1.25rem;
     object-fit: cover;
 }
 
-.listing-title {
-    font-weight: bold;
-    font-size: 1.875rem;
-    text-decoration: underline;
-    color: #eaebea;
-}
-
-
-@media only screen and (max-width: 768px){
-}
