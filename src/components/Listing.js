@@ -52,6 +52,8 @@ function Listing({ response, setResponse }) {
                   variant="dark"
                   onClick={check}
                   className={styles.button}
+                  //TODO link this to open a chat with the owner of the tool
+                  //href={`/messages/${person.id}`}
                 >
                   Check On
                 </Button>
