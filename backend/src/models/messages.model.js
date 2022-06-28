@@ -19,7 +19,6 @@ Messages.getById = async (messageID) => {
     return oneMessage.rows[0];
 }
 
- 
 Messages.createMessage = async (message, id, params) => {
     const createMessage = await queryDB("INSERT INTO user_messages (message, id_sender, id_recipient, sent) VALUES ($1, $2, $3, CURRENT_TIMESTAMP) RETURNING * ",[message, id, params]);
     return createMessage.rows[0];
