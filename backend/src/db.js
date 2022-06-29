@@ -14,6 +14,7 @@ module.exports.queryDB = (query, values) => {
     return new Promise((resolve, reject) => {
         pool.query(query, values, (err, res) => {
             if (err) {
+                console.log(err)
                 reject(err);
             }
             resolve(res);

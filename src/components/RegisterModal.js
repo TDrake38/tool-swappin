@@ -13,6 +13,7 @@ function RegModal(props) {
   const buttonSubmit = async (e) => {
     e.preventDefault();
     await register({ username: e.target.elements.username.value, area: e.target.elements.area.value, password: e.target.elements.password.value });
+    //change this from an alert to something cooler
     alert('Now you can login.')
   }
 
