@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import styles from "./Listing.module.css";
 import { Card, Button } from "react-bootstrap";
+import LoginContext from "../LogInContext";
 
 const fetchData = async () => {
   const response = await fetch("http://localhost:3001/findTools", {
@@ -9,7 +10,9 @@ const fetchData = async () => {
   return await response.json();
 };
 
-function Listing({ response, setResponse }) {
+function Listing({ response, setResponse, loggedIn }) {
+  //const [token] = useContext(LoginContext);
+
   useEffect(() => {
     let mounted = true;
 
@@ -48,15 +51,24 @@ function Listing({ response, setResponse }) {
               <Card.Body>
                 <Card.Title>{tool.name}</Card.Title>
                 <Card.Text>{tool.area}</Card.Text>
-                <Button
+                {/* <Button
                   variant="dark"
                   onClick={check}
                   className={styles.button}
                   //TODO link this to open a chat with the owner of the tool
-                  //href={`/messages/${person.id}`}
+                  //href={`/messages/${tool.owner_id}`}
                 >
                   Check On
-                </Button>
+                </Button> */}
+                {loggedIn ? <Button
+                  variant="dark"
+                  onClick={check}
+                  className={styles.button}
+                  //TODO link this to open a chat with the owner of the tool
+                  //href={`/messages/${tool.owner_id}`}
+                >
+                  Check On
+                </Button> : null}
               </Card.Body>
             </Card>
           ))}

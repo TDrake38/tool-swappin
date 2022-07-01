@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import "./Search.css";
 
 function Search() {
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem('token'));
   const [response, setResponse] = useState([]);
 
   return (
@@ -14,7 +15,7 @@ function Search() {
         </div>
       </div>
       <div className="listings">
-        <Listing response={response} setResponse={setResponse}/>
+        <Listing response={response} setResponse={setResponse} loggedIn={loggedIn}/>
       </div>
     </>
   );

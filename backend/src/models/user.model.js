@@ -35,7 +35,7 @@ User.findUserById = async (id) => {
   return findUser.rows[0];
 };
 
-//test for filtering user by messages
+//remove the password. AND comment in plain enlishg what its doing.
 User.findUserByMessages = async (id) => {
   const findUser = await queryDB("SELECT DISTINCT (users.id), users.* FROM users INNER JOIN user_messages ON (users.id = user_messages.id_sender AND $1 = user_messages.id_recipient) OR (users.id = user_messages.id_recipient AND $1 = user_messages.id_sender)", [id]);
   return findUser.rows;
