@@ -49,11 +49,10 @@ User.createUser = async (username, area, password) => {
   return createUser.rows;
 };
 
-//need to change to UPDATE/instead of add because now it adds a user with no credentials just a photo.
-User.editPhoto = async (photo) => {
+User.editPhoto = async (id, photo) => {
   const editPhoto = await queryDB(
-    "INSERT INTO users (photo) VALUES ($1) RETURNING *",
-    [photo]
+    "UPDATE users SET photo = $2 WHERE id = $1",
+    [id, photo]
   );
   return editPhoto.rows;
 };

@@ -66,7 +66,8 @@ module.exports.createUser = async (req, res) => {
 
 module.exports.editPhoto = async (req, res) => {
     try {
-        res.json(await User.editPhoto(req.body.photo))
+        res.json(await User.editPhoto(req.user.id, req.body.photo))
+        //console.log(await User.editPhoto(req.user.id, req.body.photo))
         console.log('Photo edited')
     } catch (e) {
         console.log(e)

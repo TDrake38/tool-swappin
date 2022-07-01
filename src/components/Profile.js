@@ -33,7 +33,7 @@ function Profile() {
         };
       }, [token]);
     
-    console.log(response)
+    //console.log(response.user_name)
 
     return (
         <>

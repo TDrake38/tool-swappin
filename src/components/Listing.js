@@ -11,7 +11,6 @@ const fetchData = async () => {
 };
 
 function Listing({ response, setResponse, loggedIn }) {
-  //const [token] = useContext(LoginContext);
 
   useEffect(() => {
     let mounted = true;
@@ -51,24 +50,17 @@ function Listing({ response, setResponse, loggedIn }) {
               <Card.Body>
                 <Card.Title>{tool.name}</Card.Title>
                 <Card.Text>{tool.area}</Card.Text>
-                {/* <Button
-                  variant="dark"
-                  onClick={check}
-                  className={styles.button}
-                  //TODO link this to open a chat with the owner of the tool
-                  //href={`/messages/${tool.owner_id}`}
-                >
-                  Check On
-                </Button> */}
-                {loggedIn ? <Button
-                  variant="dark"
-                  onClick={check}
-                  className={styles.button}
-                  //TODO link this to open a chat with the owner of the tool
-                  //href={`/messages/${tool.owner_id}`}
-                >
-                  Check On
-                </Button> : null}
+                {loggedIn ? (
+                  <Button
+                    variant="dark"
+                    onClick={check}
+                    className={styles.button}
+                    //TODO link this to open a chat with the owner of the tool
+                    //href={`/messages/${tool.owner_id}`}
+                  >
+                    Check On
+                  </Button>
+                ) : null}
               </Card.Body>
             </Card>
           ))}
