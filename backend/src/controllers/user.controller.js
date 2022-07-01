@@ -17,7 +17,8 @@ module.exports.getContacts = async (req, res) => {
     res.json(allUsers.map((original) => {
         return {
             user_name: original.user_name,
-            id: original.id
+            id: original.id,
+            photo: original.photo
         }
     }));
 }

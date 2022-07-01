@@ -41,7 +41,7 @@ function People(){
                     {console.log(person)}
                     <ListGroup variant="flush">
                         <ListGroup.Item>
-                            <img src={person.photo} alt="contacts profile picture" className="picture"/>
+                            <Card.Img variant="top" src={person.photo} alt="contacts profile picture" className="picture"/>
                             <a href={`/messages/${person.id}`}>{person.user_name}</a>
                         </ListGroup.Item>
                     </ListGroup>
