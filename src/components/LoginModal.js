@@ -18,6 +18,7 @@ function MyModal(props) {
     const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
     localStorage.setItem("token", JSON.stringify(token));
     setToken(token)
+    window.location.reload(false)
   }
 
   return (
