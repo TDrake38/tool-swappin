@@ -77,9 +77,8 @@ function Messages() {
     <>
       <div className="messages">
         <div>
-          <img src={drill} alt="tool" className="dp pict" />
           <Card className="borrower">
-            <Card.Img variant="top" src={Sammy} alt="profile" />
+            <Card.Img variant="top" src={trader.photo} alt="profile" />
             <Card.Body>
               <Card.Title>
                 {trader.user_name}
