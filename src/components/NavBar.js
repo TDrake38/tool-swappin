@@ -31,9 +31,9 @@ const NavBar = () => {
           {token && <Nav.Item>
             <Nav.Link as={Link} to="/profile" eventKey="link-2">Profile</Nav.Link>
           </Nav.Item>}
-          {token && pathname.startsWith("/messages") ? <Nav.Item>
+          {/* {token && pathname.startsWith("/messages") ? <Nav.Item>
             <Nav.Link as={Link} eventKey="link-3">Messages</Nav.Link>
-          </Nav.Item> : null}
+          </Nav.Item> : null} */}
         </Nav>
       </Container>
     </>
