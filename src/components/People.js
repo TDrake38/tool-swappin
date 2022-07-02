@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Card, ListGroup } from "react-bootstrap";
-import Drake from '../photos/Drake.JPG'
 import './People.css'
 import LoginContext from "../LogInContext";
 

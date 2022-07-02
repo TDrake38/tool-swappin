@@ -1,7 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
+//import useNavigate from "react-dom"
 import styles from "./Listing.module.css";
 import { Card, Button } from "react-bootstrap";
-import LoginContext from "../LogInContext";
+import { Link } from "react-router-dom";
 
 const fetchData = async () => {
   const response = await fetch("http://localhost:3001/findTools", {
@@ -11,6 +12,7 @@ const fetchData = async () => {
 };
 
 function Listing({ response, setResponse, loggedIn }) {
+  //const navigate = useNavigate();
 
   useEffect(() => {
     let mounted = true;
@@ -30,11 +32,6 @@ function Listing({ response, setResponse, loggedIn }) {
 
   //console.log(response);
 
-  const check = (e) => {
-    e.preventDefault();
-    //console.log("Finding");
-  };
-
   return (
     <>
       <div className={styles.container}>
@@ -50,17 +47,16 @@ function Listing({ response, setResponse, loggedIn }) {
               <Card.Body>
                 <Card.Title>{tool.name}</Card.Title>
                 <Card.Text>{tool.area}</Card.Text>
-                {loggedIn ? (
-                  <Button
-                    variant="dark"
-                    onClick={check}
-                    className={styles.button}
-                    //TODO link this to open a chat with the owner of the tool
-                    //href={`/messages/${tool.owner_id}`}
-                  >
-                    Check On
-                  </Button>
-                ) : null}
+                <Link to={`/messages/${tool.owner_id}`}>
+                  {loggedIn ? (
+                    <Button
+                      variant="dark"
+                      className={styles.button}
+                    >
+                      Check On
+                    </Button>
+                  ) : null}
+                </Link>
               </Card.Body>
             </Card>
           ))}
