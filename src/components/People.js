@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Card, ListGroup } from "react-bootstrap";
+import { Card, ListGroup, CloseButton } from "react-bootstrap";
 import './People.css'
 import LoginContext from "../LogInContext";
 
@@ -42,6 +42,7 @@ function People(){
                         <ListGroup.Item>
                             <Card.Img variant="top" src={person.photo} alt="contacts profile picture" className="picture"/>
                             <a href={`/messages/${person.id}`}>{person.user_name}</a>
+                            <CloseButton/>
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>)}

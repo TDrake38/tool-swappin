@@ -45,7 +45,7 @@ function RegModal(props) {
           <Button variant="primary" type="submit">
             Register
           </Button>
-          <h4>By registering for ToolSwappin you agree that ToolSwappin takes no responsability for stolen or lost tools. Use at your own risk.</h4>
+          <h4>By registering for ToolSwappin you agree that ToolSwappin takes no responsability for stolen, broken or lost tools. Use at your own risk.</h4>
         </Form>
       </Modal.Body>
     </Modal>

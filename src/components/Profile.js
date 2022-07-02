@@ -39,6 +39,7 @@ function Profile() {
         <>
             <div className="profile">
                 <Card className="hard">
+                    {/* make this responsive so that its not full size of the image. */}
                     <Card.Img variant="top" src={response.photo} alt="profile picture" />
                     <Card.Body>   
                         <div>{response.user_name}</div>
