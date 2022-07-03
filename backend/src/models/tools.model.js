@@ -31,8 +31,8 @@ Tool.createTool = async (photo, toolName, area, ownerID) => {
 }
 
 // This deletes a tool with ID. 
-Tool.deleteTool = async (toolID) => {
-    const deleteTool = await queryDB('DELETE FROM tools WHERE id = $1 RETURNING *', [toolID]);
+Tool.deleteTool = async (id) => {
+    const deleteTool = await queryDB('DELETE FROM tools WHERE id = $1 RETURNING *', [id]);
     return deleteTool.rows;
 };
 

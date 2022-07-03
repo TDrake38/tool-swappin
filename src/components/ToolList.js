@@ -3,6 +3,7 @@ import { Card, CloseButton, ListGroup } from "react-bootstrap";
 import './Profile.css';
 import AddTool from "./AddTool";
 import LoginContext from "../LogInContext";
+import { useParams } from "react-router-dom";
 
 //TODO: make it so all the tools that are showing are the same size/look nice
 
@@ -11,9 +12,21 @@ const getTools = async (token) => {
     return await response.json();
 }
 
+const deleteTool = async (token, id ) => {
+    const body = { id: id };
+    const response = await fetch(`http://localhost:3001/deleteTool/${id}`, {
+      body: JSON.stringify(body),
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      method: "DELETE",
+    });
+    return await response.json();
+  };
+
 function Tool() {
     const [token] = useContext(LoginContext);
     const [response, setResponse] = useState([]);
+    // const [deletTool, setDeleletTool] = useState([])
+    const { id } = useParams();
 
     useEffect(() => {
         let mounted = true;
@@ -27,6 +40,15 @@ function Tool() {
 
         getToolsAsync();
 
+        // const deleteToolAsync = async () => {
+        //     const data = await deleteTool(token, id);
+        //     if (mounted) {
+        //         setDeleletTool(data);
+        //     }
+        // }
+
+        // deleteToolAsync();
+
         return () => {
           mounted = false;
         };
@@ -37,7 +59,9 @@ function Tool() {
     
     const delet = (e) => {
         e.preventDefault();
-        console.log("Tool Deleted")
+        const toolDelete = deleteTool(id);
+        // setDeleletTool([toolDelete])
+        console.log(toolDelete)
     }
 
     return (
