@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import './Profile.css';
+//import './Profile.css';
+import styles from "./Profile.module.css";
 import { Card } from "react-bootstrap";
 import People from "./People";
 import Tool from "./ToolList";
 import LoginContext from "../LogInContext";
 import AddPic from "./ProfilePicture";
+
 
 const getUser = async (token) => {
     const response = await fetch("http://localhost:3001/currentUser", { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
@@ -37,8 +39,8 @@ function Profile() {
 
     return (
         <>
-            <div className="profile">
-                <Card className="hard">
+            <div className={styles.profile}>
+                <Card className={styles.hard}>
                     {/* make this responsive so that its not full size of the image. */}
                     <Card.Img variant="top" src={response.photo} alt="profile picture" />
                     <Card.Body>   
@@ -48,7 +50,7 @@ function Profile() {
                     <AddPic />
                 </Card>
                 <Tool />
-                <div className="people">
+                <div className={styles.people}>
                     <People />
                 </div>
             </div>

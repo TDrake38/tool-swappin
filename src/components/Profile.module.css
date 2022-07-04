@@ -12,11 +12,18 @@
   border: 2px solid lightgray;
   border-radius: 3px;
 }
+
+.toolPicture {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
+}
+
 .people {
   font: bold;
 }
 
-.tool-title {
+.toolTitle {
   color: oldlace;
   text-align: center;
   background-color: var(--bs-primary);
