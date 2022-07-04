@@ -49,7 +49,7 @@ function Tool() {
     
     const delet = (e) => {
         e.preventDefault();
-        const toolDelete = deleteTool(id);
+        const toolDelete = deleteTool(token, id);
         console.log(toolDelete)
     }
 
