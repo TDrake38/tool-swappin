@@ -47,8 +47,9 @@ function Tool() {
     console.log(response)
 
     
-    const delet = (e) => {
+    const handleDeleteTool = (id) => (e) => {
         e.preventDefault();
+        console.log(id)
         const toolDelete = deleteTool(token, id);
         console.log(toolDelete)
     }
@@ -64,7 +65,7 @@ function Tool() {
                                 <ListGroup.Item>
                                     <img src={tool.photo} alt="profile" className={styles.toolPicture} />
                                     <Card.Link>{tool.name}</Card.Link>
-                                    <CloseButton onClick={delet} />
+                                    <CloseButton onClick={handleDeleteTool(tool.id)} />
                                 </ListGroup.Item>
                             </ListGroup>
                         </Card>)}

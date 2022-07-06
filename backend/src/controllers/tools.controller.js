@@ -33,6 +33,7 @@ module.exports.createTool = async (req, res) => {
 module.exports.deleteTool = async (req, res) => {
     
     try {
+        console.log(req.params)
         const tool = await Tool.oneTool(req.params.id)
         if (tool === undefined) return res.sendStatus(404)
         if (parseInt(req.user.id, 10) !== tool.owner_id){

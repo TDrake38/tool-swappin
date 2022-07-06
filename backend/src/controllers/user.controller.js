@@ -34,17 +34,17 @@ module.exports.getList = async (req, res) => {
 
 // this is a test to see if I can find a user.
 module.exports.find = async (req, res) => {
-    console.log(await User.getUser(req.user.id));
+    //console.log(await User.getUser(req.user.id));
     res.json(await User.getUser(req.user.id));
 }
 
 module.exports.testFind = async (req, res) => {
-    console.log(await User.findUserByUsername(req.body.username));
+    //console.log(await User.findUserByUsername(req.body.username));
     res.json(await User.findUserByUsername(req.body.username));
 }
 
 module.exports.findUser = async (req, res) => {
-    console.log(await User.findUserById(req.params.id));
+    //console.log(await User.findUserById(req.params.id));
     res.json(await User.findUserById(req.params.id));
 }
 
@@ -69,7 +69,7 @@ module.exports.editPhoto = async (req, res) => {
     try {
         res.json(await User.editPhoto(req.user.id, req.body.photo))
         //console.log(await User.editPhoto(req.user.id, req.body.photo))
-        console.log('Photo edited')
+        //console.log('Photo edited')
     } catch (e) {
         console.log(e)
         res.status(500).send()
@@ -80,7 +80,7 @@ module.exports.deleteUser = async (req, res) => {
     try {
         //const hashedPassword = await bcrypt.hash(req.body.password, parseInt (process.env.TOOL_SWAPPIN_SALT, 10))
         res.json(await User.deleteUser(req.body.id)) //(req.body.username, hashedPassword)).send()
-        console.log('user deleted')
+        //console.log('user deleted')
     } catch (e) { 
         console.error(e)
         res.status(500).send()

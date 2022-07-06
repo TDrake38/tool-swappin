@@ -8,10 +8,10 @@ const generateAccessToken = (use) => {
 
 //TODO: make a create/register user. Currently only verifies if there is a user in the database then logs in.  
 module.exports.login = async (req, res) => {
-    console.log(req.body)
+    
     // this searches an array and I need to make it look in the database
     const user = await User.findUserByUsername(req.body.username)//(user => user.name = req.body.name)
-    console.log(user)
+    
         if (user == null) {
             return res.status(400).send('Cannot find user')
         }

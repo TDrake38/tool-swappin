@@ -21,5 +21,4 @@ registerUsers(app);
 reqisterTool(app);
 messages(app);
 
-console.log("hello");
 app.listen(3000)
