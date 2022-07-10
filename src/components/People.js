@@ -9,6 +9,14 @@ const fetchData = async (token) => {
     return await response.json();
 };
 
+// const deleteConvo = async (token, id ) => {
+//     const response = await fetch(`http://localhost:3001/message/${id}`, {
+//       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+//       method: "DELETE",
+//     });
+//     return await response.json();
+//   };
+
 function People(){
     const [token] = useContext(LoginContext);
     const [response, setResponse] = useState([]);
@@ -30,6 +38,13 @@ function People(){
         };
       }, [token]);
 
+      const handleDeleteConvo = (id) => (e) => {
+        e.preventDefault();
+        console.log(id)
+        const convoDelete = deleteConvo(token, id);
+        console.log(convoDelete)
+    }
+
     return(
     <>
         <div>
@@ -42,7 +57,7 @@ function People(){
                         <ListGroup.Item>
                             <Card.Img variant="top" src={person.photo} alt="contacts profile picture" className="picture"/>
                             <a href={`/messages/${person.id}`}>{person.user_name}</a>
-                            <CloseButton/>
+                            <CloseButton onClick={handleDeleteConvo(person.id)}/>
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>)}
