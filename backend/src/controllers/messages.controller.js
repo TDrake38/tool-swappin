@@ -18,20 +18,11 @@ module.exports.createMessage = async (req, res) => {
     }
 }
 
-module.exports.deleteMessage = async (req, res) => {
-    
+module.exports.deleteMessages = async (req, res) => {
     try {
-        const message = await Messages.getById(req.params.id)
-        if (message === undefined) return res.sendStatus(404)
-        if (req.user.id !== message.id_sender){
-            console.log("userID;" + parseInt(req.user.id, 10), message)
-            res.status(401).send()
-            //console.log('No match')
-        } else {
-            res.json(await Messages.deleteMessage(req.params.id))
-            console.log("Match, messaged deleted")
-        }
-    } catch (e) { 
+        res.json(await Messages.deleteConversation(req.user.id, req.params.id))
+        console.log("Convo Deleted")
+    } catch (e) {
         console.error(e)
         res.status(500).send()
     }

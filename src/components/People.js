@@ -9,13 +9,13 @@ const fetchData = async (token) => {
     return await response.json();
 };
 
-// const deleteConvo = async (token, id ) => {
-//     const response = await fetch(`http://localhost:3001/message/${id}`, {
-//       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-//       method: "DELETE",
-//     });
-//     return await response.json();
-//   };
+const deleteConvo = async (token, id ) => {
+    const response = await fetch(`http://localhost:3001/message/${id}`, {
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      method: "DELETE",
+    });
+    return await response.json();
+  };
 
 function People(){
     const [token] = useContext(LoginContext);
@@ -52,7 +52,7 @@ function People(){
                 <Card.Header className="title">Contacts</Card.Header>
                 {response.map((person) =>
                 <Card className="card" key={person.id}>
-                    {console.log(person)}
+                    {/* {console.log(person)} */}
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <Card.Img variant="top" src={person.photo} alt="contacts profile picture" className="picture"/>
