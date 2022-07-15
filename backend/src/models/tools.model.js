@@ -9,7 +9,13 @@ Tool.findAll = async () => {
 
 //TODO: make this so it filters for the word put into the search bar
 Tool.search = async (searchBar) => {
+    //const response = await queryDB(`SELECT * FROM tools WHERE LOWER (name) LIKE '%' || LOWER ($1) || '%' AND owner_id != $2`, [searchBar, id]);
     const response = await queryDB(`SELECT * FROM tools WHERE LOWER (name) LIKE '%' || LOWER ($1) || '%'`, [searchBar]);
+    return response.rows;
+}
+
+Tool.search = async (searchBar, id) => {
+    const response = await queryDB(`SELECT * FROM tools WHERE LOWER (name) LIKE '%' || LOWER ($1) || '%' AND owner_id != $2`, [searchBar, id]);
     return response.rows;
 }
 

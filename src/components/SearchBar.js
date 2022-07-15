@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { InputGroup, Button, Form} from "react-bootstrap";
 import './SearchBar.css'
+//import LoginContext from "../LogInContext";
 
 
 const searchForTools = async (searchBar) => {
@@ -14,6 +15,7 @@ const searchForTools = async (searchBar) => {
 };
 
 function SearchBar ({ setResponse }) {
+  //const [token] = useContext(LoginContext);
 
     useEffect(() => {
         let mounted = true;
