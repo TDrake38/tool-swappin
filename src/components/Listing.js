@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-//import useNavigate from "react-dom"
 import styles from "./Listing.module.css";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -12,7 +11,6 @@ const fetchData = async () => {
 };
 
 function Listing({ response, setResponse, loggedIn }) {
-  //const navigate = useNavigate();
 
   useEffect(() => {
     let mounted = true;
@@ -29,8 +27,6 @@ function Listing({ response, setResponse, loggedIn }) {
       mounted = false;
     };
   }, []);
-
-  //console.log(response);
 
   return (
     <>

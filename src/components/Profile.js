@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-//import './Profile.css';
 import styles from "./Profile.module.css";
 import { Card } from "react-bootstrap";
 import People from "./People";
@@ -34,8 +33,6 @@ function Profile() {
           mounted = false;
         };
       }, [token]);
-    
-    //console.log(response.user_name)
 
     return (
         <>

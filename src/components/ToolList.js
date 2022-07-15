@@ -49,9 +49,9 @@ function Tool() {
     
     const handleDeleteTool = (id) => (e) => {
         e.preventDefault();
-        console.log(id)
+        //console.log(id)
         const toolDelete = deleteTool(token, id);
-        console.log(toolDelete)
+        //console.log(toolDelete)
     }
 
     return (

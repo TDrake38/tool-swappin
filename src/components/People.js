@@ -4,7 +4,6 @@ import './People.css'
 import LoginContext from "../LogInContext";
 
 const fetchData = async (token) => {
-    /* TODO: have this filter for everyone you have messages with only. */
     const response = await fetch("http://localhost:3001/contacts", { headers: { Authorization: `Bearer ${token}` }, method: "GET" /* also GET is the default method and does not need to be here */ });
     return await response.json();
 };
@@ -52,7 +51,6 @@ function People(){
                 <Card.Header className="title">Contacts</Card.Header>
                 {response.map((person) =>
                 <Card className="card" key={person.id}>
-                    {/* {console.log(person)} */}
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <Card.Img variant="top" src={person.photo} alt="contacts profile picture" className="picture"/>

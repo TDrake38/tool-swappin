@@ -29,7 +29,6 @@ function ToolModal(props) {
       fileReader.onload = function(fileLoadedEvent) {
         const srcData = fileLoadedEvent.target.result; // base64 result
         const newTool = createTool(token, srcData, e.target.elements.toolName.value, e.target.elements.area.value);
-        //TODO: make this update the list when submitted setResponse([...response, newTool]???)
         return newTool;
       }
       fileReader.readAsDataURL(fileToLoad);
