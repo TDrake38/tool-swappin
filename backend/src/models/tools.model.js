@@ -14,10 +14,10 @@ Tool.search = async (searchBar) => {
     return response.rows;
 }
 
-Tool.search = async (searchBar, id) => {
-    const response = await queryDB(`SELECT * FROM tools WHERE LOWER (name) LIKE '%' || LOWER ($1) || '%' AND owner_id != $2`, [searchBar, id]);
-    return response.rows;
-}
+// Tool.search = async (searchBar, id) => {
+//     const response = await queryDB(`SELECT * FROM tools WHERE LOWER (name) LIKE '%' || LOWER ($1) || '%' AND owner_id != $2`, [searchBar, id]);
+//     return response.rows;
+// }
 
 Tool.findTool = async (id) => {
     const findTool = await queryDB('SELECT * FROM tools WHERE owner_id = $1', [id]);
