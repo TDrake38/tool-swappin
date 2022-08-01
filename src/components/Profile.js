@@ -38,8 +38,7 @@ function Profile() {
         <>
             <div className={styles.profile}>
                 <Card className={styles.hard}>
-                    {/* make this responsive so that its not full size of the image. */}
-                    <Card.Img variant="top" src={response.photo} alt="profile picture" />
+                    <Card.Img variant="top" src={response.photo} alt="profile picture" className={styles.dp}/>
                     <Card.Body>   
                         <div>{response.user_name}</div>
                         <div>{response.area ?? "No Location"}</div>

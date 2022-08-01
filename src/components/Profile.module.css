@@ -13,6 +13,12 @@
   border-radius: 3px;
 }
 
+.profile .dp {
+  height: 14rem;
+  width: 14rem;
+  object-fit: cover;
+}
+
 .toolPicture {
   width: 10rem;
   height: 10rem;
