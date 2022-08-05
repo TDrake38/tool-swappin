@@ -28,6 +28,9 @@ const sendMessage = async (token, id, message) => {
   return await response.json();
 };
 
+//can also write it like this below 
+//export const Messages = () => {
+  
 function Messages() {
   const [token] = useContextPersisted(LoginContext, "token");
   const ref = useRef();

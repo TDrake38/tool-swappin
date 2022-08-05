@@ -29,6 +29,8 @@ function Listing({ response, setResponse, loggedIn }) {
   }, []);
 
   return (
+    //TODO: make the tools wrap and not ceneterd when displayed
+    //TODO: make the check on button not appear for your tools when logged in
     <>
       <div className={styles.container}>
         <div className={styles.listing}>
