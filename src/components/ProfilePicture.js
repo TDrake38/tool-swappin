@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal} from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import "react-dropzone-uploader/dist/styles.css";
 import LoginContext from "../LogInContext";
 import { useContextPersisted } from "./Hooks";
@@ -30,10 +30,7 @@ function ProfilePicModal(props) {
 
       fileReader.onload = function (fileLoadedEvent) {
         const srcData = fileLoadedEvent.target.result; // base64 result
-        const newPic = editPhoto(
-          token,
-          srcData
-        );
+        const newPic = editPhoto(token, srcData);
         return newPic;
       };
       fileReader.readAsDataURL(fileToLoad);

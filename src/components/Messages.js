@@ -6,9 +6,12 @@ import { useContextPersisted } from "./Hooks";
 import { useParams } from "react-router-dom";
 
 const getUser = async (token, id) => {
-    const response = await fetch(`http://localhost:3001/users/${id}`, { headers: { Authorization: `Bearer ${token}` }, method: "GET" });
-    return await response.json();
-}
+  const response = await fetch(`http://localhost:3001/users/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+    method: "GET",
+  });
+  return await response.json();
+};
 
 const getMessages = async (token, id) => {
   const response = await fetch(`http://localhost:3001/messages/${id}`, {
@@ -22,21 +25,24 @@ const sendMessage = async (token, id, message) => {
   const body = { text: message };
   const response = await fetch(`http://localhost:3001/messages/${id}`, {
     body: JSON.stringify(body),
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
     method: "POST",
   });
   return await response.json();
 };
 
-//can also write it like this below 
+//can also write it like this below
 //export const Messages = () => {
-  
+
 function Messages() {
   const [token] = useContextPersisted(LoginContext, "token");
   const ref = useRef();
   const { id } = useParams();
   const [response, setResponse] = useState([]);
-  const [trader, setTrader] = useState([])
+  const [trader, setTrader] = useState([]);
 
   useEffect(() => {
     let mounted = true;
@@ -51,10 +57,10 @@ function Messages() {
     getMessagesAsync();
 
     const getUserAsync = async () => {
-        const data = await getUser(token, id);
-        if (mounted) {
-            setTrader(data);
-        }
+      const data = await getUser(token, id);
+      if (mounted) {
+        setTrader(data);
+      }
     };
 
     getUserAsync();
@@ -68,10 +74,14 @@ function Messages() {
 
   const send = async (e) => {
     e.preventDefault();
-    // funtcion parameters 
-    const newMessage = await sendMessage(token, id, e.target.elements.text.value);
+    // funtcion parameters
+    const newMessage = await sendMessage(
+      token,
+      id,
+      e.target.elements.text.value
+    );
     ref.current.scrollTop = ref.current.scrollHeight;
-    setResponse([...response, newMessage])
+    setResponse([...response, newMessage]);
   };
 
   return (
@@ -81,9 +91,7 @@ function Messages() {
           <Card className="borrower">
             <Card.Img variant="top" src={trader.photo} alt="profile" />
             <Card.Body>
-              <Card.Title>
-                {trader.user_name}
-              </Card.Title>
+              <Card.Title>{trader.user_name}</Card.Title>
               <Card.Text>{trader.area}</Card.Text>
             </Card.Body>
           </Card>

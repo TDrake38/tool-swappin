@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import 'react-dropzone-uploader/dist/styles.css'
+import "react-dropzone-uploader/dist/styles.css";
 import LoginContext from "../LogInContext";
 import { useContextPersisted } from "./Hooks";
 
@@ -8,12 +8,14 @@ const createTool = async (token, srcData, toolName, area) => {
   const body = { photo: srcData, toolName: toolName, area: area };
   const response = await fetch(`http://localhost:3001/tool`, {
     body: JSON.stringify(body),
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
     method: "POST",
   });
   return await response.json();
 };
-
 
 function ToolModal(props) {
   const [token] = useContextPersisted(LoginContext, "token");
@@ -26,13 +28,19 @@ function ToolModal(props) {
 
       const fileReader = new FileReader();
 
-      fileReader.onload = function(fileLoadedEvent) {
+      fileReader.onload = function (fileLoadedEvent) {
         const srcData = fileLoadedEvent.target.result; // base64 result
-        const newTool = createTool(token, srcData, e.target.elements.toolName.value, e.target.elements.area.value);
+        const newTool = createTool(
+          token,
+          srcData,
+          e.target.elements.toolName.value,
+          e.target.elements.area.value
+        );
         return newTool;
-      }
+      };
       fileReader.readAsDataURL(fileToLoad);
-  }}
+    }
+  };
 
   return (
     <Modal

@@ -11,7 +11,6 @@ const fetchData = async () => {
 };
 
 function Listing({ response, setResponse, loggedIn }) {
-
   useEffect(() => {
     let mounted = true;
 
@@ -47,10 +46,7 @@ function Listing({ response, setResponse, loggedIn }) {
                 <Card.Text>{tool.area}</Card.Text>
                 <Link to={`/messages/${tool.owner_id}`}>
                   {loggedIn ? (
-                    <Button
-                      variant="dark"
-                      className={styles.button}
-                    >
+                    <Button variant="dark" className={styles.button}>
                       Check On
                     </Button>
                   ) : null}
