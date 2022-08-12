@@ -57,7 +57,8 @@ module.exports.user = async (req, res) => {
 module.exports.createUser = async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, parseInt (process.env.TOOL_SWAPPIN_SALT, 10))
-        res.json(await User.createUser(req.body.username, req.body.area, hashedPassword)).send()
+        const user  = await User.createUser(req.body.username, req.body.area, hashedPassword)
+        res.json(user).send()
         console.log('User created')
     } catch (e) { 
         console.error(e)

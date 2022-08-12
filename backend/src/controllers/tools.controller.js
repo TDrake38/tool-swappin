@@ -27,7 +27,9 @@ module.exports.toolSearchTest = async (req, res) => {
 module.exports.createTool = async (req, res) => {
     console.log(req.body)
     try {
-        res.json(await Tool.createTool(req.body.photo, req.body.toolName, req.body.area, req.user.id)).send()
+        //fix this after the tests
+        const tool = await Tool.createTool(req.body.photo, req.body.toolName, req.body.area, req.user.id)
+        //res.json(await Tool.createTool(req.body.photo, req.body.toolName, req.body.area, req.user.id)).send()
         console.log('tool created')
     } catch (e) { 
         console.error(e)
