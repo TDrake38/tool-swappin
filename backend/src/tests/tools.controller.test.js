@@ -30,6 +30,7 @@ describe('Tools controller test suite', () => {
     test('should create tool', async () => {
         // const request = createMockRequest('drill', 'some-id')
 
+        //NOTE: getting stuck at user is unidentified
         await user.createUser({body: {
             username: 'Tom',
             area: 'Burin',
