@@ -29,8 +29,10 @@ module.exports.createTool = async (req, res) => {
     try {
         //fix this after the tests
         const tool = await Tool.createTool(req.body.photo, req.body.toolName, req.body.area, req.user.id)
-        //res.json(await Tool.createTool(req.body.photo, req.body.toolName, req.body.area, req.user.id)).send()
+        //res.json(await Tool.createTool(req.body.photo, req.body.toolName, req.body.area, req.user.id)).status(200).send()
         console.log('tool created')
+        //res.status(200).send();
+        return tool;
     } catch (e) { 
         console.error(e)
         res.status(500).send()

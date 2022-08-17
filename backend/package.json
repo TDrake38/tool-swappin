@@ -1,5 +1,9 @@
 {
   "name": "backend",
+  "jest": {
+    "verbose": true,
+    "testTimeout": 30000
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
