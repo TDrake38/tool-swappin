@@ -2,6 +2,7 @@ const tool = require("../controllers/tools.controller");
 const user = require("../models/user.model");
 const { Pool } = require("pg");
 const { config } = require("dotenv");
+const { search } = require("../models/tools.model");
 
 config();
 
@@ -58,5 +59,16 @@ describe("Tools controller test suite", () => {
         returned: null,
       },
     ]);
+  });
+
+  test2('should search for a tool', async () => {
+    const resp = await controller.toolSearch({
+        body: {
+            searchbar: "drill"
+        }
+    });
+    expect(resp).toEqual([{
+        //something here        
+    }])
   });
 });
