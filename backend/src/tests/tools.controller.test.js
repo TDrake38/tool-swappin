@@ -34,6 +34,7 @@ describe("Tools controller test suite", () => {
     //NOTE: getting stuck at user is unidentified
     await user.createUser("Tom", "Burin", "password");
 
+    //This actually creates a tool in the original database TODO: Fix this
     const resp = await controller.createTool({
       body: {
         photo: "",
@@ -61,14 +62,27 @@ describe("Tools controller test suite", () => {
     ]);
   });
 
-  test2('should search for a tool', async () => {
+  test("should search for a tool", async () => {
+
     const resp = await controller.toolSearch({
         body: {
             searchbar: "drill"
-        }
+        },
     });
-    expect(resp).toEqual([{
-        //something here        
-    }])
+    
+    expect(resp).toEqual([
+      {
+        area: "St. John's",
+        borrowed: null,
+        borrower_id: null,
+        deposit: null,
+        id: "20",
+        is_available: null,
+        name: "Dewalt Drill",
+        owner_id: 1,
+        photo: "",
+        returned: null
+      },
+    ]);
   });
 });
