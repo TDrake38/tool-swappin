@@ -2,7 +2,6 @@ const tool = require("../controllers/tools.controller");
 const user = require("../models/user.model");
 const { Pool } = require("pg");
 const { config } = require("dotenv");
-const { search } = require("../models/tools.model");
 
 config();
 
@@ -14,12 +13,17 @@ describe("Tools controller test suite", () => {
   //let user;
 
   beforeAll(async () => {
-    // start up db here
+    // start up fake db here this currently uses the real one TODO: Change
+    // this cannot connect to a fake database....
     pool = new Pool({
-      user: process.env.DB_USER,
-      host: process.env.DB_HOST,
-      database: process.env.DB_NAME,
-      password: process.env.DB_PASSWORD,
+      user: postgres,
+      host: localhost,
+      database: test,
+      password: fakepassword,
+      // user: process.env.DB_USER,
+      // host: process.env.DB_HOST,
+      // database: process.env.DB_NAME,
+      // password: process.env.DB_PASSWORD,
     });
 
     await pool.connect();
@@ -34,7 +38,6 @@ describe("Tools controller test suite", () => {
     //NOTE: getting stuck at user is unidentified
     await user.createUser("Tom", "Burin", "password");
 
-    //This actually creates a tool in the original database TODO: Fix this
     const resp = await controller.createTool({
       body: {
         photo: "",
