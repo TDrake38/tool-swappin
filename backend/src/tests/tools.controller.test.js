@@ -1,5 +1,6 @@
 const tool = require("../controllers/tools.controller");
 const user = require("../models/user.model");
+const tools = require("../models/tools.model");
 const { Pool } = require("pg");
 const { config } = require("dotenv");
 
@@ -13,30 +14,23 @@ describe("Tools controller test suite", () => {
   //let user;
 
   beforeAll(async () => {
-    // start up fake db here this currently uses the real one TODO: Change
-    // this cannot connect to a fake database....
+    //this should not equal your local test database ( can be anything else )
     pool = new Pool({
-      user: postgres,
-      host: localhost,
-      database: test,
-      password: fakepassword,
-      // user: process.env.DB_USER,
-      // host: process.env.DB_HOST,
-      // database: process.env.DB_NAME,
-      // password: process.env.DB_PASSWORD,
+      user: process.env.DB_USER,
+      host: process.env.DB_HOST,
+      database: process.env.DB_NAME,
+      password: process.env.DB_PASSWORD,
     });
 
     await pool.connect();
-
-    //await userController.createUser('john')
-    // also create a test user here
+    await user.createUser("Tom", "Burin", "password");
   });
 
   test("should create tool", async () => {
     // const request = createMockRequest('drill', 'some-id')
 
     //NOTE: getting stuck at user is unidentified
-    await user.createUser("Tom", "Burin", "password");
+    // await user.createUser("Tom", "Burin", "password");
 
     const resp = await controller.createTool({
       body: {
@@ -66,26 +60,24 @@ describe("Tools controller test suite", () => {
   });
 
   test("should search for a tool", async () => {
+    await controller.createTool({
+      body: {
+        photo: "",
+        toolName: "drill",
+        area: ""
+      },
+      user: {
+        id: 1,
+      },
+    });
 
     const resp = await controller.toolSearch({
-        body: {
-            searchbar: "drill"
-        },
+      body: {
+        searchBar: "drill",
+      }
     });
-    
-    expect(resp).toEqual([
-      {
-        area: "St. John's",
-        borrowed: null,
-        borrower_id: null,
-        deposit: null,
-        id: "20",
-        is_available: null,
-        name: "Dewalt Drill",
-        owner_id: 1,
-        photo: "",
-        returned: null
-      },
-    ]);
+    const toolConvert = resp[0].name.toLowerCase();
+    const success = toolConvert.includes("drill");
+    expect(success).toEqual(true);
   });
 });
