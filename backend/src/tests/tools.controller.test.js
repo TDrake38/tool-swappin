@@ -80,4 +80,22 @@ describe("Tools controller test suite", () => {
     const success = toolConvert.includes("drill");
     expect(success).toEqual(true);
   });
+
+  test('this should delete a tool', async () => {
+    await controller.createTool({
+      body: {
+        photo: "",
+        toolName: "drill",
+        area: ""
+      },
+      user: {
+        id: 1,
+      },
+    });
+    // resp[0].id = "30";
+    // const deletedTool = resp[0]
+    const resp = await controller.deleteTool({
+
+    })
+    //make the deletedTool a boolean and then check to see if it is there?
 });
