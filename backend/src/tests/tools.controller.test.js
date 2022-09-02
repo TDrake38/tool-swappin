@@ -97,7 +97,7 @@ describe("Tools controller test suite", () => {
       },
     });
     const resp = await controller.deleteTool({
-
+      // need a tool and user id here
     })
   })
     //make the deletedTool a boolean and then check to see if it is there?
