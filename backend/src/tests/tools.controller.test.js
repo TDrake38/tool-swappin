@@ -96,9 +96,15 @@ describe("Tools controller test suite", () => {
         id: 1,
       },
     });
+    resp[0].id = "30";
     const resp = await controller.deleteTool({
-      // need a tool and user id here
+      body: {
+        id: 30
+      }
     })
+    const success = resp.includes(null)
+    expect(success).toEqual(true);
   })
+  
     //make the deletedTool a boolean and then check to see if it is there?
 });
