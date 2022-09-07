@@ -102,6 +102,7 @@ describe("Tools controller test suite", () => {
         id: 30
       }
     })
+    // this might have to be unidentified or an open sting
     const success = resp.includes(null)
     expect(success).toEqual(true);
   })
