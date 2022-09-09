@@ -3,6 +3,7 @@ const user = require("../models/user.model");
 const tools = require("../models/tools.model");
 const { Pool } = require("pg");
 const { config } = require("dotenv");
+const res = require("express/lib/response");
 
 config();
 
@@ -86,7 +87,7 @@ describe("Tools controller test suite", () => {
     // 2) run delete tool via tool id 
     // 3) search for tool with tool id 
     // 4) make resp a boolean and return false ( for no tool found ??)
-    await controller.createTool({
+    const tool = await controller.createTool({
       body: {
         photo: "",
         toolName: "drill",
@@ -96,15 +97,17 @@ describe("Tools controller test suite", () => {
         id: 1,
       },
     });
-    resp[0].id = "30";
+    const toolID = tool[0].id
     const resp = await controller.deleteTool({
-      body: {
-        id: 30
+      user: {
+        id: 1,
+      },
+      params: {
+        id: toolID
       }
     })
     // this might have to be unidentified or an open sting
-    const success = resp.includes(null)
-    expect(success).toEqual(true);
+    expect(resp[0].id).toEqual(toolID);
   })
   
     //make the deletedTool a boolean and then check to see if it is there?

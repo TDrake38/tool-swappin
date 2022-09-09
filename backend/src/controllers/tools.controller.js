@@ -46,13 +46,16 @@ module.exports.deleteTool = async (req, res) => {
     try {
         console.log(req.params)
         const tool = await Tool.oneTool(req.params.id)
+        console.log(tool)
         if (tool === undefined) return res.sendStatus(404)
         if (parseInt(req.user.id, 10) !== tool.owner_id){
             res.status(401).send()
             console.log('No match')
         } else {
-            res.json(await Tool.deleteTool(req.params.id))
-            console.log("Match, tool deleted")
+            const toolDelete = await Tool.deleteTool(req.params.id)
+            return toolDelete;
+            // res.json(await Tool.deleteTool(req.params.id))
+            // console.log("Match, tool deleted")
         }
     } catch (e) { 
         console.error(e)
