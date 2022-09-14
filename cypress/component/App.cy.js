@@ -1,9 +1,11 @@
-import App from "../../src/App";
+
 
 describe('App.cy.js', () => {
   it('playground', () => {
-    cy.mount(<App />)
+    cy.visit('http://localhost:3001')
+    // cy.mount(<App />)
   })
+
 
   // it('opens the log in modle', () => {
   //   cy.get(THE ID FOR THE LOGIN MODEL).click()

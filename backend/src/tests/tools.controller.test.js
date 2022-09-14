@@ -83,10 +83,6 @@ describe("Tools controller test suite", () => {
   });
 
   test('this should delete a tool', async () => {
-    // 1) create tool with owner_id
-    // 2) run delete tool via tool id 
-    // 3) search for tool with tool id 
-    // 4) make resp a boolean and return false ( for no tool found ??)
     const tool = await controller.createTool({
       body: {
         photo: "",
@@ -106,9 +102,6 @@ describe("Tools controller test suite", () => {
         id: toolID
       }
     })
-    // this might have to be unidentified or an open sting
     expect(resp[0].id).toEqual(toolID);
   })
-  
-    //make the deletedTool a boolean and then check to see if it is there?
 });
