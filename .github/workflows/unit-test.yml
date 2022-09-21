@@ -44,7 +44,7 @@ jobs:
             # The hostname used to communicate with the PostgreSQL service container
             POSTGRES_HOST: postgres
             # The default PostgreSQL port
-            POSTGRES_PORT: 3000
+            POSTGRES_PORT: 5432
   Build-and-test:
     runs-on: ubuntu-latest
     steps:
