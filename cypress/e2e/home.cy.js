@@ -22,4 +22,3 @@ describe("Home page", () => {
     cy.get('input[name=password]').type('wrong{enter}')
     cy.wait('@login').its('response').to.contain('Not Allowed')
   })
-});
