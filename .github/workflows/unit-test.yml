@@ -31,3 +31,12 @@ jobs:
         working-directory: ./backend
       - run: npm test
         working-directory: ./backend
+
+
+
+# for next time 
+        # npm ci
+        # run build
+
+
+# cypress with github actions??? 

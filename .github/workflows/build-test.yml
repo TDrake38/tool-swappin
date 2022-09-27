@@ -1,0 +1,15 @@
+name: Build Test
+on: [push]
+jobs:
+Build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: use node js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '14.x'
+      - run: npm ci
+        working-directory: ./backend
+      - run: build
+        working-directory: ./backend
