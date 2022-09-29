@@ -3,11 +3,30 @@ on: [push]
 jobs:
   cypress-test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: DB_USER  
+          POSTGRES_PASSWORD: DB_PASSWORD
+          POSTGRES_DB: DB_NAME         
+        options:
+          --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 3000:3000
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: use node js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '14.x'
+      - run: npm ci
+        working-directory: ./backend
       - name: cypress
         uses: cypress-io/github-action@v2
         with: 
+          browser: chrome
           build: npm run build
           start: npm run start
+          working-directory: /tool-swappin
