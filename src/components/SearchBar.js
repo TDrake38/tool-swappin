@@ -42,7 +42,7 @@ function SearchBar({ setResponse }) {
 
   return (
     <>
-      <InputGroup className="mb-3 s-bar">
+      <InputGroup className="mb-3">
         <Form onSubmit={search}>
           <Button variant="dark" type="submit">
             Search
